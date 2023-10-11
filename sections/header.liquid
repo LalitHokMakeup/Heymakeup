@@ -1,3 +1,4 @@
+<script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
 {% capture account_element %}
 <div class="account-auth-header">
     <button type="button" class="auth-close-btn border-0 bg-transparent close_overlay mobile-screen">
@@ -229,12 +230,33 @@
                 <ul class="list-unstyled" id="header-list">
                     <li>
                         <div class="search">
-                            <form action="/search" name="GET" role="search" class="Search__Form">
+                            {% comment %} <form action="/search" name="GET" role="search" class="Search__Form">
 
                                 <input type="search" class="search__input" name="q" autocomplete="off" autocorrect="off"
                                     autocapitalize="off" aria-label="Search..." placeholder="Search..." autofocus="">
                                 <input type="hidden" name="type" value="product">
-                            </form>
+                            </form> {% endcomment %}
+                          
+                                    <predictive-search>
+                                    <form action="{{ routes.search_url }}" method="get" role="search">
+                                        <label for="Search">Search</label>
+                                        <input
+                                        id="Search"
+                                        type="search"
+                                        name="q"
+                                        value="{{ search.terms | escape }}"
+                                        role="combobox"
+                                        aria-expanded="false"
+                                        aria-owns="predictive-search-results"
+                                        aria-controls="predictive-search-results"
+                                        aria-haspopup="listbox"
+                                        aria-autocomplete="list"
+                                        >
+                                        <input name="options[prefix]" type="hidden" value="last">
+
+                                        <div id="predictive-search" tabindex="-1"></div>
+                                    </form>
+                                    </predictive-search>
                             <button class="search__button">
                                 <svg class="search__icon" aria-hidden="true" viewBox="0 0 24 24">
                                     <g>

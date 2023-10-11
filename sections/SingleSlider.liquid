@@ -1,0 +1,93 @@
+<div class="container pt-5 px-0">
+    <div class="text-center">
+        <p class="deals_txt">{{ section.settings.qsirguwfh }}</p>
+        {% for block in section.blocks %}
+        <div class="shoCase">
+            <p class="sellersub_txt" style="color:{{block.settings.txtdfsdf}}">{{ block.settings.dflkjghdfjkg}}</p>
+            <p class="sellermini_txt">{{ block.settings.dfsdf}}</p>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="affordable_section">
+        <div id="affordable" class="overflow-hidden">
+            {% for block in section.blocks %}
+            <a href="{{ block.settings.sdfgsdfsd}}"><img loading="lazy" class="w-100 desktop-screen"
+                    src="{{ block.settings.dasfdf | image_url }}">
+                <img loading="lazy" class="w-100 mobile-screen" src="{{ block.settings.asdasdasd | image_url }}"
+                    alt="Hot Deals Img">
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% schema %}
+{
+"name": "Single Slider",
+"settings": [
+{
+"type": "text",
+"id": "qsirguwfh",
+"label": "Add Your Heading Here"
+}
+],
+"blocks": [
+{
+"name": "Image With Text",
+"type": "Image",
+"settings": [
+{
+"type": "image_picker",
+"id": "dasfdf",
+"label": "Add Your Desktop Image Here"
+},
+{
+"type": "image_picker",
+"id": "asdasdasd",
+"label": "Add Your Mobile Image Here"
+},
+{
+"type": "url",
+"id": "sdfgsdfsd",
+"label": "Add Your Link Here"
+},
+{
+"type": "text",
+"id": "dflkjghdfjkg",
+"label": "Add Your Head Text"
+},
+{
+"type": "text",
+"id": "dfsdf",
+"label": "Add Your SubHead Text"
+},
+{
+"type": "color",
+"id": "txtdfsdf",
+"label": "Add Your Head Text Color"
+}
+]
+}
+],
+
+"presets": [
+{
+"name": "Single Slider"
+}
+]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+$('#affordable').slick({
+dots: false,
+infinite: false,
+autoplay:true,
+speed: 300,
+slidesToShow: 1,
+slidesToScroll: 1,
+arrows: false
+});
+{% endjavascript %}

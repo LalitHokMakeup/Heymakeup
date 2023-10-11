@@ -1,0 +1,356 @@
+{% capture star_rating %}
+<img src="https://cdn.shopify.com/s/files/1/0673/6396/3172/files/Star_1.svg?v=1692598346" alt="Star Icons">
+<img src="https://cdn.shopify.com/s/files/1/0673/6396/3172/files/Star_1.svg?v=1692598346" alt="Star Icons">
+<img src="https://cdn.shopify.com/s/files/1/0673/6396/3172/files/Star_1.svg?v=1692598346" alt="Star Icons">
+<img src="https://cdn.shopify.com/s/files/1/0673/6396/3172/files/Star_1.svg?v=1692598346" alt="Star Icons">
+<img src="https://cdn.shopify.com/s/files/1/0673/6396/3172/files/Star_1.svg?v=1692598346" alt="Star Icons">{% endcapture
+%}
+<div class="cart-slide">
+    <div class="cart-overlay"></div>
+
+    <div class="cart-container">
+        <div id="mainCartContainer">
+
+            <div class="cart-heading-container position-relative" id="miniCartContainer">
+                <div class="cart-heading">
+                    your bag <span class="cart-item-count">({{ cart.item_count }} Item)</span>
+                </div>
+
+                <div class="cart-slide-close-btn d-flex justify-content-end position-absolute">
+                    <button class=" d_cent bg-transparent border-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                            <path d="M1 1L13 13" stroke="#393939" stroke-linecap="round" />
+                            <path d="M13 1L1 13" stroke="#393939" stroke-linecap="round" />
+                        </svg>
+                    </button>
+                </div>
+
+            </div>
+            {% if cart.item_count > 0 %}
+            <div class="cart-has-items">
+                <div class="free-shipping-note-container">
+                    <div class="free-shipping-note text-center">
+                        {% if cart.total_price < 69900 %} <p class="free-shipping-text"> {% assign
+                            shipping_limit_param=cart.total_price | minus: 69900 | abs %} only <span>{{
+                                shipping_limit_param | money_without_trailing_zeros }}</span> away from free
+                            shipping
+                            {% else %}
+                            Free Shipping
+                            {% endif %}</p>
+                            <div class="cart-progress-container rounded-pill ">
+                                <div class="cart-progress rounded-pill"
+                                    style="width: {{ cart.total_price | divided_by: 699 }}%;">
+
+                                </div>
+                                <img loading="lazy"
+                                    src="https://cdn.shopify.com/s/files/1/0673/6396/3172/files/little_heart.svg?v=1694757544"
+                                    alt="heart_icon">
+                            </div>
+                    </div>
+                </div>
+
+                <div class="free-gift-cards-container">
+                    <div class="free-gift-cards-heading d-flex">
+                        <p class="free-gift-cards-title text-center text-md-end">Add a free gift</p>
+                        <div class="gift-btns d-none d-md-flex">
+                            <button class="gift-left">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15"
+                                    fill="none">
+                                    <path d="M10.0003 2.85742L5.35742 7.50028L10.0003 12.1431" stroke="#585858"
+                                        stroke-width="1.5" stroke-linecap="round" />
+                                </svg>
+                            </button>
+                            <button class="gift-right">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15"
+                                    fill="none">
+                                    <path d="M4.99972 2.85742L9.64258 7.50028L4.99972 12.1431" stroke="#585858"
+                                        stroke-width="1.5" stroke-linecap="round" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="free-gift-cards free-gift-swiper overflow-hidden">
+
+                        <div class="swiper-wrapper">
+
+                            <div class="swiper-slide">
+                                <div class="free-gift-card d-flex">
+                                    <div class="free-gift-image-container d_cent overflow-hidden">
+                                        <img loading="lazy"
+                                            src="https://ik.imagekit.io/gfzma0cor/product1b.jpg?updatedAt=1692963855295"
+                                            alt="" class="img-fluid">
+                                    </div>
+                                    <div class="gift-item-details-container">
+                                        <div class="gift-item-details d-flex align-items-start">
+                                            <div class="d-flex flex-column">
+                                                <p class="mb-0 brand-name">Pigment Play</p>
+                                                <p class="mb-0 product-title">Lift 'em High Mascara</p>
+                                                <p class="mb-0 product-price">FREE <span>₹399</span></p>
+                                                <div class="ratings">
+                                                    {{ star_rating }}
+
+                                                </div>
+                                            </div>
+                                            <button
+                                                class="gift-add-btn border bg-transparent rounded-pill d_cent">Add</button>
+                                        </div>
+                                        <p class="mb-0">Add items worth <span>₹250 more</span> to unlock</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide">
+                                <div class="free-gift-card d-flex">
+                                    <div class="free-gift-image-container d_cent overflow-hidden">
+                                        <img loading="lazy"
+                                            src="https://ik.imagekit.io/gfzma0cor/product1b.jpg?updatedAt=1692963855295"
+                                            alt="" class="img-fluid">
+                                    </div>
+                                    <div class="gift-item-details-container">
+                                        <div class="gift-item-details d-flex align-items-start">
+                                            <div class="d-flex flex-column">
+                                                <p class="mb-0 brand-name">L.a. Colors</p>
+                                                <p class="mb-0 product-title">Color Block 10 Color...</p>
+                                                <p class="mb-0 product-price">FREE <span>₹399</span></p>
+                                                <div class="ratings">
+                                                    {{ star_rating }}
+                                                </div>
+                                            </div>
+                                            <button
+                                                class="gift-add-btn border bg-transparent rounded-pill d_cent">Add</button>
+                                        </div>
+                                        <p class="mb-0">Add items worth <span>₹250 more</span> to unlock</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="gift-cards-pagination position-static"></div>
+                    </div>
+
+                </div>
+
+                <div class="cart-products-container">
+                    {% assign totalSavings = 0 %}
+                    {% for item in cart.items %}
+                    <div class="cart-item-cards d-flex align-items-center border-bottom">
+                        <div class="item-image-container d_cent w-25">
+                            <a href="{{ item.url }}">
+                                <img src="{{ item.image | image_url }}" alt="{{ item.title | escape }}"
+                                    class="img-fluid w-100">
+                            </a>
+                        </div>
+                        <div class="cart-item-details-container d-flex flex-column justify-content-between w-75 ">
+                            <div class="cart-item-details d-flex  align-items-start">
+                                <div class="d-flex flex-column">
+                                    <p class="mb-0 brand-name">{{ item.vendor }}</p>
+                                    <p class="mb-0 product-title"><a href="{{ item.url }}">{{ item.title }}</a></p>
+                                    {% if item.variant.title != "Default Title" %}
+                                    <p class="mb-0 product-varient d-flex">Shade: {{ item.variant.title }}
+                                    </p>
+                                    {% endif %}
+                                </div>
+                                <button class="item-remove-btn  bg-transparent border-0 d_cent"
+                                    cart-data-key="{{ item.id }}" cart-data-index="{{ forloop.index }}">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10"
+                                        fill="none">
+                                        <path d="M1 1L9 9" stroke="#393939" stroke-linecap="round" />
+                                        <path d="M9 1L1 9" stroke="#393939" stroke-linecap="round" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <div
+                                class="  qtydiv cart-item-counter-container d-flex justify-content-between align-items-center">
+                                <div class="qtybox cart-item-counter d-flex align-items-center justify-content-start"
+                                    data-key="{{ item.id }}" data-index="{{ forloop.index }}">
+                                    <button class="btnqty qtyminus icon icon-minus item-count-btn d_cent" {% if
+                                        item.quantity==1 %} disabled {% endif %}>-</button>
+                                    <input type="text" id="quantity" name="quantity" value="{{ item.quantity }}" min="1"
+                                        class="quantity-selector quantity-input cart-item-quantity " readonly="">
+
+                                    <button class="btnqty qtyplus icon icon-plus item-count-btn d_cent" {% if
+                                        item.quantity==10 %} disabled {% endif %}>+</button>
+                                </div>
+
+                                <div class="cart-item-price">
+                                    {{ item.price | money_without_trailing_zeros }} <span>
+                                        {% if item.variant.compare_at_price > item.variant.price %}
+                                        {{ item.variant.compare_at_price | money_without_trailing_zeros }}
+                                        {% endif %}</span>
+                                </div>
+                            </div>
+                            {% comment %} <div class="wishlist-engine-cart" data-product_id="{{ item.product.id }}"
+                                data-variant_id="{{ item.product.selected_or_first_available_variant.id }}"
+                                data-line="{{ item.index | plus: 1 }}">Save For Later</div> {% endcomment %}
+                        </div>
+                    </div>
+                    {% assign regularPrice = item.product.price %}
+                    {% assign compareAtPrice = item.product.compare_at_price %}
+                    {% assign savings = regularPrice | minus: compareAtPrice %}
+                    {% assign itemSavings = savings | times: item.quantity %}
+                    {% assign totalSavings = totalSavings | plus: itemSavings %}
+                    {% endfor %}
+                </div>
+                {%- assign plus_savings = totalSavings | abs -%}
+                <div id="main_cart_price_list">
+                    <div class="total-amount-container">
+                        <p class="total-amount-title">PRICE DETAILS:</p>
+                        <div class="total-container d-flex flex-column">
+                            <div class="per-product-total d-flex justify-content-between align-items-center">
+                                <p class="item-heading mb-0">MRP <span>({{ cart.item_count }} Items)</span></p>
+                                <p class="item-amount mb-0">{{ cart.total_price | plus: plus_savings |
+                                    money_without_trailing_zeros }}</p>
+                            </div>
+                            <div class="per-product-total d-flex justify-content-between align-items-center">
+                                <p class="item-heading mb-0">Bag Discount</p>
+                                <p class="item-amount mb-0" style="color: #E33F75;"> {{ plus_savings |
+                                    money_without_trailing_zeros }}</p>
+                            </div>
+                            <div class="grand-total d-flex justify-content-between align-items-center">
+                                <p class="total-heading mb-0">Total <span>({{ cart.item_count }} Items)</span></p>
+                                <p class="total-amount mb-0">{{ cart.total_price | money_without_trailing_zeros }} </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="login-reward-container d-flex align-items-center">
+                        <div>
+                            <span class="login-btn"><a href="/account">login</a></span>/<span class="signup-btn"><a
+                                    href="/account">signup</a></span> for <span class="reward-info">200 REWARD
+                                POINTS</span>
+                        </div>
+                        <button class="d_cent" type="button">
+                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="12" height="12"
+                                viewBox="0,0,256,256" style="fill:#000000;">
+                                <g fill="#404184" fill-rule="nonzero" stroke="none" stroke-width="1"
+                                    stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10"
+                                    stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none"
+                                    font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                                    <g transform="scale(10.66667,10.66667)">
+                                        <path
+                                            d="M12,2c-5.511,0 -10,4.489 -10,10c0,5.511 4.489,10 10,10c5.511,0 10,-4.489 10,-10c0,-5.511 -4.489,-10 -10,-10zM12,4c4.43012,0 8,3.56988 8,8c0,4.43012 -3.56988,8 -8,8c-4.43012,0 -8,-3.56988 -8,-8c0,-4.43012 3.56988,-8 8,-8zM11,7v2h2v-2zM11,11v6h2v-6z">
+                                        </path>
+                                    </g>
+                                </g>
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="checkout-btn-container bg-white">
+                        <button class="checkout-btn rounded-pill border-0">
+                            Checkout - <span>{{ cart.total_price | money_without_trailing_zeros }}</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            {% else %}
+            <div class="cart-is-empty h-100">
+                <div class="empty-cart-container d-flex flex-column justify-content-between">
+
+                    <div class="empty-cart-section d-flex flex-column">
+                        <div class="empty-note d-flex flex-column text-center">
+                            <p class="dark-note m-0">Your bag is Empty</p>
+                            <p class="lite-note m-0">Whoops... Nothing in here! Explore around to add items.</p>
+                        </div>
+                        <div class="add-items-btn d-flex flex-column">
+                            <a href=""><button class="btn-fill w-100">START SHOPPING</button></a>
+                            <a href=""><button class="btn-outline w-100">ADD FROM WISHLIST</button></a>
+                        </div>
+                    </div>
+
+                    <div class="cart-suggestions-container">
+                        <p class="section-title text-uppercase text-center">
+                            Hand picked for you
+                        </p>
+                        <div class="suggestion-slider-container">
+
+                            <div class="slider-container overflow-hidden">
+                                <div class="suggestion-slider">
+
+                                    <div class="swiper-wrapper">
+                                        {% for product in collections[cart_coll].products limit: 6 %}
+                                        <div class="swiper-slide">
+                                            <div class="product-card m-3">
+                                                <div class="product-image p-0">
+                                                    <div class="tags">
+                                                        <p class="tag mb-0"
+                                                            style="background-color: #fff2f7;font-size: 10px;">New In
+                                                        </p>
+                                                        <p class="tag mb-0"
+                                                            style="background-color: #fff2f7; margin-top: 9.5px;font-size: 10px;">
+                                                            only at hey!
+                                                        </p>
+
+                                                    </div>
+                                                    <img loading="lazy"
+                                                        src="https://ik.imagekit.io/gfzma0cor/product1.jpg?updatedAt=1692963855526"
+                                                        alt="" class="img-fluid product-img-1">
+                                                    <img loading="lazy"
+                                                        src="https://ik.imagekit.io/gfzma0cor/product1b.jpg?updatedAt=1692963855295"
+                                                        alt="" class="img-fluid product-img-2">
+
+                                                    <span class="fav">
+                                                        <svg class="heart_icon template--20555853562148__cbb40d22-8541-4791-991e-8d2b381a2a35-1 "
+                                                            xmlns=" http://www.w3.org/2000/svg" width="27" height="24"
+                                                            viewBox="0 0 27 24" fill="none">
+                                                            <path
+                                                                d="M3.75998 13.3488L12.9866 22.1496C13.3133 22.4612 13.4766 22.617 13.6769 22.617C13.8771 22.617 14.0404 22.4612 14.3671 22.1496L23.5937 13.3488C26.1137 10.9451 26.4208 7.03006 24.3064 4.2629L23.8495 3.66495C21.2938 0.320319 16.1023 0.875513 14.3117 4.68494C14.0591 5.22237 13.2946 5.22237 13.042 4.68494C11.2514 0.875513 6.05989 0.320323 3.50424 3.66495L3.04734 4.26291C0.932938 7.03006 1.24001 10.9451 3.75998 13.3488Z"
+                                                                stroke="#404184" stroke-width="2"></path>
+                                                        </svg>
+                                                    </span>
+                                                </div>
+                                                <div class="product-details">
+                                                    <div class="">
+                                                        <p class="mb-0 product-brand" style="font-size: 11px;">Makeup
+                                                            Revolution</p>
+                                                        <p class="mb-0 product-title" style="font-size: 12px;">IRL
+                                                            FILTER
+                                                            FINISH CONCEALER</p>
+                                                    </div>
+                                                    <div class="">
+                                                        <span class="rating" style="margin-top: 8px;">
+                                                            {{ star_rating }}
+                                                        </span>
+                                                        <div class="product-price mb-0" style="font-size: 12px;">
+                                                            <span class="current-price">₹855</span>
+                                                            <span class="old-price">₹950</span>
+                                                            <span class="discount">10% off</span>
+                                                        </div>
+                                                        <div class="shades">
+                                                            <span class="shade"
+                                                                style="background-color: rgba(248, 0, 0);"></span>
+                                                            <span class="shade"
+                                                                style="background-color: rgba(248, 0, 0, 0.8);"></span>
+                                                            <span class="shade"
+                                                                style="background-color: rgba(248, 0, 0, 0.6);"></span>
+                                                            <span class="shade"
+                                                                style="background-color: rgba(248, 0, 0, 0.4);"></span>
+                                                            <span class="shade"
+                                                                style="background-color: rgba(248, 0, 0, 0.2);"></span>
+
+                                                            <span class="more-shade">+11</span>
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <button class="select-shade" style="font-size: 12px;">Select
+                                                            Shade</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+</div>

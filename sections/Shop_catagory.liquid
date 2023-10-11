@@ -1,0 +1,153 @@
+<div class="container py-5 px-0">
+    <div class="heading">
+        <h2 class="deals_txt">{{ section.settings.sdghf }}</h2>
+    </div>
+    <ul class="list-unstyled brands-row py-4 px-3">
+        {% for block in section.blocks %}
+        <li class="logos d_cent">
+            <a class="no-line" href="{{ block.settings.shopcatagorylink }}">
+                <div class="img-wrap">
+                    <img loading="lazy" class="cardImg img_url_1" src="{{ block.settings.shopcatagorydd | image_url}}"
+                        alt="Card image cap">
+                    {% if block.settings.shopcatagorydd_show %}
+                    <div class="show-me">
+                        <img loading="lazy" class="cardImg" src="{{ block.settings.shopcatagorydd_show | image_url}}"
+                            alt="Card image cap">
+                    </div>
+                    {% endif %}
+                </div>
+                <p class="cta_text">{{ block.settings.shopcatagorytxt }}</p>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+<style>
+    .brands-row {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        overflow-x: scroll;
+        margin: auto;
+        justify-content: space-evenly;
+
+        background: {
+                {
+                section.settings.bgaksjhd
+            }
+        }
+
+        ;
+    }
+
+    .brands-row::-webkit-scrollbar {
+        display: none;
+    }
+
+    img.cardImg {
+        object-fit: contain;
+        width: 100%;
+    }
+
+    .cta_text {
+        font-size: 20px;
+        font-weight: var(--font-medium);
+        font-family: var(--font-montserrat);
+        text-align: center;
+        color: #191919;
+        margin: 8px 0 0 0;
+        white-space: nowrap;
+    }
+
+    .img-wrap {
+        display: table;
+        position: relative;
+    }
+
+    .show-me {
+        display: none;
+    }
+
+    .img-wrap:hover .show-me {
+        display: block;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: transform 0.5s;
+
+    }
+
+    @media screen and (max-width: 768px) {
+        .brands-row {
+            justify-content: start;
+            gap: 16px;
+        }
+
+        img.cardImg {
+            width: 100px;
+            border-radius: 8px;
+        }
+
+        .cta_text {
+            font-size: 14px;
+        }
+    }
+</style>
+{% schema %}
+{
+"name": "Shop By Catagory",
+"settings": [
+{
+"type": "text",
+"id": "sdghf",
+"label": "Add Your Heading Here"
+},
+{
+"type": "color",
+"id": "bgaksjhd",
+"label": "Add Your background Color Here",
+"default":"#fff"
+}
+],
+"blocks": [
+{
+"name": "Image With Text",
+"type": "Image",
+"limit":6,
+"settings": [
+{
+"type": "url",
+"id": "shopcatagorylink",
+"label": "Add Url"
+},
+{
+"type": "image_picker",
+"id": "shopcatagorydd",
+"label": "Add Your Image Here"
+},
+{
+"type": "image_picker",
+"id": "shopcatagorydd_show",
+"label": "Add Your Secondary Gif Here"
+},
+{
+"type": "text",
+"id": "shopcatagorytxt",
+"label": "Add Your Image Text Here"
+}
+]
+}
+],
+
+"presets": [
+{
+"name": "Shop By Catagory"
+}
+]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}

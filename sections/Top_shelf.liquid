@@ -1,0 +1,138 @@
+<div class="container pt-5 position-relative">
+    <h2 class="deals_txt text-left text-md-center mt-md-4">
+        {{ section.settings.main_heading }}
+    </h2>
+    <div class="sliders">
+        <div class="overflow-hidden" id="reviews{{ section.id | remove:'-' }}">
+            {% for block in section.blocks %}
+            <div class="img_block d_cent talk-of-the-town-cards">
+                <a href="{{  block.settings.sdfsdfsdf }}" class="no-line">
+                    <div class="cards ">
+                        <img loading="lazy" class="review_images desktop-screen"
+                            src="{{ block.settings.revdflkjgh | image_url }}" alt="Reviews Img{{forloop.index}}">
+                        <img loading="lazy" class="review_images mobile-screen"
+                            src="{{ block.settings.revdflkjgh_mobile | image_url }}" alt="Reviews Img{{forloop.index}}">
+                        <p class="review_head">
+                            {{ block.settings.sfgsdgsdf }}
+                        </p>
+                        <p class="review_content">
+                            {{ block.settings.zxczxczx }}
+                        </p>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<style>
+    .review_head {
+        font-family: var(--font-poppins);
+        font-size: 18px;
+        padding-top: 12px;
+        font-weight: var(--font-medium);
+        color: #191919;
+        width: 200px;
+    }
+  .review_images{
+    width:100%;
+  }
+
+    .review_content {
+        font-family: var(--font-montserrat);
+        font-size: 14px;
+        font-weight: var(--font-light);
+        color: #191919;
+    }
+
+
+</style>
+<script>
+    $(document).ready(function () {
+        $('#reviews{{ section.id | remove:'-' }}').slick({
+            dots: false,
+            infinite: false,
+            speed: 300,
+            slidesToShow: 4,
+            slidesToScroll: 4,
+            prevArrow: "<button type='button' class='slick-prev pull-left border-0'><i class='fa-solid fa-chevron-left' aria-hidden='true'></i></button>",
+            nextArrow: "<button type='button' class='slick-next pull-right border-0'><i class='fa-solid fa-chevron-right' aria-hidden='true'></i></button>",
+            responsive: [
+                {
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 3.3,
+                        slidesToScroll: 3
+                    }
+                },
+                {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 2.5,
+                        slidesToScroll: 2,
+                        arrows: false
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 1.6,
+                        slidesToScroll: 1,
+                        arrows: false
+                    }
+                }
+            ]
+        });
+    });
+</script>
+{% schema %}
+{
+"name": "Top Sliders",
+"settings": [
+{
+"type": "text",
+"id": "main_heading",
+"label": "Add Your Heading Here"
+}
+],
+"blocks": [
+{
+"name": "Image With Text",
+"type": "Image",
+"settings": [
+{
+"type": "url",
+"id": "sdfsdfsdf",
+"label": "Add Url"
+},
+{
+"type": "image_picker",
+"id": "revdflkjgh",
+"label": "Add Your Image Here"
+},
+{
+"type": "image_picker",
+"id": "revdflkjgh_mobile",
+"label": "Add Your Mobile Image Here"
+},
+{
+"type": "text",
+"id": "sfgsdgsdf",
+"label": "Add Text Here"
+},
+{
+"type": "text",
+"id": "zxczxczx",
+"label": "Add Text Here"
+}
+]
+}
+],
+
+"presets": [
+{
+"name": "Top Sliders"
+}
+]
+}
+{% endschema %}

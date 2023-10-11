@@ -1,0 +1,233 @@
+<div id="carousel_slider" class="position-relative overflow-hidden">
+    <div class="container-fluid p-0" id="one">
+        <div class="tns-slide">
+            <ul class="controls d-none" id="sliderItem_One">
+                <li class="next d_cent">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </li>
+                <li class="prev d_cent">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </li>
+            </ul>
+            <div class="my-slider">
+                <!-- {% for block in section.blocks %}
+        <div>
+          <img {% if forloop.first %}{% else %}loading="lazy" {% endif %} src="{{ block.settings.image | image_url }}"
+            class="desktop-screen" alt="HeroImg{{forloop.index}}">
+          <img {% if forloop.first %}{% else %}loading="lazy" {% endif %}
+            src="{{ block.settings.image_mobile | image_url }}" class="mobile-screen" alt="HeroImg{{forloop.index}}">
+        </div>
+        {% endfor %}  -->
+                {% for block in section.blocks %}
+                {%- if block.settings.image and block.settings.video_enabled == false -%}
+                <div class="hp-hero" style="width:100%">
+                    <a href="{{ block.settings.block_link_2 }}" class="slide111--card">
+                        <img loading="lazy" src="{{ block.settings.image | image_url }}" class="desktop-screen"
+                            height="100%" width="100%" loading="lazy">
+                        <img loading="lazy" src="{{ block.settings.image_mobile | image_url }}" class="mobile-screen"
+                            height="100%" width="100%" loading="lazy">
+                    </a>
+                </div>
+                {% elsif block.settings.video_enabled %}
+                {%- if forloop.first -%}
+                {%- assign autoplay = 1 -%}
+                {%- else -%}
+                {%- assign autoplay = 0 -%}
+                {%- endif -%}
+                <div class="hp-hero" style="width:100%; height: 100%">
+                    <a href="{{ block.settings.block_link_2 }}" class="slide111--card">
+                        {{
+                        block.settings['desk-vid']
+                        | video_tag:
+                        width: '100%',
+                        height: '100%',
+                        class: 'desktop-screen',
+                        autoplay: true,
+                        loop: true,
+                        muted: true,
+                        controls: false }}
+                        {{
+                        block.settings['mob-vid']
+                        | video_tag:
+                        width: '100%',
+                        height: '100%',
+                        class: 'mobile-screen',
+                        autoplay: true,
+                        loop: true,
+                        muted: true,
+                        controls: false }}
+                    </a>
+                </div>
+                {% else %}
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% comment %} {% render 'menus' %} {% endcomment %}
+    <div class="menus mobile-screen overflow-auto">
+        <ul class="d_cent">
+
+            <li class="list-inline-item">
+                <a href="/">New In</a>
+            </li>
+            <li class="list-inline-item">
+                <a href="/">BRANDS</a>
+            </li>
+            <li class="list-inline-item">
+                <a href="/collections/makeup">MAKEUP</a>
+            </li>
+            <li class="list-inline-item">
+                <a href="/">SKIN</a>
+            </li>
+            <li class="list-inline-item">
+                <a href="/">VALUE SETS</a>
+            </li>
+            <li class="list-inline-item">
+                <a href="/">HAIR</a>
+            </li>
+            <li class="list-inline-item">
+                <a href="/">New In</a>
+            </li>
+            <li class="list-inline-item">
+                <a href="/">BRANDS</a>
+            </li>
+            <li class="list-inline-item">
+                <a href="/">MAKEUP</a>
+            </li>
+            {% comment %} {% for block in section.blocks %}
+            {% endfor %} {% endcomment %}
+        </ul>
+    </div>
+</div>
+{% if section.settings.showCat %}
+<section class="banner-container">
+    <div class="container categories-container shadow">
+
+        <div class="categories">
+            <img src="https://hokdevelopment.myshopify.com/cdn/shop/files/Group_9099.png?v=1692190250" alt=""
+                class="img-fluid categories-img">
+            <p class="categories-title">Face</p>
+        </div>
+
+        <div class="categories">
+            <img src="https://hokdevelopment.myshopify.com/cdn/shop/files/Group_9099.png?v=1692190250" alt=""
+                class="img-fluid categories-img">
+            <p class="categories-title">Eyes</p>
+        </div>
+
+        <div class="categories">
+            <img src="https://hokdevelopment.myshopify.com/cdn/shop/files/Group_9099.png?v=1692190250" alt=""
+                class="img-fluid categories-img">
+            <p class="categories-title">Lips</p>
+        </div>
+
+        <div class="categories">
+            <img src="https://hokdevelopment.myshopify.com/cdn/shop/files/Group_9099.png?v=1692190250" alt=""
+                class="img-fluid categories-img">
+            <p class="categories-title">Nails</p>
+        </div>
+
+        <div class="categories">
+            <img src="https://hokdevelopment.myshopify.com/cdn/shop/files/Group_9099.png?v=1692190250" alt=""
+                class="img-fluid categories-img">
+            <p class="categories-title">Tools & Brushes</p>
+        </div>
+
+        <div class="categories">
+            <img src="https://hokdevelopment.myshopify.com/cdn/shop/files/Group_9099.png?v=1692190250" alt=""
+                class="img-fluid categories-img">
+            <p class="categories-title">Value Sets</p>
+        </div>
+
+    </div>
+
+
+</section>
+{% endif %}
+
+{% schema %}
+{
+"name": "Main Banner",
+"class": "slideshow dynamic__section section__slideshow",
+"settings": [
+{
+"type":"checkbox",
+"id":"showCat",
+"default":false,
+"label":"Show Catagories"
+}
+],
+"blocks": [
+{
+"type": "slide",
+"name": "Slide",
+"limit": 10,
+"settings": [
+{
+"type": "image_picker",
+"id": "image",
+"label": "Desktop image"
+},
+{
+"type": "image_picker",
+"id": "image_mobile",
+"label": "Mobile image"
+},
+{
+"type": "checkbox",
+"id": "video_enabled",
+"label": "Show video",
+"info": "If enabled video will show instead of an image",
+"default": false
+},
+{
+"type": "video",
+"id": "desk-vid",
+"label": "Desktop video"
+},
+{
+"type": "video",
+"id": "mob-vid",
+"label": "Mobile video"
+},
+{
+"type": "text",
+"id": "block_button_2",
+"label": "Second button label"
+},
+{
+"type": "url",
+"id": "block_link_2",
+"label": "Second link"
+}
+]
+}
+],
+"presets": [
+{
+"name": "Main Banner",
+"category": "Image"
+}
+]
+}
+{% endschema %}
+
+<script>
+    let sliderOne = tns({
+        container: '.my-slider',
+        items: 1,
+        gutter: 0,
+        slideBy: 1,
+        controlsPosition: 'bottom',
+        navPosition: 'bottom',
+        mouseDrag: true,
+        swipeAngle: false,
+        loop: false,
+        nav: false,
+        controls: true,
+        autoplay: false,
+        autoplayButtonOutput: false,
+        controlsContainer: '#sliderItem_One',
+    });
+</script>

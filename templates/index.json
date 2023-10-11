@@ -1,0 +1,555 @@
+{
+  "sections": {
+    "main": {
+      "type": "navbar",
+      "settings": {
+        "qsirguwfh": ""
+      }
+    },
+    "3e320100-a31e-45b7-9d1d-2b06de72ce71": {
+      "type": "main-banner",
+      "blocks": {
+        "449a6ff2-99ab-4fb1-907f-f6b4f0f10686": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/ORGANIC-SEPTEMBER-BANNER---Copy3_2000x_d7007ca7-0460-4a8b-b0e4-e4508a83f0cf.webp",
+            "image_mobile": "shopify:\/\/shop_images\/PRO-SMOOTHING-SERUM-mobile_x800_dd399f7a-eedd-40f8-8abc-62626549d212.webp",
+            "video_enabled": true,
+            "desk-vid": "shopify:\/\/files\/videos\/Dekstop2.mp4",
+            "mob-vid": "shopify:\/\/files\/videos\/Mobile.mp4",
+            "block_button_2": "",
+            "block_link_2": ""
+          }
+        }
+      },
+      "block_order": [
+        "449a6ff2-99ab-4fb1-907f-f6b4f0f10686"
+      ],
+      "settings": {
+        "showCat": false
+      }
+    },
+    "12563bd4-bbe3-4695-b9c9-95f68a5ff798": {
+      "type": "product-card-slider",
+      "custom_css": [
+        "@media screen and (max-width: 768px) {.product_slider_head {margin-top: 3rem; }}"
+      ],
+      "settings": {
+        "maindtext": "JUST LANDED",
+        "maindtextSub": "",
+        "home_featured_products": "lamel",
+        "tcgjsgd": "#191919",
+        "color_main_heading": "#ffffff"
+      }
+    },
+    "e4e02a21-5f5e-4602-8388-c9c0f52e1aa6": {
+      "type": "Top_shelf",
+      "blocks": {
+        "b5e0b02e-28c7-47fb-8318-5e524f90c83f": {
+          "type": "Image",
+          "settings": {
+            "sdfsdfsdf": "",
+            "revdflkjgh": "shopify:\/\/shop_images\/WK52_TT_1.webp_2.png",
+            "revdflkjgh_mobile": "shopify:\/\/shop_images\/WK52_TT_1.webp_2_b6f3a1ee-6fa2-4303-81ec-ba8429961984.png",
+            "sfgsdgsdf": "re-imagine skincare with revolution",
+            "zxczxczx": "SHOP NOW"
+          }
+        },
+        "8e47d001-0482-430f-a322-e6fc12221cfa": {
+          "type": "Image",
+          "settings": {
+            "sdfsdfsdf": "",
+            "revdflkjgh": "shopify:\/\/shop_images\/WK52_TT_1.webp_3.png",
+            "revdflkjgh_mobile": "shopify:\/\/shop_images\/top_shelf_2.svg",
+            "sfgsdgsdf": "Experience dimension with 5-d Mascara",
+            "zxczxczx": "SHOP NOW"
+          }
+        },
+        "e3e73532-c31b-4d60-82a7-6a3c541b70e6": {
+          "type": "Image",
+          "settings": {
+            "sdfsdfsdf": "",
+            "revdflkjgh": "shopify:\/\/shop_images\/WK52_TT_1.webp_5.png",
+            "revdflkjgh_mobile": "shopify:\/\/shop_images\/top_shelf_4.svg",
+            "sfgsdgsdf": "natural haircare with revolution",
+            "zxczxczx": "SHOP NOW"
+          }
+        },
+        "aa2f44a9-f32f-48ca-a3c7-d4df2bce07b7": {
+          "type": "Image",
+          "settings": {
+            "sdfsdfsdf": "",
+            "revdflkjgh": "shopify:\/\/shop_images\/WK52_TT_1.webp_4.png",
+            "revdflkjgh_mobile": "shopify:\/\/shop_images\/tiop_shelf_3.svg",
+            "sfgsdgsdf": "natural haircare with revolution",
+            "zxczxczx": "SHOP NOW"
+          }
+        },
+        "e826f2cc-40a5-4d14-8557-b8c00da9a27a": {
+          "type": "Image",
+          "settings": {
+            "sdfsdfsdf": "",
+            "revdflkjgh": "shopify:\/\/shop_images\/WK52_TT_1.webp_5.png",
+            "revdflkjgh_mobile": "shopify:\/\/shop_images\/top_shelf_4.svg",
+            "sfgsdgsdf": "lotus collection for naturally fresh skin",
+            "zxczxczx": "SHOP NOW"
+          }
+        }
+      },
+      "block_order": [
+        "b5e0b02e-28c7-47fb-8318-5e524f90c83f",
+        "8e47d001-0482-430f-a322-e6fc12221cfa",
+        "e3e73532-c31b-4d60-82a7-6a3c541b70e6",
+        "aa2f44a9-f32f-48ca-a3c7-d4df2bce07b7",
+        "e826f2cc-40a5-4d14-8557-b8c00da9a27a"
+      ],
+      "custom_css": [
+        ".shopify-class {position: relative;}"
+      ],
+      "settings": {
+        "main_heading": "TOP SHELF"
+      }
+    },
+    "048ef960-92ed-494f-ba26-792bb6e184b0": {
+      "type": "carousel_cards",
+      "blocks": {
+        "e847afe2-9bc9-40ff-b747-271974e900fd": {
+          "type": "Image",
+          "settings": {
+            "adasda": "shopify:\/\/shop_images\/on_our_radar_1.png",
+            "adasda_mob": "shopify:\/\/shop_images\/Group_9082.png",
+            "jlk": "",
+            "slideTxt": "",
+            "txt_datetxt": "",
+            "txt_date": "",
+            "slideLink": ""
+          }
+        },
+        "f3097a7b-99b1-4dba-956e-7a5929da9ad6": {
+          "type": "Image",
+          "settings": {
+            "adasda": "shopify:\/\/shop_images\/on_our_radar_2.png",
+            "adasda_mob": "shopify:\/\/shop_images\/Group_9084.png",
+            "jlk": "",
+            "slideTxt": "",
+            "txt_datetxt": "",
+            "txt_date": "",
+            "slideLink": ""
+          }
+        },
+        "2817dd7d-3014-45e6-a67e-eeabbd9a363a": {
+          "type": "Image",
+          "settings": {
+            "adasda": "shopify:\/\/shop_images\/on_our_radar_1.png",
+            "adasda_mob": "shopify:\/\/shop_images\/Group_9080.png",
+            "jlk": "",
+            "slideTxt": "",
+            "txt_datetxt": "",
+            "txt_date": "",
+            "slideLink": ""
+          }
+        },
+        "c05f4215-24ca-4081-96ae-984a425bd590": {
+          "type": "Image",
+          "settings": {
+            "adasda": "shopify:\/\/shop_images\/on_our_radar_2.png",
+            "adasda_mob": "shopify:\/\/shop_images\/Group_9082.png",
+            "jlk": "",
+            "slideTxt": "",
+            "txt_datetxt": "",
+            "txt_date": "",
+            "slideLink": ""
+          }
+        }
+      },
+      "block_order": [
+        "e847afe2-9bc9-40ff-b747-271974e900fd",
+        "f3097a7b-99b1-4dba-956e-7a5929da9ad6",
+        "2817dd7d-3014-45e6-a67e-eeabbd9a363a",
+        "c05f4215-24ca-4081-96ae-984a425bd590"
+      ],
+      "settings": {
+        "qsirguwfh": "On our Radar",
+        "sdfsdf": ""
+      }
+    },
+    "74a90c6c-bdc4-4251-ae11-6e9104b2af7b": {
+      "type": "Brand_Spotlight",
+      "custom_css": [
+        ".feedback-slider-container::before {background: #ffe5f4;}"
+      ],
+      "settings": {
+        "mainImage": "shopify:\/\/shop_images\/overlay.png",
+        "mainLogo": "shopify:\/\/shop_images\/Group_193.png",
+        "home_featured_products": "mascara"
+      }
+    },
+    "1afac923-561d-49ab-b20e-fb54d18b3b80": {
+      "type": "product-card-slider",
+      "settings": {
+        "maindtext": "BEST SELLERS",
+        "maindtextSub": "",
+        "home_featured_products": "all-collection-without-combo-new",
+        "tcgjsgd": "#191919",
+        "color_main_heading": "#ffffff"
+      }
+    },
+    "dde6e5dc-122b-4dcd-9ab3-b182c03b8979": {
+      "type": "Beauty_slides",
+      "blocks": {
+        "0516867a-7d8a-4c39-83ab-ac4b85751135": {
+          "type": "Image",
+          "settings": {
+            "threedlink": "",
+            "threeddd": "shopify:\/\/shop_images\/Rectangle_3972.png",
+            "threedtxt": "Up to 10% off"
+          }
+        },
+        "bc920462-cbd2-4d96-b896-87429ed36695": {
+          "type": "Image",
+          "settings": {
+            "threedlink": "",
+            "threeddd": "shopify:\/\/shop_images\/Rectangle_3973.png",
+            "threedtxt": "Up to 20% off"
+          }
+        },
+        "b15b0f85-a823-40f6-9b48-153e70c09109": {
+          "type": "Image",
+          "settings": {
+            "threedlink": "",
+            "threeddd": "shopify:\/\/shop_images\/Rectangle_3974.png",
+            "threedtxt": "Up to 30% off"
+          }
+        },
+        "b8625c9e-c0de-4409-b6b2-60eda85922f2": {
+          "type": "Image",
+          "settings": {
+            "threedlink": "",
+            "threeddd": "shopify:\/\/shop_images\/Rectangle_3972.png",
+            "threedtxt": "Up to 20% off"
+          }
+        },
+        "22d4082d-97d1-492c-90ca-9a2221a24acf": {
+          "type": "Image",
+          "settings": {
+            "threedlink": "",
+            "threeddd": "shopify:\/\/shop_images\/Rectangle_3973.png",
+            "threedtxt": "Up to 10% off"
+          }
+        }
+      },
+      "block_order": [
+        "0516867a-7d8a-4c39-83ab-ac4b85751135",
+        "bc920462-cbd2-4d96-b896-87429ed36695",
+        "b15b0f85-a823-40f6-9b48-153e70c09109",
+        "b8625c9e-c0de-4409-b6b2-60eda85922f2",
+        "22d4082d-97d1-492c-90ca-9a2221a24acf"
+      ],
+      "settings": {
+        "qsirguwfh": "",
+        "sfswdef": "Beauty Beyond boundaries",
+        "asdasdasdas": "#393939",
+        "dfasasd": "#ffffff"
+      }
+    },
+    "97ace9bf-89ac-4675-b0d6-46299e845539": {
+      "type": "Brand_spotlight2",
+      "custom_css": [
+        ".collection-slider-container::before {background: #e8f4ff;}"
+      ],
+      "settings": {
+        "skjdfhasdjk": "The NEW limited-edition",
+        "jkfghkfghlk": "Revolution X Fortnite collection!",
+        "home_featured_products": "lamel",
+        "sdfsdf": "shopify:\/\/shop_images\/b693cb6c9656f1e5945ae7f33aa23f62.gif"
+      }
+    },
+    "d3fce363-53dc-432d-9978-9fed353c89a9": {
+      "type": "Shop_catagory",
+      "blocks": {
+        "973502e2-9677-471b-a9a7-b8d81a4c7e85": {
+          "type": "Image",
+          "settings": {
+            "shopcatagorylink": "",
+            "shopcatagorydd": "shopify:\/\/shop_images\/Artboard-2.png",
+            "shopcatagorytxt": "Face"
+          }
+        },
+        "ca219f50-05a7-48fe-9012-1b3a92189c07": {
+          "type": "Image",
+          "settings": {
+            "shopcatagorylink": "",
+            "shopcatagorydd": "shopify:\/\/shop_images\/Artboard-1.png",
+            "shopcatagorytxt": "Eyes"
+          }
+        },
+        "784d6a3d-be50-4eec-af72-2fc003c6a826": {
+          "type": "Image",
+          "settings": {
+            "shopcatagorylink": "",
+            "shopcatagorydd": "shopify:\/\/shop_images\/Artboard-4.png",
+            "shopcatagorytxt": "Lips"
+          }
+        },
+        "598e7307-fe37-4de7-b2b6-6cd8acb0bb7d": {
+          "type": "Image",
+          "settings": {
+            "shopcatagorylink": "",
+            "shopcatagorydd": "shopify:\/\/shop_images\/Artboard-3.png",
+            "shopcatagorytxt": "Face"
+          }
+        },
+        "d1f695f2-4570-4431-9522-cb8243c821c6": {
+          "type": "Image",
+          "settings": {
+            "shopcatagorylink": "",
+            "shopcatagorydd": "shopify:\/\/shop_images\/Artboard-2.png",
+            "shopcatagorytxt": "Glow"
+          }
+        }
+      },
+      "block_order": [
+        "973502e2-9677-471b-a9a7-b8d81a4c7e85",
+        "ca219f50-05a7-48fe-9012-1b3a92189c07",
+        "784d6a3d-be50-4eec-af72-2fc003c6a826",
+        "598e7307-fe37-4de7-b2b6-6cd8acb0bb7d",
+        "d1f695f2-4570-4431-9522-cb8243c821c6"
+      ],
+      "settings": {
+        "sdghf": "SHOP BY CATEGORY",
+        "bgaksjhd": "#ffffff"
+      }
+    },
+    "1fd4b529-47d7-4d2d-a3c1-5f240a0b1a86": {
+      "type": "Limelight",
+      "blocks": {
+        "c7102256-96ec-4393-aeb9-f05945a8d461": {
+          "type": "Image",
+          "settings": {
+            "threedlink": "",
+            "threeddd": "shopify:\/\/shop_images\/Rectangle_176_3.png",
+            "wikdfytasidf": "shopify:\/\/shop_images\/ca9d96a6f46f4f9785f491ed7495d841.gif",
+            "weuofryhwei": "<p>Makeup Revolution’s Blush Bomb - featured in <strong>NDTV<\/strong>.<\/p>"
+          }
+        },
+        "40fd2cbc-98f5-490f-8336-4973dc83da9d": {
+          "type": "Image",
+          "settings": {
+            "threedlink": "",
+            "threeddd": "shopify:\/\/shop_images\/Rectangle_176_4.png",
+            "wikdfytasidf": "shopify:\/\/shop_images\/e361239b9d7e72b5f54063007a39407c.gif",
+            "weuofryhwei": "<p>Makeup Revolution’s Blush Bomb - featured in <strong>Pinkvilla<\/strong>.<\/p>"
+          }
+        },
+        "bf1fe1eb-9d49-49f4-8706-0f1ac7a21cd7": {
+          "type": "Image",
+          "settings": {
+            "threedlink": "",
+            "threeddd": "shopify:\/\/shop_images\/Rectangle_176_5.png",
+            "wikdfytasidf": "shopify:\/\/shop_images\/e18c1dc92e66eee30a263e5fecda2bc9.gif",
+            "weuofryhwei": "<p>Makeup Revolution’s Blush Bomb - featured in <strong>NDTV<\/strong>.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "c7102256-96ec-4393-aeb9-f05945a8d461",
+        "40fd2cbc-98f5-490f-8336-4973dc83da9d",
+        "bf1fe1eb-9d49-49f4-8706-0f1ac7a21cd7"
+      ],
+      "custom_css": [
+        ".limelight-container::before {background: #ffe9f2;}"
+      ],
+      "settings": {
+        "qsirguwfh": "IN THE LIMELIGHT"
+      }
+    },
+    "7acdceb5-c6cd-4ffa-bf1e-6406a9ae80d9": {
+      "type": "Brand_spotlight2",
+      "custom_css": [
+        ".collection-slider-container::before {background: #f3fff8;}"
+      ],
+      "settings": {
+        "skjdfhasdjk": "Gift you skin Organic care with Organic Work’s",
+        "jkfghkfghlk": "Skin and Body Care Collection!",
+        "home_featured_products": "blemish",
+        "sdfsdf": "shopify:\/\/shop_images\/righ.gif"
+      }
+    },
+    "778ba33e-2a77-4439-b215-73a328e35cf7": {
+      "type": "Shop_catagory",
+      "blocks": {
+        "baaec714-d26e-4b56-a686-456b2e6899ca": {
+          "type": "Image",
+          "settings": {
+            "shopcatagorylink": "",
+            "shopcatagorydd": "shopify:\/\/shop_images\/Artboard-2.png",
+            "shopcatagorytxt": "Face"
+          }
+        },
+        "6fba307f-0623-40b2-987d-5cf2135a9760": {
+          "type": "Image",
+          "settings": {
+            "shopcatagorylink": "",
+            "shopcatagorydd": "shopify:\/\/shop_images\/Artboard-1.png",
+            "shopcatagorytxt": "Eyes"
+          }
+        },
+        "6a494098-2549-4d56-a4ae-25e14ca66b9c": {
+          "type": "Image",
+          "settings": {
+            "shopcatagorylink": "",
+            "shopcatagorydd": "shopify:\/\/shop_images\/Artboard-4.png",
+            "shopcatagorytxt": "Lips"
+          }
+        },
+        "798f6eed-fd5c-4369-9b00-c2b2a470c4bb": {
+          "type": "Image",
+          "settings": {
+            "shopcatagorylink": "",
+            "shopcatagorydd": "shopify:\/\/shop_images\/Artboard-3.png",
+            "shopcatagorytxt": "Face"
+          }
+        },
+        "d49dd286-ad67-4490-b59b-d3d2a8478f52": {
+          "type": "Image",
+          "settings": {
+            "shopcatagorylink": "",
+            "shopcatagorydd": "shopify:\/\/shop_images\/Artboard-2.png",
+            "shopcatagorytxt": "Glow"
+          }
+        }
+      },
+      "block_order": [
+        "baaec714-d26e-4b56-a686-456b2e6899ca",
+        "6fba307f-0623-40b2-987d-5cf2135a9760",
+        "6a494098-2549-4d56-a4ae-25e14ca66b9c",
+        "798f6eed-fd5c-4369-9b00-c2b2a470c4bb",
+        "d49dd286-ad67-4490-b59b-d3d2a8478f52"
+      ],
+      "settings": {
+        "sdghf": "SHOP BY CATEGORY",
+        "bgaksjhd": "#ffffff"
+      }
+    },
+    "c9d04ad4-afd0-466f-a683-7857976dce0f": {
+      "type": "SingleSlider",
+      "blocks": {
+        "607b6ea1-c903-4957-b2b2-42b5bcabf233": {
+          "type": "Image",
+          "settings": {
+            "dasfdf": "shopify:\/\/shop_images\/Property_1_Default.svg",
+            "asdasdasd": "shopify:\/\/shop_images\/Property_1_Variant2_60301451-c5a2-4a54-a190-fbd25f506591.svg",
+            "sdfgsdfsd": "",
+            "dflkjghdfjkg": "",
+            "dfsdf": "",
+            "txtdfsdf": ""
+          }
+        },
+        "6a80546b-0ceb-4fb7-a7a3-8ffd9fd638e1": {
+          "type": "Image",
+          "settings": {
+            "dasfdf": "shopify:\/\/shop_images\/Property_1_Variant2.svg",
+            "asdasdasd": "shopify:\/\/shop_images\/Property_1_Default_fdd3b8c5-9fc7-43ce-b0ad-8f2ba74e3bf0.svg",
+            "sdfgsdfsd": "",
+            "dflkjghdfjkg": "",
+            "dfsdf": "",
+            "txtdfsdf": ""
+          }
+        }
+      },
+      "block_order": [
+        "607b6ea1-c903-4957-b2b2-42b5bcabf233",
+        "6a80546b-0ceb-4fb7-a7a3-8ffd9fd638e1"
+      ],
+      "settings": {
+        "qsirguwfh": ""
+      }
+    },
+    "338a03bc-1622-4584-93b1-8f643c5f21e3": {
+      "type": "carousel_cards",
+      "blocks": {
+        "2f75b039-caf1-4de8-a6ec-a3f04e36f206": {
+          "type": "Image",
+          "settings": {
+            "adasda": "shopify:\/\/shop_images\/Rectangle_51_3.svg",
+            "adasda_mob": "shopify:\/\/shop_images\/Rectangle_51_3.svg",
+            "jlk": "",
+            "slideTxt": "The Strategist",
+            "txt_datetxt": "The Top-6 Products from L. Girl",
+            "txt_date": "Feb 18, 2023",
+            "slideLink": "shopify:\/\/products\/bh-cosmetics-signature-rose-gold-13-piece-brush-set"
+          }
+        },
+        "aee84a65-e392-434a-a799-0b2038f96d45": {
+          "type": "Image",
+          "settings": {
+            "adasda": "shopify:\/\/shop_images\/Rectangle_51_4.svg",
+            "adasda_mob": "shopify:\/\/shop_images\/Rectangle_51_4.svg",
+            "jlk": "",
+            "slideTxt": "The Beauty Edit",
+            "txt_datetxt": "Revolution Skincare review",
+            "txt_date": "January 30, 2023",
+            "slideLink": "shopify:\/\/blogs\/news\/all"
+          }
+        },
+        "4bb9f65e-2880-40ff-9e4c-86980bf3ec90": {
+          "type": "Image",
+          "settings": {
+            "adasda": "shopify:\/\/shop_images\/Rectangle_51_5.svg",
+            "adasda_mob": "shopify:\/\/shop_images\/Rectangle_51_5.svg",
+            "jlk": "",
+            "slideTxt": "The Strategist",
+            "txt_datetxt": "The Top-6 Products from L. Girl",
+            "txt_date": "January 20, 2023",
+            "slideLink": "shopify:\/\/blogs\/news\/all"
+          }
+        }
+      },
+      "block_order": [
+        "2f75b039-caf1-4de8-a6ec-a3f04e36f206",
+        "aee84a65-e392-434a-a799-0b2038f96d45",
+        "4bb9f65e-2880-40ff-9e4c-86980bf3ec90"
+      ],
+      "custom_css": [],
+      "settings": {
+        "qsirguwfh": "FEATURED IN",
+        "sdfsdf": ""
+      }
+    },
+    "169641529914cdbc6c": {
+      "type": "apps",
+      "blocks": {
+        "1c43376a-5e0c-4474-bbb9-ebf3dac900d7": {
+          "type": "shopify:\/\/apps\/instagram-feed-instafeed-reel\/blocks\/app-block\/37be8af8-61d9-482d-a6b3-0b1be143eaf2",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "1c43376a-5e0c-4474-bbb9-ebf3dac900d7"
+      ],
+      "custom_css": [
+        "div#instagrid-feed-container {padding: 5%;}",
+        "#igr-powered-by {display: none;}"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "3e320100-a31e-45b7-9d1d-2b06de72ce71",
+    "12563bd4-bbe3-4695-b9c9-95f68a5ff798",
+    "e4e02a21-5f5e-4602-8388-c9c0f52e1aa6",
+    "048ef960-92ed-494f-ba26-792bb6e184b0",
+    "74a90c6c-bdc4-4251-ae11-6e9104b2af7b",
+    "1afac923-561d-49ab-b20e-fb54d18b3b80",
+    "dde6e5dc-122b-4dcd-9ab3-b182c03b8979",
+    "97ace9bf-89ac-4675-b0d6-46299e845539",
+    "d3fce363-53dc-432d-9978-9fed353c89a9",
+    "1fd4b529-47d7-4d2d-a3c1-5f240a0b1a86",
+    "7acdceb5-c6cd-4ffa-bf1e-6406a9ae80d9",
+    "778ba33e-2a77-4439-b215-73a328e35cf7",
+    "c9d04ad4-afd0-466f-a683-7857976dce0f",
+    "338a03bc-1622-4584-93b1-8f643c5f21e3",
+    "169641529914cdbc6c"
+  ]
+}

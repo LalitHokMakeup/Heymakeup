@@ -1,0 +1,128 @@
+{% assign file_extension = 'png' %}
+{% if showall %}
+{% assign swatch_limit = product.variants.size %}
+{% else %}
+{% assign swatch_limit = 3 %}
+{% endif %}
+
+{% if swatch == blank %}
+<div class="swatch error">
+    <p>Swatches Error</p>
+</div>
+{% else %}
+{% assign found_option = false %}
+{% assign is_color = false %}
+{% assign option_index = 0 %}
+{% for option in product.options limit :2 %}
+{% if option == swatch %}
+{% assign found_option = true %}
+{% assign option_index = forloop.index0 %}
+<script>
+    $(window).on('load', function () { $('.selector-wrapper:eq({{ option_index }})').hide(); });
+</script>
+{% assign downcased_option = swatch | downcase %}
+{% if downcased_option contains 'color' or downcased_option contains 'colour' %}
+{% assign is_color = true %}
+{% endif %}
+{% endif %}
+{% endfor %}
+{% unless found_option %}
+<div class="swatch error">
+    <p>Add color as swatch in code
+    </p>
+</div>
+{% else %}
+<div class="swatch swatch_param clearfix" data-option-index="{{ indexIs }}">
+    {% assign values = '' %}
+    {%- assign first_variant = product.selected_or_first_available_variant -%}
+    {% for variant in product.variants limit: swatch_limit %}
+    {% assign value = variant.options[option_index] %}
+    {% unless values contains value %}
+    {% assign values = values | join: ',' %}
+    {% assign values = values | append: ',' | append: value %}
+    {% assign values = values | split: ',' %}
+    <div data-value="{{ value | escape }}"
+        class="swatch-element {% if is_color %}color {% endif %}{{ value | handle }}">
+        <input id="swatch-{{ indexIs }}-{{ value | handle }}"  index="{{ indexIs }}" type="radio"
+            name="id" variantId="{{ value | handle }}" value="{{  variant.id }}" {% if first_variant %} checked {% endif %} {% unless variant.available
+            %}disabled{% endunless %} />
+        {% if is_color %}
+        <label loading="lazy" for="swatch-{{ indexIs }}-{{ value | handle }}"
+            class="{% if variant.available %}available{% else %}b-swatch_colors-item m-disabled{% endif %}" style="{% if product.variants[forloop.index0].metafields.custom.colour != blank %}
+        background-color:{{ product.variants[forloop.index0].metafields.custom.colour }} !important;
+       {% else %}
+background-image: url('{% if product.variants[forloop.index0].metafields.custom.image != blank %}{{-
+product.variants[forloop.index0].metafields.custom.image | img_url: 'master' -}} {% else %}{{ variant.featured_image |
+img_url: 'master' }}{% endif %}');
+background-size: contain; 
+        {% endif %}">
+
+        </label>
+        {% else %}
+        <label for="swatch-{{ indexIs }}-{{ value | handle }}">
+            {{ value }}
+        </label>
+        {% endif %}
+    </div>
+    {% endunless %}
+    {% if variant.available %}
+    <script>
+        jQuery('.swatch[data-option-index="{{ indexIs }}"] .{{ value | handle }}').removeClass('soldout').addClass('available').find(':radio').removeAttr('disabled');
+    </script>
+    {% endif %}
+    {% endfor %}
+    {% if product.variants.size > 3 and showall == false %}
+    {% liquid
+    assign product_count = product.variants.size | minus: 3 %}
+    <span class="b-swatch_colors-more mt-1">
+        <a href="{{ product.url}}" class="no-line pink">
+            +
+            <span class="b-swatch_colors-more_count">{{ product_count | t }}</span>
+        </a>
+    </span>
+    {% endif %}
+</div>
+{% endunless %}
+{% endif %}
+<style>
+    label[for="product-select-option-{{ option_index }}"] {
+        display: none;
+    }
+
+    #product-select-option- {
+            {
+            option_index
+        }
+    }
+
+        {
+        display: none;
+    }
+
+    #product-select-option- {
+            {
+            option_index
+        }
+    }
+
+    +.custom-style-select-box {
+        display: none !important;
+    }
+
+    .b-swatch_colors-item.m-disabled::after {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%) rotate(45deg);
+        content: "";
+        height: 1px;
+        background-color: #fff;
+        width: 100%;
+    }
+</style>
+{% render "swatchesCss" %}
+{% comment %} {% else %}
+background-image: url('{% if product.variants[forloop.index0].metafields.custom.image != blank %}{{-
+product.variants[forloop.index0].metafields.custom.image | img_url: 'master' -}} {% else %}{{ variant.featured_image |
+img_url: 'master' }}{% endif %}');
+background-size: contain; {% endcomment %}

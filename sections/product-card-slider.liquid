@@ -1,0 +1,132 @@
+{% assign product_card_slider = section.id | remove: '-' %}
+{% assign splicesectionId = section.id | remove: '-' | slice: 25, 33 %}
+<div class="container" style="background:{{ section.settings.color_main_heading}};">
+  <div class="product_slider_head">
+    <p class="deals_txt">{{ section.settings.maindtext }}</p>
+  </div>
+  {% if section.settings.maindtextSub != blank %}
+  <p class="sellermini_txt text-center" style="color:{{ section.settings.tcgjsgd}}">
+    {{ section.settings.maindtextSub }}
+  </p>
+  {% endif %}
+  <div class="position-relative overflow-hidden">
+    <section>
+      <div class="{{ product_card_slider  }}" id="{{ product_card_slider }}">
+        {% for product in collections[section.settings.home_featured_products].products limit: 15 %}
+        {% assign indexIs = forloop.index0 %}
+        <div class="p-0 d_cent">
+          {% render 'main_product_cards' product:product , sectionId: splicesectionId
+          ,card_margin:true,show_button:true %}
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+  </div>
+</div>
+{% for product in collections[section.settings.home_featured_products].products limit: 15 %}
+{% render 'quick_shades' product:product , sectionId: splicesectionId %}
+{% endfor %}
+<script>
+  $('#{{ product_card_slider }}').slick({
+    dots: false,
+    infinite: false,
+    speed: 300,
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    prevArrow: "<button type='button' class='slick-prev pull-left border-0'><i class='fa-solid fa-chevron-left' aria-hidden='true'></i></button>",
+    nextArrow: "<button type='button' class='slick-next pull-right border-0'><i class='fa-solid fa-chevron-right' aria-hidden='true'></i></button>",
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3.3,
+          slidesToScroll: 3
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2.5,
+          slidesToScroll: 2,
+          arrows: false
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          arrows: false
+        }
+      }
+    ]
+  }); 
+</script>
+{% comment %}
+<script>
+  let asdasdasdasdas = document.querySelectorAll('.sdfsdfsdf');
+  $('.{{ class_variable }} :radio').change(function () {
+    //var optionIndex = $(this).closest('.swatch').attr('data-option-index');
+    //var optionId = $(this).attr('variantId');
+    //var swatchIndex = $(this).attr('boxIndex');
+    var optionValue = $(this).val();
+    var boxValue = $(this).attr('index');
+    asdasdasdasdas[boxValue].setAttribute('productId', optionValue);
+  });
+  $('.sdfsdfsdf').on('click', async function () {
+    let _id = $(this).attr('productId');
+    await reUseCart('/cart/add.js', _id, 1);
+  });
+  $('.shop-noww').on('click', async function () {
+    let _id = $(this).attr('productId');
+    await reUseCart('/cart/add.js', _id, 1);
+  });
+</script>
+{% endcomment %}
+{% schema %}
+{
+"name": "Product Collection Slides",
+"settings": [
+{
+"type": "text",
+"id": "maindtext",
+"label": "Add Your Heading Here"
+},
+{
+"type": "text",
+"id": "maindtextSub",
+"label": "Add Your Sub Heading Here"
+},
+{
+"type": "collection",
+"id": "home_featured_products",
+"label": "Collection"
+},
+{
+"type": "color",
+"id": "tcgjsgd",
+"label": "Add Sub Heading Color",
+"default": "#191919"
+},
+{
+"type": "color",
+"id": "color_main_heading",
+"label": "background Color",
+"default": "#fff"
+}
+],
+"blocks": [
+{
+"type": "@app"
+}
+],
+"presets": [
+{
+"name": "Product Collection Slides"
+}
+]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}

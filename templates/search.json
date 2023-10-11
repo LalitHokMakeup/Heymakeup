@@ -1,0 +1,42 @@
+{
+  "sections": {
+    "58f9a0df-f10e-490f-a934-2f21afb5f829": {
+      "type": "navbar",
+      "settings": {
+        "qsirguwfh": ""
+      }
+    },
+    "cdd2366c-43de-4cb8-8bbf-ee5083fd01f3": {
+      "type": "main-banner",
+      "blocks": {
+        "template--21026572075300__cdd2366c-43de-4cb8-8bbf-ee5083fd01f3-slide-1": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Rectangle_4000.png",
+            "image_mobile": "shopify:\/\/shop_images\/overlay.png",
+            "video_enabled": false,
+            "block_button_2": "",
+            "block_link_2": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--21026572075300__cdd2366c-43de-4cb8-8bbf-ee5083fd01f3-slide-1"
+      ],
+      "settings": {
+        "showCat": false
+      }
+    },
+    "main": {
+      "type": "main-search",
+      "settings": {
+        "columns_desktop": 4
+      }
+    }
+  },
+  "order": [
+    "58f9a0df-f10e-490f-a934-2f21afb5f829",
+    "cdd2366c-43de-4cb8-8bbf-ee5083fd01f3",
+    "main"
+  ]
+}

@@ -1,0 +1,207 @@
+{% assign splicesectionId = section.id | remove: '-' | slice: 25, 33 %}
+<div class="container product-recommendations"
+    data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit={{ section.settings.no_of_product }}&intent=related">
+    {%- if recommendations.performed? and recommendations.products_count > 0 -%}
+    <div class="text-center">
+        <h2>You May Also Like</h2>
+    </div>
+
+    <div class="d_cent" id="recom_products">
+        {%- for product in recommendations.products -%}
+        {% assign indexIs = forloop.index0 %}
+        <div class="product">
+            <div class="p-0 d_cent">
+                <div class="product-card mx-auto">
+                    <a href="{{ product.url }}">
+                        <div class="product-image p-0">
+                            <div class="tags">
+                                <p class="tag mb-0" style="background-color: #fff2f7;">New In</p>
+                                <p class="tag mb-0" style="background-color: #fff2f7; margin-top: 9.5px;">only at
+                                    hey!</p>
+                            </div>
+                            {% if product.images.size > 1 %}
+                            {%- assign img_url = product.featured_image -%}
+                            {%- assign img_url_1 = product.images[0].src -%}
+                            {%- assign img_url_2 = product.images[1].src -%}
+                            <img loading="lazy" class="img-fluid product-img-1 "
+                                src="{{ img_url_1 | img_url: 'master' }}" data-src="{{ img_url_2 }}" data-sizes="auto"
+                                alt="{{ product.images[0].alt }}">
+                            <img loading="lazy" class="product-img-2 img-fluid"
+                                src="{{ img_url_2 | img_url: 'master' }}" data-src="{{ img_url_2 }}" data-sizes="auto"
+                                alt="{{ product.images[1].alt }}">
+                            {% else %}
+                            <img loading="lazy" class="img-fluid" src="{{ img_url | img_url: 'master' }}"
+                                alt="{{ product.title }}" title="{{ product.title }}">
+                            {% endif %}
+                            <span class="fav">
+                                <div class="wishlist-engine" data-product_id="{{  product.id }}"
+                                    data-variant_id="{{ product.selected_or_first_available_variant.id }}"
+                                    data-full_button="false" data-css="true"></div>
+                            </span>
+                        </div>
+                    </a>
+                    <div class="product-details">
+                        <div class="">
+                            <p class="mb-0 product-brand">{{ product.vendor }}</p>
+                            <p class="mb-0 product-title">{{ product.title }}</p>
+                        </div>
+                        <div class="">
+                            <span class="rating">
+                                {% for block in section.blocks %}
+                                {% case block.type %}
+                                {% when '@app' %}
+                                {% render block %}
+                                {% endcase %}
+                                {% endfor %}
+                            </span>
+                            <div class="product-price mb-0">
+                                <span>
+                                    {{ product.price | money_without_trailing_zeros }}
+                                    {% if product.compare_at_price_max > product.price %}
+                                    <span class="old-price">
+                                        {{ product.compare_at_price_max | money_without_trailing_zeros -}}
+                                    </span>
+                                    <span class="discount">
+                                        {{-
+                                        product.compare_at_price_max
+                                        | minus: product.price
+                                        | times: 100.0
+                                        | divided_by: product.compare_at_price_max
+                                        | money_without_currency
+                                        | times: 100
+                                        | remove: '.0'
+                                        -}}
+                                        % Off
+                                    </span>
+                                    {% endif %}
+                                </span>
+                            </div>
+                            <div class="shades">
+                                {% if product.available and product.variants.size > 1 %}
+                                {% for variant in product.variants limit: 3 %}
+                                <span class="shade"
+                                    style=" {% if product.variants[forloop.index0].metafields.custom.colour != blank %}
+                                    background-color:{{ product.variants[forloop.index0].metafields.custom.colour }} !important;
+                                  {% else %}
+                                       background-image: url('{{ variant.featured_image | img_url: 'master' }}'); background-size: contain; {% endif %} "></span>
+                                {% endfor %}
+                                {% if product.variants.size > 3 %}
+                                {% assign product_count = product.variants.size | minus: 3 %}
+                                <span class="more-shade">+{{ product_count | t }}</span>
+                                {% endif %}
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div data-quickviewslide="open" data-quickviewID="{{ product.id }}"
+                            data-sectionID="{{ sectionId }}">
+                            <button class="select-shade"
+                                data-product_id="{{ product.selected_or_first_available_variant.id }}"
+                                data-product_quantity="1">
+                                {% if product.available and product.variants.size > 1 %}
+                                Select Shade
+                                {% else %}
+                                Add To Bag
+                                {% endif %}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {%- endfor -%}
+    </div>
+    {% for product in recommendations.products %}
+    {% render 'quick_shades' product:product , sectionId: splicesectionId %}
+    {% endfor %}
+    {%- endif -%}
+</div>
+
+{% javascript %}
+
+const handleRecIntersection = async(entries, observer) => {
+if (!entries[0].isIntersecting) return;
+
+observer.unobserve(productRecommendationsSection);
+
+const url = productRecommendationsSection.dataset.url;
+
+await fetch(url)
+.then(response => response.text())
+.then(text => {
+const html = document.createElement('div');
+html.innerHTML = text;
+const recommendations = html.querySelector('.product-recommendations');
+
+if (recommendations && recommendations.innerHTML.trim().length) {
+productRecommendationsSection.innerHTML = recommendations.innerHTML;
+};
+ready();
+})
+.catch(e => {
+console.error(e);
+});
+};
+
+const productRecommendationsSection = document.querySelector('.product-recommendations');
+const observer = new IntersectionObserver(handleRecIntersection, {rootMargin: '0px 0px 200px 0px'});
+
+observer.observe(productRecommendationsSection);
+{% endjavascript %}
+
+{% schema %}
+{
+"name": "Product recommendations",
+"settings": [
+{
+"type": "range",
+"id": "no_of_product",
+"min": 4,
+"max": 10,
+"step": 1,
+"unit": "s",
+"label": "Number of Products",
+"default": 4
+}
+],
+"blocks": [
+{
+"type": "@app"
+}
+],
+
+"presets": [
+{
+"name": "Product recommendations"
+}
+]
+}
+{% endschema %}
+<script>
+    const ready = () => {
+        var RecommendedSlides = tns({
+            container: '#recom_products',
+            items: 4,
+            gutter: 16,
+            edgePadding: 0,
+            swipeAngle: false,
+            speed: 400,
+            loop: false,
+            mouseDrag: true,
+            nav: false,
+            autoplay: false,
+            navPosition: 'bottom',
+            controls: false,
+            responsive: {
+                0: {
+                    items: 2
+                },
+                768: {
+                    items: 2.5
+                },
+                1440: {
+                    items: 4,
+                },
+            },
+        });
+    };
+</script>

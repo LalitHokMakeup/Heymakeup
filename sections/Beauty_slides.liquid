@@ -1,0 +1,148 @@
+<div class="container pt-1 pt-md-5 px-0 mt-4">
+    <div id="distributor_elem" class="position-relative">
+        <div class="text-center">
+            <p class="sellermini_txt">{{ section.settings.qsirguwfh }}</p>
+            <p class="deals_txt" style="color:{{ section.settings.asdasdasdas }}">{{ section.settings.sfswdef }}</p>
+        </div>
+        <div class="disst_slider">
+            <div class="tns-slide">
+                <div class="centeer" id="distribution">
+                    {% for block in section.blocks %}
+                    <div class="d_cent w-100">
+                        <a href="{{ block.settings.threedlink }}" class="no-line">
+                            <img loading="lazy" src="{{ block.settings.threeddd |image_url  }}"
+                                alt="distributor Image{{forloop.index }}">
+                            <p class="sub_text">{{ block.settings.threedtxt }}</p>
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    #distributor_elem:before {
+        content: "";
+        width: 100%;
+        height: 60%;
+        position: absolute;
+        left: 0px;
+        top: -1.5rem;
+        background: #FFF0EA;
+        z-index: -1;
+    }
+
+    .disst_slider {
+        overflow: hidden;
+    }
+
+    .sub_text {
+        color: #393939;
+        font-family: Poppins;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 20px;
+        margin-top: 12px;
+    }
+
+    @media screen and (max-width:768px) {
+        .disst_slider {
+            display: flex;
+            flex-direction: column-reverse;
+        }
+    }
+</style>
+<script>
+    $('#distribution').slick({
+        dots: false,
+        infinite: false,
+        speed: 300,
+        slidesToShow: 5,
+        slidesToScroll: 1,
+        prevArrow: "<button type='button' class='slick-prev pull-left border-0'><i class='fa-solid fa-chevron-left' aria-hidden='true'></i></button>",
+        nextArrow: "<button type='button' class='slick-next pull-right border-0'><i class='fa-solid fa-chevron-right' aria-hidden='true'></i></button>",
+        responsive: [
+            {
+                breakpoint: 1240,
+                settings: {
+                    slidesToShow: 3.5,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    arrows: false
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2.5,
+                    slidesToScroll: 2,
+                    arrows: false
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1.5,
+                    slidesToScroll: 1,
+                    arrows: false
+                }
+            }
+            // You can unslick at a given breakpoint now by adding:
+            // settings: "unslick"
+            // instead of a settings object
+        ]
+    });
+</script>
+{% schema %}
+{
+"name": "Image Carousel",
+"settings": [
+{
+"type": "text",
+"id": "qsirguwfh",
+"label": "Add Your Heading Here"
+}, {
+"type": "text",
+"id": "sfswdef",
+"label": "Add Your Sub Heading Here"
+}, {
+"type": "color",
+"id": "asdasdasdas",
+"label": "Add text color"
+}, {
+"type": "color",
+"id": "dfasasd",
+"label": "Add background color"
+}
+],
+"blocks": [
+{
+"name": "Image With Text",
+"type": "Image",
+"settings": [
+{
+"type": "url",
+"id": "threedlink",
+"label": "Add Url"
+}, {
+"type": "image_picker",
+"id": "threeddd",
+"label": "Add Your Image Here"
+}, {
+"type": "text",
+"id": "threedtxt",
+"label": "Add Your Image Text Here"
+}
+]
+}
+],
+
+"presets": [
+{
+"name": "Image Carousel"
+}
+]
+}
+{% endschema %}

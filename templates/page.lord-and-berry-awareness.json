@@ -1,0 +1,194 @@
+{
+  "sections": {
+    "main": {
+      "type": "navbar",
+      "settings": {
+        "qsirguwfh": ""
+      }
+    },
+    "9ef5abc7-8cfa-4b69-964b-7d07d8e82fb1": {
+      "type": "main-banner",
+      "blocks": {
+        "98c317a7-1bf0-4f30-908e-0605b682e730": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/banner.gif",
+            "image_mobile": "shopify:\/\/shop_images\/banner.gif",
+            "video_enabled": false,
+            "block_button_2": "",
+            "block_link_2": ""
+          }
+        }
+      },
+      "block_order": [
+        "98c317a7-1bf0-4f30-908e-0605b682e730"
+      ],
+      "settings": {
+        "showCat": false
+      }
+    },
+    "97388b71-41fa-47a9-aa21-9319d3fc62a9": {
+      "type": "product-card-slider",
+      "settings": {
+        "maindtext": "JUST LANDED",
+        "maindtextSub": "",
+        "home_featured_products": "lamel",
+        "tcgjsgd": "#191919",
+        "color_main_heading": "#ffffff"
+      }
+    },
+    "4723864e-2a1d-4ef8-badb-653d6f1ee8c0": {
+      "type": "Brand_Spotlight",
+      "settings": {
+        "mainImage": "shopify:\/\/shop_images\/overlay.png",
+        "mainLogo": "shopify:\/\/shop_images\/Logo.svg",
+        "home_featured_products": "all"
+      }
+    },
+    "47594c78-7107-4459-838c-f62216e72399": {
+      "type": "Brand-Awareness-Banner",
+      "blocks": {
+        "3c7ab01a-36ae-4769-a27b-f5dbc9d8c5df": {
+          "type": "Image",
+          "settings": {
+            "aloefruinc": "shopify:\/\/shop_images\/strip2.png",
+            "sdfgfsd": "shopify:\/\/shop_images\/strip2.png",
+            "sdfasdf": ""
+          }
+        }
+      },
+      "block_order": [
+        "3c7ab01a-36ae-4769-a27b-f5dbc9d8c5df"
+      ],
+      "settings": {
+        "qsirguwfh": "",
+        "asdasd": ""
+      }
+    },
+    "51b46d44-b0cd-4349-8bb7-fa3fd87d93b4": {
+      "type": "highlights",
+      "blocks": {
+        "1d2da1fe-0b67-491a-8e4d-9470875867e4": {
+          "type": "Image",
+          "settings": {
+            "images": "shopify:\/\/shop_images\/img1_ec2afba3-525e-48c4-ae2a-444ce28db9bc.jpg",
+            "block_button_2": "Main 1",
+            "block_link_2": ""
+          }
+        },
+        "78e58c73-5578-4c25-9205-85943f57afba": {
+          "type": "Image",
+          "settings": {
+            "images": "shopify:\/\/shop_images\/img2_4f4fabb3-33a7-474d-a74a-a657b0c20d91.jpg",
+            "block_button_2": "Main 2",
+            "block_link_2": ""
+          }
+        },
+        "62521133-b3c8-4846-a41d-1e2ade0372e7": {
+          "type": "Image",
+          "settings": {
+            "images": "shopify:\/\/shop_images\/img3.jpg",
+            "block_button_2": "Main 3",
+            "block_link_2": ""
+          }
+        },
+        "f884bf20-8abe-40f2-aa78-a4c77b58ca1f": {
+          "type": "Image",
+          "settings": {
+            "images": "shopify:\/\/shop_images\/img4.jpg",
+            "block_button_2": "Main 4",
+            "block_link_2": ""
+          }
+        },
+        "bac46e21-5456-4f5d-a414-8088c3e1b40f": {
+          "type": "Image",
+          "settings": {
+            "images": "shopify:\/\/shop_images\/img1_ec2afba3-525e-48c4-ae2a-444ce28db9bc.jpg",
+            "block_button_2": "Main 5",
+            "block_link_2": ""
+          }
+        }
+      },
+      "block_order": [
+        "1d2da1fe-0b67-491a-8e4d-9470875867e4",
+        "78e58c73-5578-4c25-9205-85943f57afba",
+        "62521133-b3c8-4846-a41d-1e2ade0372e7",
+        "f884bf20-8abe-40f2-aa78-a4c77b58ca1f",
+        "bac46e21-5456-4f5d-a414-8088c3e1b40f"
+      ],
+      "custom_css": [
+        ".tns-controls {display: none;}"
+      ],
+      "settings": {
+        "showCat": false
+      }
+    },
+    "0d5ca481-a098-43c1-adee-66f37fbe4cd0": {
+      "type": "Top_shelf",
+      "blocks": {
+        "d3bd5b5c-d5ae-47c6-96a9-5c6e31619fa1": {
+          "type": "Image",
+          "settings": {
+            "sdfsdfsdf": "",
+            "revdflkjgh": "shopify:\/\/shop_images\/lamel-shelf1.jpg",
+            "revdflkjgh_mobile": "shopify:\/\/shop_images\/lamel-shelf1.jpg",
+            "sfgsdgsdf": "",
+            "zxczxczx": ""
+          }
+        },
+        "70bfc1d0-0f3a-45ad-a685-e447bb919b51": {
+          "type": "Image",
+          "settings": {
+            "sdfsdfsdf": "",
+            "revdflkjgh": "shopify:\/\/shop_images\/lamel-shelf2.jpg",
+            "revdflkjgh_mobile": "shopify:\/\/shop_images\/lamel-shelf2.jpg",
+            "sfgsdgsdf": "",
+            "zxczxczx": ""
+          }
+        },
+        "a390b0d7-d525-40fc-807b-711881272745": {
+          "type": "Image",
+          "settings": {
+            "sdfsdfsdf": "",
+            "revdflkjgh": "shopify:\/\/shop_images\/lamel-shelf3.jpg",
+            "revdflkjgh_mobile": "shopify:\/\/shop_images\/lamel-shelf3.jpg",
+            "sfgsdgsdf": "",
+            "zxczxczx": ""
+          }
+        },
+        "459df298-53fb-48ee-8489-82959645ede1": {
+          "type": "Image",
+          "settings": {
+            "sdfsdfsdf": "",
+            "revdflkjgh": "shopify:\/\/shop_images\/lamel-shelf4.png",
+            "revdflkjgh_mobile": "shopify:\/\/shop_images\/lamel-shelf4.png",
+            "sfgsdgsdf": "",
+            "zxczxczx": ""
+          }
+        }
+      },
+      "block_order": [
+        "d3bd5b5c-d5ae-47c6-96a9-5c6e31619fa1",
+        "70bfc1d0-0f3a-45ad-a685-e447bb919b51",
+        "a390b0d7-d525-40fc-807b-711881272745",
+        "459df298-53fb-48ee-8489-82959645ede1"
+      ],
+      "disabled": true,
+      "custom_css": [
+        ".shopify-class {position: relative;}"
+      ],
+      "settings": {
+        "main_heading": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "9ef5abc7-8cfa-4b69-964b-7d07d8e82fb1",
+    "97388b71-41fa-47a9-aa21-9319d3fc62a9",
+    "4723864e-2a1d-4ef8-badb-653d6f1ee8c0",
+    "47594c78-7107-4459-838c-f62216e72399",
+    "51b46d44-b0cd-4349-8bb7-fa3fd87d93b4",
+    "0d5ca481-a098-43c1-adee-66f37fbe4cd0"
+  ]
+}

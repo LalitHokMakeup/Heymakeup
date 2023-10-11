@@ -1,0 +1,670 @@
+<section>
+    <div class="container">
+        <div class="row py-0 py-md-5">
+            <div class="col-12 col-md-6">
+
+                <div class="row varient-container">
+
+                    <div class="live-views m-live-views d-md-none">
+                        <span><img loading="lazy"
+                                src="https://cdn.shopify.com/s/files/1/1743/7443/files/33d72e41b1889e6e1bee4e76cf87b0e9.gif?v=1693810925"
+                                alt="eyes" class="img-fluid"></span>
+                        <p class="live-viewing-number">{{ "now" | date: "%N" | modulo: 199 | plus: 59 }} People Are
+                            Viewing</p>
+                    </div>
+                    <div class="varient-fav-container">
+                        <span class="fav">
+                            <div class="wishlist-engine" data-product_id="{{  product.id }}"
+                                data-variant_id="{{ product.selected_or_first_available_variant.id }}"
+                                data-full_button="false" data-css="true"></div>
+                            <!-- <div class="wishlist-Icon d_cent"
+                    onclick="getIndex({id:{{ product.first_available_variant.id }},mainId:{{ product.id }},vendor:'{{ product.vendor }}',imgSrc:'{{ product.featured_image | img_url:'master' }}',title:'{{ product.title }}',price:{{ product.price | divided_by: 100  }},maxPrice:{{ product.compare_at_price_max | divided_by: 100 }},productSize:{{ product.variants.size }}, handle: '{{ product.handle }}', inventory:'{{ product.first_available_variant.inventory_quantity }}',color:'{{product.first_available_variant.option1 }}'},this)">
+                    <svg class="heart_icon {{ section.id | remove:" -"}}-{{ forloop.index0 }} "
+              xmlns=" http://www.w3.org/2000/svg" width="27" height="24" viewBox="0 0 27 24" fill="none">
+                        <path
+                            d="M3.75998 13.3488L12.9866 22.1496C13.3133 22.4612 13.4766 22.617 13.6769 22.617C13.8771 22.617 14.0404 22.4612 14.3671 22.1496L23.5937 13.3488C26.1137 10.9451 26.4208 7.03006 24.3064 4.2629L23.8495 3.66495C21.2938 0.320319 16.1023 0.875513 14.3117 4.68494C14.0591 5.22237 13.2946 5.22237 13.042 4.68494C11.2514 0.875513 6.05989 0.320323 3.50424 3.66495L3.04734 4.26291C0.932938 7.03006 1.24001 10.9451 3.75998 13.3488Z"
+                            stroke="#404184" stroke-width="2" />
+                    </svg>
+                </div> -->
+                        </span>
+                    </div>
+
+                    <div class="d-none">
+                        {% comment %} Hidding for temp Purpode {% endcomment %}
+                        <div class="col-3 p-1 desktop-screen">
+                            <div class="pv-slider" id="pv-slider">
+                                {% for image in product.images %}
+                                <div class="thumb-slide">
+                                    <img src="{{ image.src | image_url }}" alt="{{ image.alt | escape }}"
+                                        class="img-fluid">
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-9 grid_center">
+                            <div class="pv-thumb-slider" id="pv-thumb-slider">
+                                {% for image in product.images %}
+                                <div class="thumb-slide">
+                                    <img src="{{ image.src | image_url }}" alt="{{ image.alt | escape }}"
+                                        class="img-fluid asp34">
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-6">
+                <div class="product-details-container">
+
+                    <div class="product-info">
+                        <p class="product-brand">{{ product.vendor }}</p>
+                        <p class="product-title">{{ product.title }}</p>
+                        <div class="ratings">
+                            {% for block in section.blocks %}
+                            {% case block.type %}
+                            {% when '@app' %}
+                            {% render block %}
+                            {% endcase %}
+                            {% endfor %}
+
+                        </div>
+                    </div>
+
+                    <div class="product-pricing">
+                        <div class="product-prices">
+                            <span>
+                                {{ product.selected_or_first_available_variant.price | money_without_trailing_zeros }}
+                                {% if product.compare_at_price_max > product.price %}
+                                <span class="old-price">
+                                    {{ product.compare_at_price_max | money_without_trailing_zeros -}}
+                                </span>
+                                <span class="discount">
+                                    {{-
+                                    product.compare_at_price_max
+                                    | minus: product.price
+                                    | times: 100.0
+                                    | divided_by: product.compare_at_price_max
+                                    | money_without_currency
+                                    | times: 100
+                                    | remove: '.0'
+                                    -}}
+                                    % Off
+                                </span>
+                                {% endif %}
+                            </span>
+                        </div>
+                        <p class="tax-info">Inclusive Of All Taxes</p>
+                    </div>
+
+                    <div class="product-varient-selector">
+                        <div>
+                            <p class="current-shade">SHADE:<span>YELLOW-404</span></p>
+                        </div>
+                        <div class="swatches shades">
+                            {% if product.available and product.variants.size > 1 %}
+                            {% render 'swatches'
+                            with 'Color' as swatch,
+                            class_variable: class_variable,
+                            product: product,
+                            indexIs: indexIs,
+                            showall:true
+                            %}
+                            {% endif %}
+                        </div>
+
+                    </div>
+                    {% unless customer %}
+                    <div class="reward-notification">
+                        <span class="required-star">*</span>
+                        <span class="login-for-reward"><a href="/login">Login</a>/<a href="/register">Sign Up</a></span>
+                        For
+                        <span class="number-of-reward-points">200 REWARD POINTS</span>
+                    </div>
+                    {% endunless %}
+                    <div class="reward-coupon-cards-container">
+                        <div>
+                            <div class="reward-coupon-cards">
+                                <div class="reward-coupon-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="49" viewBox="0 0 48 49"
+                                        fill="none">
+                                        <g clip-path="url(#clip0_690_24562)">
+                                            <path
+                                                d="M46.594 22.008H21.1205L22.4866 17.5246C22.5953 17.1679 22.5578 16.7827 22.3824 16.4536C22.2071 16.1245 21.9082 15.8785 21.5515 15.7699L13.3227 13.2627C12.5797 13.0361 11.7943 13.455 11.568 14.1978L9.576 20.7357C9.20408 20.4668 8.78652 20.2582 8.33484 20.1216C6.14177 19.4574 3.81796 20.7016 3.15417 22.8945C2.55168 24.8846 2.94947 26.9424 4.05481 28.5289C2.25512 29.236 0.782832 30.7277 0.18025 32.7178C-0.141334 33.78 -0.0300775 34.9039 0.493679 35.8825C1.01744 36.8609 1.89089 37.5769 2.95303 37.8985C3.35109 38.0191 3.75769 38.0788 4.16213 38.0788C4.20571 38.0788 4.2492 38.0761 4.29279 38.0747L2.43508 44.1718C2.32636 44.5285 2.36385 44.9137 2.53922 45.2428C2.71458 45.5719 3.01358 45.8179 3.37021 45.9265L11.599 48.4337C11.7357 48.4753 11.8736 48.4951 12.0093 48.4951C12.6117 48.4951 13.169 48.1047 13.3536 47.4986L16.2598 37.9606V47.0888C16.2598 47.8653 16.8893 48.4948 17.6657 48.4948H46.594C47.3704 48.4948 47.9999 47.8653 47.9999 47.0888V23.414C47.9999 22.6375 47.3704 22.008 46.594 22.008ZM5.84531 23.7092C5.94926 23.3659 6.18077 23.0835 6.49701 22.9142C6.81334 22.7449 7.17673 22.709 7.52006 22.8129C7.86723 22.918 8.15366 23.1516 8.32668 23.471C8.49783 23.787 8.53551 24.1479 8.43279 24.4874L7.3879 27.9167C6.02977 27.0371 5.35361 25.3334 5.84531 23.7092ZM5.43946 34.3111C5.33543 34.6548 5.10429 34.9373 4.78861 35.1063C4.4734 35.2754 4.11086 35.3112 3.76772 35.2073C3.4243 35.1033 3.14198 34.8719 2.97271 34.5556C2.80344 34.2393 2.76744 33.876 2.87139 33.5326C3.15979 32.5801 3.80184 31.7968 4.67932 31.3272C5.2432 31.0255 5.86096 30.8772 6.48323 30.8857L5.43965 34.3106C5.43965 34.3107 5.43956 34.3109 5.43946 34.3111ZM11.0737 45.3341L5.5346 43.6464L13.848 16.3622L19.3871 18.0499L11.0737 45.3341ZM27.2129 45.6829H19.0717V28.732L20.2637 24.8199H27.2129V45.6829ZM34.2349 45.6829H30.0249V24.8199H34.2349V45.6829ZM45.1881 45.6829H37.0468V24.8199H45.1881V45.6829Z"
+                                                fill="#393939" />
+                                            <path
+                                                d="M24.4172 13.0174C26.4429 15.6575 29.9851 17.9059 31.4141 18.7501C31.6345 18.8804 31.8818 18.9455 32.1291 18.9455C32.3703 18.9455 32.6115 18.8835 32.8282 18.7594C34.2556 17.9415 37.7961 15.7429 39.8374 13.0012C41.2995 11.0374 42.0917 8.96863 42.1919 6.85233C42.1998 6.68455 42.2037 6.53496 42.2037 6.39521C42.2037 3.14789 39.5597 0.505859 36.3097 0.505859C34.7163 0.505859 33.2127 1.16374 32.1233 2.25756C31.0342 1.16384 29.5314 0.505859 27.9405 0.505859H27.9248C26.4038 0.505859 24.9734 1.09719 23.896 2.1717C22.738 3.32663 22.0688 4.9681 22.0556 6.68212C22.0551 6.69936 22.0547 6.71651 22.0547 6.73385C22.0547 6.75447 22.0551 6.77481 22.0556 6.796C22.071 8.90189 22.8655 10.995 24.4172 13.0174ZM24.8672 6.73395C24.8672 5.74286 25.2369 4.80567 25.8815 4.16269C26.2684 3.7769 26.9365 3.31772 27.9281 3.31772H27.9366C29.2005 3.31772 30.3561 4.10823 30.8121 5.28481C31.0219 5.82581 31.5426 6.18254 32.1229 6.18254H32.123C32.7033 6.18254 33.2241 5.8259 33.4338 5.2849C33.8901 4.10823 35.0458 3.31772 36.3095 3.31772C38.009 3.31772 39.3917 4.69825 39.3917 6.39521C39.3917 6.49147 39.389 6.59439 39.383 6.71923C39.3098 8.26651 38.7037 9.81509 37.5819 11.3219C36.1136 13.2938 33.5438 15.0342 32.1374 15.8988C30.6226 14.9509 28.1119 13.2137 26.648 11.3057C25.4773 9.77985 24.8782 8.25563 24.8673 6.77838C24.8673 6.7706 24.8672 6.76291 24.867 6.75466C24.8671 6.74773 24.8672 6.74088 24.8672 6.73395Z"
+                                                fill="#393939" />
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0_690_24562">
+                                                <rect width="48" height="48" fill="white"
+                                                    transform="translate(0 0.5)" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                </div>
+                                <div class="reward-coupon-details">
+                                    <div class="coupon-title">GET THE SCOOP!</div>
+                                    <div class="coupon-text">Get free Best Sellers on cart value worth ₹799 & above.
+                                    </div>
+                                    <div class="view-gifts-section">
+                                        <input type="checkbox" name="" id="view-gifts">
+                                        <label for="view-gifts">View Gifts</label>
+
+
+
+                                        <div class="view-gifts-slide">
+                                            <label for="view-gifts" class="slide-close">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="13"
+                                                    viewBox="0 0 14 13" fill="none">
+                                                    <path d="M1 0.5L13 12.5" stroke="#393939" stroke-linecap="round" />
+                                                    <path d="M13 0.5L1 12.5" stroke="#393939" stroke-linecap="round" />
+                                                </svg>
+                                            </label>
+                                            <div class="view-gifts-contents">
+
+                                                <div class="gift-slide-heading">
+                                                    <div class="gift-slide-details">
+                                                        <div class="coupon-title">HEY! GIVE AWAYS</div>
+                                                        <div class="coupon-text">Give Some, Get Some!Free best
+                                                            sellers on cart value worth:</div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="">
+
+                                                    <ul class="reward-points-container" role="tablist">
+                                                        <li class="reward-points" role="presentation">
+                                                            <button class="active" data-bs-toggle="tab"
+                                                                data-bs-target="#home-tab-pane" type="button" role="tab"
+                                                                aria-controls="home-tab-pane"
+                                                                aria-selected="true"><span>₹799</span> &
+                                                                above</button>
+                                                        </li>
+
+                                                        <li class="reward-points" role="presentation">
+                                                            <button class="" data-bs-toggle="tab"
+                                                                data-bs-target="#profile-tab-pane" type="button"
+                                                                role="tab" aria-controls="profile-tab-pane"
+                                                                aria-selected="false"><span>₹1299</span> &
+                                                                above</button>
+                                                        </li>
+
+                                                        <li class="reward-points" role="presentation">
+                                                            <button class="" data-bs-toggle="tab"
+                                                                data-bs-target="#contact-tab-pane" type="button"
+                                                                role="tab" aria-controls="contact-tab-pane"
+                                                                aria-selected="false"><span>₹1699</span> &
+                                                                above</button>
+                                                        </li>
+                                                    </ul>
+
+                                                    <div class="tab-content" id="myTabContent">
+
+                                                        <div class="tab-pane fade show active" id="home-tab-pane"
+                                                            role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+
+                                                            <div class="reward-product-container">
+                                                                <p class="reward-product-title">*Select your freebie
+                                                                    at checkout!</p>
+                                                                <div class="reward-product-card-container">
+
+                                                                    <div class="reward-product-card">
+                                                                        <div class="reward-product-image">
+                                                                            <img src="https://hokdevelopment.myshopify.com/cdn/shop/products/FPR229_SPF_BFF_Primer_1.png?v=1682091436"
+                                                                                alt="" class="img-fluid">
+                                                                        </div>
+                                                                        <div class="reward-product-details">
+                                                                            <p class="product-brand">Koric + Milani
+                                                                            </p>
+                                                                            <p class="product-details">Flawless
+                                                                                Beauty
+                                                                                essentials</p>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="reward-product-card">
+                                                                        <div class="reward-product-image">
+                                                                            <img src="https://hokdevelopment.myshopify.com/cdn/shop/products/FPR229_SPF_BFF_Primer_1.png?v=1682091436"
+                                                                                alt="" class="img-fluid">
+                                                                        </div>
+                                                                        <div class="reward-product-details">
+                                                                            <p class="product-brand">Koric</p>
+                                                                            <p class="product-details">Flawless
+                                                                                Beauty
+                                                                                essentials</p>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="reward-product-card">
+                                                                        <div class="reward-product-image">
+                                                                            <img src="https://hokdevelopment.myshopify.com/cdn/shop/products/FPR229_SPF_BFF_Primer_1.png?v=1682091436"
+                                                                                alt="" class="img-fluid">
+                                                                        </div>
+                                                                        <div class="reward-product-details">
+                                                                            <p class="product-brand">Makeup
+                                                                                Revolution</p>
+                                                                            <p class="product-details">Flawless
+                                                                                Beauty
+                                                                                essentials</p>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel"
+                                                            aria-labelledby="profile-tab" tabindex="0">
+
+                                                            <div class="reward-product-container">
+                                                                <p class="reward-product-title">*Select your freebie
+                                                                    at checkout!</p>
+                                                                <div class="reward-product-card-container">
+
+                                                                    <div class="reward-product-card">
+                                                                        <div class="reward-product-image">
+                                                                            <img src="https://hokdevelopment.myshopify.com/cdn/shop/products/FPR229_SPF_BFF_Primer_1.png?v=1682091436"
+                                                                                alt="" class="img-fluid">
+                                                                        </div>
+                                                                        <div class="reward-product-details">
+                                                                            <p class="product-brand">Koric + Milani
+                                                                            </p>
+                                                                            <p class="product-details">Flawless
+                                                                                Beauty
+                                                                                essentials</p>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="reward-product-card">
+                                                                        <div class="reward-product-image">
+                                                                            <img src="https://hokdevelopment.myshopify.com/cdn/shop/products/FPR229_SPF_BFF_Primer_1.png?v=1682091436"
+                                                                                alt="" class="img-fluid">
+                                                                        </div>
+                                                                        <div class="reward-product-details">
+                                                                            <p class="product-brand">Koric</p>
+                                                                            <p class="product-details">Flawless
+                                                                                Beauty
+                                                                                essentials</p>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="reward-product-card">
+                                                                        <div class="reward-product-image">
+                                                                            <img src="https://hokdevelopment.myshopify.com/cdn/shop/products/FPR229_SPF_BFF_Primer_1.png?v=1682091436"
+                                                                                alt="" class="img-fluid">
+                                                                        </div>
+                                                                        <div class="reward-product-details">
+                                                                            <p class="product-brand">Makeup
+                                                                                Revolution</p>
+                                                                            <p class="product-details">Flawless
+                                                                                Beauty
+                                                                                essentials</p>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+
+
+                                                        </div>
+                                                        <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel"
+                                                            aria-labelledby="contact-tab" tabindex="0">
+
+                                                            <div class="reward-product-container">
+                                                                <p class="reward-product-title">*Select your freebie
+                                                                    at checkout!</p>
+                                                                <div class="reward-product-card-container">
+
+                                                                    <div class="reward-product-card">
+                                                                        <div class="reward-product-image">
+                                                                            <img src="https://hokdevelopment.myshopify.com/cdn/shop/products/FPR229_SPF_BFF_Primer_1.png?v=1682091436"
+                                                                                alt="" class="img-fluid">
+                                                                        </div>
+                                                                        <div class="reward-product-details">
+                                                                            <p class="product-brand">Koric + Milani
+                                                                            </p>
+                                                                            <p class="product-details">Flawless
+                                                                                Beauty
+                                                                                essentials</p>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="reward-product-card">
+                                                                        <div class="reward-product-image">
+                                                                            <img src="https://hokdevelopment.myshopify.com/cdn/shop/products/FPR229_SPF_BFF_Primer_1.png?v=1682091436"
+                                                                                alt="" class="img-fluid">
+                                                                        </div>
+                                                                        <div class="reward-product-details">
+                                                                            <p class="product-brand">Koric</p>
+                                                                            <p class="product-details">Flawless
+                                                                                Beauty
+                                                                                essentials</p>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="reward-product-card">
+                                                                        <div class="reward-product-image">
+                                                                            <img src="https://hokdevelopment.myshopify.com/cdn/shop/products/FPR229_SPF_BFF_Primer_1.png?v=1682091436"
+                                                                                alt="" class="img-fluid">
+                                                                        </div>
+                                                                        <div class="reward-product-details">
+                                                                            <p class="product-brand">Makeup
+                                                                                Revolution</p>
+                                                                            <p class="product-details">Flawless
+                                                                                Beauty
+                                                                                essentials</p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="reward-product-card">
+                                                                        <div class="reward-product-image">
+                                                                            <img src="https://hokdevelopment.myshopify.com/cdn/shop/products/FPR229_SPF_BFF_Primer_1.png?v=1682091436"
+                                                                                alt="" class="img-fluid">
+                                                                        </div>
+                                                                        <div class="reward-product-details">
+                                                                            <p class="product-brand">Makeup
+                                                                                Revolution</p>
+                                                                            <p class="product-details">Flawless
+                                                                                Beauty
+                                                                                essentials</p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="reward-product-card">
+                                                                        <div class="reward-product-image">
+                                                                            <img src="https://hokdevelopment.myshopify.com/cdn/shop/products/FPR229_SPF_BFF_Primer_1.png?v=1682091436"
+                                                                                alt="" class="img-fluid">
+                                                                        </div>
+                                                                        <div class="reward-product-details">
+                                                                            <p class="product-brand">Makeup
+                                                                                Revolution</p>
+                                                                            <p class="product-details">Flawless
+                                                                                Beauty
+                                                                                essentials</p>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+
+
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="view-gifts-banner">
+                                                    reward
+                                                </div>
+
+                                                <div class="view-gifts-terms">
+                                                    <p class="t-c">T&C</p>
+                                                    <p class="t-c-d">*Freebies are available to customers who meet
+                                                        specific price conditions as outlined in our promotions and
+                                                        marketing materials.</p>
+                                                </div>
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- <div>
+                                <div class="reward-coupon-cards" style="background-color: #F8F8F8; border-color: #ededed;">
+                                    <div class="reward-coupon-icon">
+                                        <img src="../images/coupons/Discount.png" alt="" class="img-fluid">
+                                    </div>
+                                    <div class="reward-coupon-details">
+                                        <div class="coupon-title">20% off! WAITING FOR YOU</div>
+                                        <div class="coupon-text">Get 20% off ON ALL YOUR FAVOURITE PRODUCTS FROM MAKEUP REVOLUTION. </div>
+                                        <div class="view-gifts-section">
+                                            <input type="checkbox" name="" id="" >
+                                            <label for="">Avail Now</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+
+                    </div>
+
+                    <div class="live-views d-none d-md-flex">
+                        <span><img
+                                src="https://cdn.shopify.com/s/files/1/1743/7443/files/33d72e41b1889e6e1bee4e76cf87b0e9.gif?v=1693810925"
+                                alt="" class="img-fluid"></span>
+                        <p class="live-viewing-number">{{ "now" | date: "%N" | modulo: 199 | plus: 59 }} People Are
+                            Viewing</p>
+                    </div>
+
+                    <div class="add-to-bag-btn">
+                        <button data-product_id="{{ product.selected_or_first_available_variant.id }}"
+                            data-product_quantity="1">Add
+                            To
+                            Bag</button>
+                    </div>
+                    <div class="review-container d-none d-md-flex">
+                        <p class="review-title">Review Highlight</p>
+                        <div class="reviews">
+                            <div class="rating">
+                                <img src="https://cdn.shopify.com/s/files/1/0673/6396/3172/files/Star_1.svg?v=1692598346"
+                                    alt="" class="img-fluid">
+                                <img src="https://cdn.shopify.com/s/files/1/0673/6396/3172/files/Star_1.svg?v=1692598346"
+                                    alt="" class="img-fluid">
+                                <img src="https://cdn.shopify.com/s/files/1/0673/6396/3172/files/Star_1.svg?v=1692598346"
+                                    alt="" class="img-fluid">
+                                <img src="https://cdn.shopify.com/s/files/1/0673/6396/3172/files/Star_1.svg?v=1692598346"
+                                    alt="" class="img-fluid">
+                                <img src="https://cdn.shopify.com/s/files/1/0673/6396/3172/files/Star_1.svg?v=1692598346"
+                                    alt="" class="img-fluid">
+                            </div>
+                            <div class="review-text">"I got the same shade name as my normal Shape Tape (light
+                                medium) and it was a perfect match..."</div>
+                            <div class="reviewer">Nikhil Bhatia (16/08/2023)</div>
+
+                        </div>
+                    </div>
+                    <div class="product-more-details d-none d-md-block">
+                        <div class="product-description-container">
+                            <input type="checkbox" name="" id="product-description">
+                            <label for="product-description">Description</label>
+                            <div class="product-desription-details">
+                                {{ product.description }}
+                            </div>
+                        </div>
+                        <div class="product-ingredients-container">
+                            <input type="checkbox" name="" id="product-ingredients">
+                            <label for="product-ingredients">Ingredients</label>
+                            <div class="product-ingredients-details">
+                                {{ product.metafields.custom.ingredient }}
+                            </div>
+                        </div>
+                        <div class="product-htu-container">
+                            <input type="checkbox" name="" id="product-htu">
+                            <label for="product-htu">How to Use</label>
+                            <div class="product-htu-details">
+                                {{ product.metafields.custom.how_to_uses }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="d-md-none">
+    <div class="container">
+        <div class="review-container">
+            <p class="review-title">Review Highlight</p>
+            <div class="reviews">
+                <div class="rating">
+                    <img src="https://cdn.shopify.com/s/files/1/0673/6396/3172/files/Star_1.svg?v=1692598346" alt=""
+                        class="img-fluid">
+                    <img src="https://cdn.shopify.com/s/files/1/0673/6396/3172/files/Star_1.svg?v=1692598346" alt=""
+                        class="img-fluid">
+                    <img src="https://cdn.shopify.com/s/files/1/0673/6396/3172/files/Star_1.svg?v=1692598346" alt=""
+                        class="img-fluid">
+                    <img src="https://cdn.shopify.com/s/files/1/0673/6396/3172/files/Star_1.svg?v=1692598346" alt=""
+                        class="img-fluid">
+                    <img src="https://cdn.shopify.com/s/files/1/0673/6396/3172/files/Star_1.svg?v=1692598346" alt=""
+                        class="img-fluid">
+                </div>
+                <div class="review-text">"I got the same shade name as my normal Shape Tape (light
+                    medium) and it was a perfect match..."</div>
+                <div class="reviewer">Nikhil Bhatia (16/08/2023)</div>
+            </div>
+            <div class="view-more-reviews-container">
+                <a class="view-more-reviews" href="">View More <span><svg xmlns="http://www.w3.org/2000/svg" width="10"
+                            height="7" viewBox="0 0 10 7" fill="none">
+                            <path d="M1 1L5 5L9 1" stroke="#404184" stroke-width="1.5" stroke-linecap="round" />
+                        </svg></span></a>
+            </div>
+        </div>
+
+        <div class="product-more-details">
+            <div class="product-description-container">
+                <input type="checkbox" name="" id="m-product-description">
+                <label for="m-product-description">Description</label>
+                <div class="product-desription-details">
+                    {{ product.description }}
+                </div>
+            </div>
+            <div class="product-ingredients-container">
+                <input type="checkbox" name="" id="m-product-ingredients">
+                <label for="m-product-ingredients">Ingredients</label>
+                <div class="product-ingredients-details">
+                    {{ product.metafields.custom.ingredient }}sd
+                </div>
+            </div>
+            <div class="product-htu-container">
+                <input type="checkbox" name="" id="m-product-htu">
+                <label for="m-product-htu">How to Use</label>
+                <div class="product-htu-details">
+                    {{ product.metafields.custom.how_to_uses }}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{{ 'product.css' | asset_url | stylesheet_tag }}
+
+<script>
+    $('#pv-slider').slick({
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        asNavFor: '#pv-thumb-slider',
+        vertical: true,
+        infinite: false,
+        arrows: false,
+        focusOnSelect: true,
+        autoplay: false,
+        prevArrow: "<button type='button' class='slick-prev pull-left border-0'><i class='fa-solid fa-chevron-left' aria-hidden='true'></i></button>",
+        nextArrow: "<button type='button' class='slick-next pull-right border-0'><i class='fa-solid fa-chevron-right' aria-hidden='true'></i></button>"
+    });
+    $('#pv-thumb-slider').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        infinite: false,
+        arrows: false,
+        asNavFor: '#pv-slider',
+        focusOnSelect: true,
+        vertical: true,
+        verticalSwiping: true,
+    });
+
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", (event) => {
+        setInterval(liveViewsCounter, 120000);
+    });
+    const liveViewsCounter = () => {
+        let CurruntViews = Math.floor(Math.random() * (199 - 59 + 1)) + 59;
+        return $('.live-viewing-number').text(`${CurruntViews} People Are Viewing`);
+    }
+    liveViewsCounter();
+    var product_button = $('.add-to-bag-btn button');
+    jQuery(function () {
+        jQuery('.swatch :radio').change(function () {
+            var optionId = jQuery(this).attr('variantId'),
+                imagePosition = jQuery(this).attr('imagePosition'),
+                varInventory = jQuery(this).attr('varInventory'),
+                varPrice = jQuery(this).attr('varPrice'),
+                swatchIndex = jQuery(this).attr('boxIndex'),
+                optionValue = jQuery(this).val();
+            product_button.attr('data-product_id', optionValue);
+            if (varInventory == 0) {
+                product_button.text("Notify Me");
+                product_button.attr("disabled", true)
+            } else {
+                product_button.text("Add To Bag");
+                product_button.attr("disabled", false);
+            }
+            $('#pv-slider').on('init', function () {
+                // Now you can use slickGoTo
+                $('#pv-slider').slick('slickGoTo', 10);
+            });
+            //let discountedPercentage = Math.round(((swatch_details.compare_at_price - swatch_details.price) / swatch_details.compare_at_price) * 100);
+            // $(".b-product_price-value").text(`₹ ${
+            //   changeToCurrency(swatch_details.price)
+            // }`);
+            // $(".b-product_price-value.m-rackrate").text(`₹ ${
+            //   changeToCurrency(swatch_details.compare_at_price)
+            // }`);
+            // $("#get_percentage").text(discountedPercentage);
+            // if (swatch_details.compare_at_price > swatch_details.price) {
+            //   $('.b-product_price-value.m-rackrate').show();
+            //   $('#sale_badge').show();
+            // } else {
+            //   $('.b-product_price-value.m-rackrate').hide();
+            //   $('#sale_badge').hide();
+            // }
+            // if (document.querySelector(".b-product_size-label")) {
+            //   $(".b-product_size-label").text(`${
+            //     swatch_details.weight
+            //   } g`);
+            // }
+
+        });
+    });
+</script>
+
+<script>
+
+    //const fav = document.querySelectorAll(".fav");
+    //fav.forEach((elm) => {
+    //    elm.addEventListener("click", (e) => {
+    //        elm.classList.toggle("active-fav")
+    //    })
+    //})
+</script>
+{% schema %}
+{
+"name": "Product Meta",
+"settings": [
+{
+"type": "checkbox",
+"id": "limited_stocks",
+"label": "Show stock notification if low:",
+"default": true
+},
+{
+"type": "number",
+"id": "qty_tres",
+"label": "Stock Threshold Limit"
+}
+],
+"blocks": [
+{
+"type": "@app"
+}
+]
+}
+{% endschema %}

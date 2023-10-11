@@ -1,0 +1,110 @@
+<!-- Modal -->
+<div class="quick-view-slide-container" id="Quickview{{ product.id }}{{ sectionId }}">
+    <div class="quick-view-main-container">
+        <div class="hey-quick-view">
+            <div class="hey-quick-view-header border-0">
+                <h1 class="hey-quick-view-title text-center mb-0" id="staticBackdropLabel">{{ product.title }}</h1>
+                <button type="button" class="btn-close hey-quick-view-close close_overlay"></button>
+            </div>
+            <div class="hey-quick-view-images">
+                <div class="tns-slide">
+                    <ul class="controls desktop-screen" id="slides{{ product.id }}{{ sectionId }}">
+                        <li class="next d_cent">
+                            <button class="quick-prev-slide">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28"
+                                    fill="none">
+                                    <path d="M17.2148 7L10.2148 14L17.2148 21" stroke="#585858" stroke-width="2"
+                                        stroke-linecap="round" />
+                                </svg>
+                            </button>
+                        </li>
+                        <li class="prev d_cent">
+                            <button class="quick-next-slide">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28"
+                                    fill="none">
+                                    <path d="M10.7852 7L17.7852 14L10.7852 21" stroke="#585585" stroke-width="2"
+                                        stroke-linecap="round" />
+                                </svg>
+                            </button>
+                        </li>
+                    </ul>
+                    <div class="quick-view-slider" id="image_Slider{{ product.id }}{{ sectionId }}">
+                        {% for media in product.media %}
+                        {% if media.media_type == 'image' %}
+                        <div class="quick-view-slide">
+                            <img {% unless forloop.first %} loading="lazy" {% endunless %} src="{{ media | image_url }}" class="img-fluid asp34"
+                                alt="{{ product.title }}" title="{{ product.title }}" height="" width="">
+                        </div>
+                        {% else %}
+                        <div class="quick-view-slide">
+                            {{ media | video_tag: loop: true, muted: true, autoplay: true, class: 'd-block img-fluid
+                            asp34' }}
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="quick-view-details">
+                <div class="live-count d-flex align-items-center">
+                    <span><img
+                            src="https://cdn.shopify.com/s/files/1/1743/7443/files/33d72e41b1889e6e1bee4e76cf87b0e9.gif?v=1693810925"
+                            alt="" class="img-fluid" width="23px"></span>
+                    <p class="mb-0">79 people are viewing</p>
+                </div>
+                {% if product.available and product.variants.size > 1 %}
+                <div class="quick-view-current-shade">
+                    SHADE: <span>{{ product.selected_or_first_available_variant.title }}</span>
+                </div>
+                {% endif %}
+                <div class="quick-view-price d-flex">
+                    <span>
+                        {{ product.price | money_without_trailing_zeros }}
+                        {% if product.compare_at_price_max > product.price %}
+                        <span class="old-price">
+                            {{ product.compare_at_price_max | money_without_trailing_zeros -}}
+                        </span>
+                        <span class="discount">
+                            {{-
+                            product.compare_at_price_max
+                            | minus: product.price
+                            | times: 100.0
+                            | divided_by: product.compare_at_price_max
+                            | money_without_currency
+                            | times: 100
+                            | remove: '.0'
+                            -}}
+                            % Off
+                        </span>
+                        {% endif %}
+                    </span>
+                </div>
+                <div class="quick-view-shades d-flex flex-wrap">
+
+                    {% if product.available and product.variants.size > 1 %}
+                    {% render 'swatches'
+                    with 'Color' as swatch,
+                    class_variable: class_variable,
+                    product: product,
+                    indexIs: indexIs,
+                    showall:true
+                    %}
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="hey-quick-view-container">
+                <div class="add-to-bag-btn hey-quick-view-footer d_cent">
+                    <a href="{{ product.url }}" class="view-product-btn">VIEW PRODUCT details <span><svg
+                                xmlns="http://www.w3.org/2000/svg" width="6" height="10" viewBox="0 0 6 10" fill="none">
+                                <path d="M0.5 9.5L4.5 5L0.5 0.5" stroke="#404184" />
+                            </svg></span></a>
+
+                    <button type="button" class="add-quick-bag-btn rounded-pill"
+                        data-product_id="{{ product.selected_or_first_available_variant.id }}"
+                        data-product_quantity="1">Add to bag</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

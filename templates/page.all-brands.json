@@ -1,0 +1,428 @@
+{
+  "sections": {
+    "main": {
+      "type": "navbar",
+      "settings": {
+        "qsirguwfh": ""
+      }
+    },
+    "4d80da2c-646c-4db2-ae38-10d7cdf4f3ac": {
+      "type": "Brand-carousel",
+      "custom_css": [
+        ".banner-shadow,.brand-banner-media::after,.banner-shadow::after {background: #e3e5ff;}"
+      ],
+      "settings": {
+        "qsirguwfh": "HEY!",
+        "carousel_desk": "shopify:\/\/shop_images\/ORGANIC-SEPTEMBER-BANNER---Copy3_2000x_d7007ca7-0460-4a8b-b0e4-e4508a83f0cf.webp",
+        "carousel_mobile": "shopify:\/\/shop_images\/brand.gif"
+      }
+    },
+    "5c941553-d347-405b-a13e-2c60d6cc4d9f": {
+      "type": "talk-of-the-town",
+      "blocks": {
+        "9c774f6a-2578-49f8-9209-b5ed632c98ad": {
+          "type": "Image",
+          "settings": {
+            "brandimage": "shopify:\/\/shop_images\/bh.png",
+            "brandlogo": "shopify:\/\/shop_images\/BH-Cosmatic-white.svg",
+            "brandbgcolor": "#ff7373"
+          }
+        },
+        "4e2e54fc-175d-496b-b977-6fdd271fe184": {
+          "type": "Image",
+          "settings": {
+            "brandimage": "shopify:\/\/shop_images\/lamel.png",
+            "brandlogo": "shopify:\/\/shop_images\/footer-logo.png",
+            "brandbgcolor": "#ffcc73"
+          }
+        },
+        "d7e9ef40-6210-45fc-9aae-5f2b877ec88a": {
+          "type": "Image",
+          "settings": {
+            "brandimage": "shopify:\/\/shop_images\/milani_6ddfe4bf-9f48-47bf-b14c-4d317fee3f0a.png",
+            "brandlogo": "shopify:\/\/shop_images\/Milani_Logo.png",
+            "brandbgcolor": "#b2dfab"
+          }
+        },
+        "fe226aef-7978-47a3-899f-1d946ffb39b1": {
+          "type": "Image",
+          "settings": {
+            "brandimage": "shopify:\/\/shop_images\/lamel.png",
+            "brandlogo": "shopify:\/\/shop_images\/Logo.svg",
+            "brandbgcolor": "#acc9ec"
+          }
+        },
+        "493ea87c-487e-4f29-bcca-fa5889adad37": {
+          "type": "Image",
+          "settings": {
+            "brandimage": "shopify:\/\/shop_images\/bh.png",
+            "brandlogo": "shopify:\/\/shop_images\/logo_2_140x_f11071c9-b3c9-4d02-9525-a2f425bd1866.png",
+            "brandbgcolor": "#ff7373"
+          }
+        }
+      },
+      "block_order": [
+        "9c774f6a-2578-49f8-9209-b5ed632c98ad",
+        "4e2e54fc-175d-496b-b977-6fdd271fe184",
+        "d7e9ef40-6210-45fc-9aae-5f2b877ec88a",
+        "fe226aef-7978-47a3-899f-1d946ffb39b1",
+        "493ea87c-487e-4f29-bcca-fa5889adad37"
+      ],
+      "settings": {
+        "talkofthetowntitle": ""
+      }
+    },
+    "51c0896b-944e-455a-b72e-b8f6e4960856": {
+      "type": "Top_shelf",
+      "blocks": {
+        "7b81e4ed-0375-454f-a8e7-baba61d11c9c": {
+          "type": "Image",
+          "settings": {
+            "sdfsdfsdf": "",
+            "revdflkjgh": "shopify:\/\/shop_images\/bh.png",
+            "revdflkjgh_mobile": "shopify:\/\/shop_images\/bh.png",
+            "sfgsdgsdf": "",
+            "zxczxczx": ""
+          }
+        },
+        "b534e95b-7aa3-4e17-8b05-13d2328faf9b": {
+          "type": "Image",
+          "settings": {
+            "sdfsdfsdf": "",
+            "revdflkjgh": "shopify:\/\/shop_images\/lamel.png",
+            "revdflkjgh_mobile": "shopify:\/\/shop_images\/lamel.png",
+            "sfgsdgsdf": "",
+            "zxczxczx": ""
+          }
+        },
+        "3983b2de-099a-4675-9661-90e6c3860320": {
+          "type": "Image",
+          "settings": {
+            "sdfsdfsdf": "",
+            "revdflkjgh": "shopify:\/\/shop_images\/milani_6ddfe4bf-9f48-47bf-b14c-4d317fee3f0a.png",
+            "revdflkjgh_mobile": "shopify:\/\/shop_images\/milani_6ddfe4bf-9f48-47bf-b14c-4d317fee3f0a.png",
+            "sfgsdgsdf": "",
+            "zxczxczx": ""
+          }
+        },
+        "ae5ed097-e917-4aaf-8fda-326f8acc7ac8": {
+          "type": "Image",
+          "settings": {
+            "sdfsdfsdf": "",
+            "revdflkjgh": "shopify:\/\/shop_images\/bh.png",
+            "revdflkjgh_mobile": "shopify:\/\/shop_images\/bh.png",
+            "sfgsdgsdf": "",
+            "zxczxczx": ""
+          }
+        },
+        "7d76946f-2b43-4fa4-90b6-33abec199e43": {
+          "type": "Image",
+          "settings": {
+            "sdfsdfsdf": "",
+            "revdflkjgh": "shopify:\/\/shop_images\/milani_6ddfe4bf-9f48-47bf-b14c-4d317fee3f0a.png",
+            "revdflkjgh_mobile": "shopify:\/\/shop_images\/milani_6ddfe4bf-9f48-47bf-b14c-4d317fee3f0a.png",
+            "sfgsdgsdf": "",
+            "zxczxczx": ""
+          }
+        }
+      },
+      "block_order": [
+        "7b81e4ed-0375-454f-a8e7-baba61d11c9c",
+        "b534e95b-7aa3-4e17-8b05-13d2328faf9b",
+        "3983b2de-099a-4675-9661-90e6c3860320",
+        "ae5ed097-e917-4aaf-8fda-326f8acc7ac8",
+        "7d76946f-2b43-4fa4-90b6-33abec199e43"
+      ],
+      "disabled": true,
+      "custom_css": [
+        "#reviewstemplate21247050514724__51c0896b944e455ab72eb8f6e4960856:before {background: linear-gradient( 270deg, #ffe4ee 0%, rgba(255, 228, 238, 0) 100% ) !important;}"
+      ],
+      "settings": {
+        "main_heading": "Talk Of The Town"
+      }
+    },
+    "d87fb3cc-980e-4a7b-8ded-9796ee0e8e00": {
+      "type": "Brand-list",
+      "blocks": {
+        "db9b022d-8435-490c-8541-26c39bf27d98": {
+          "type": "Image",
+          "settings": {
+            "adasda": "shopify:\/\/shop_images\/lamel_c2134617-10f7-4974-9f29-6b9ff2c6c3c2.svg",
+            "adasda_mob": "shopify:\/\/shop_images\/lamel_c2134617-10f7-4974-9f29-6b9ff2c6c3c2.svg",
+            "jlk": "",
+            "bg_color_param": "#faedff"
+          }
+        },
+        "71d88f01-68f2-4b51-9ac4-71b790be8de7": {
+          "type": "Image",
+          "settings": {
+            "adasda": "shopify:\/\/shop_images\/revolution_2f087391-f5f4-4572-bbee-b437e92d0210.png",
+            "adasda_mob": "shopify:\/\/shop_images\/revolution_2f087391-f5f4-4572-bbee-b437e92d0210.png",
+            "jlk": "",
+            "bg_color_param": "#fff2f7"
+          }
+        },
+        "2973e25f-d9d7-41eb-af2e-2423b9d1c230": {
+          "type": "Image",
+          "settings": {
+            "adasda": "shopify:\/\/shop_images\/L.A-Girl.svg",
+            "adasda_mob": "shopify:\/\/shop_images\/L.A-Girl.svg",
+            "jlk": "",
+            "bg_color_param": "#f9f9f9"
+          }
+        },
+        "8c948d7a-77d8-4b38-8a7d-d4351960b639": {
+          "type": "Image",
+          "settings": {
+            "adasda": "shopify:\/\/shop_images\/Milani.svg",
+            "adasda_mob": "shopify:\/\/shop_images\/Milani.svg",
+            "jlk": "",
+            "bg_color_param": "#f6f6f6"
+          }
+        },
+        "8f8996c1-60a0-4b0b-a03d-119303fbe0d5": {
+          "type": "Image",
+          "settings": {
+            "adasda": "shopify:\/\/shop_images\/BH-Cosmatic_adfcdfd2-84d4-4cc1-a337-2e2a65e4c5ae.svg",
+            "adasda_mob": "shopify:\/\/shop_images\/BH-Cosmatic_adfcdfd2-84d4-4cc1-a337-2e2a65e4c5ae.svg",
+            "jlk": "",
+            "bg_color_param": "#e9fff5"
+          }
+        },
+        "04c08cf9-a2a5-4237-91f7-e2d79f7d861e": {
+          "type": "Image",
+          "settings": {
+            "adasda": "shopify:\/\/shop_images\/wet-n-wild.svg",
+            "adasda_mob": "shopify:\/\/shop_images\/wet-n-wild.svg",
+            "jlk": "",
+            "bg_color_param": "#fff9dc"
+          }
+        },
+        "539469e4-54b3-4942-9a97-cab7e356b95f": {
+          "type": "Image",
+          "settings": {
+            "adasda": "shopify:\/\/shop_images\/Pigment-Play.svg",
+            "adasda_mob": "shopify:\/\/shop_images\/Pigment-Play.svg",
+            "jlk": "",
+            "bg_color_param": "#f6f6f6"
+          }
+        },
+        "cdefc7e1-431b-4092-a5aa-805bc6965102": {
+          "type": "Image",
+          "settings": {
+            "adasda": "shopify:\/\/shop_images\/lord.png",
+            "adasda_mob": "shopify:\/\/shop_images\/lord.png",
+            "jlk": "",
+            "bg_color_param": "#f3f3ff"
+          }
+        },
+        "6eed112b-805a-427c-b051-37d257920bc0": {
+          "type": "Image",
+          "settings": {
+            "adasda": "shopify:\/\/shop_images\/relove.png",
+            "adasda_mob": "shopify:\/\/shop_images\/relove.png",
+            "jlk": "",
+            "bg_color_param": "#fff2f7"
+          }
+        },
+        "86cb320e-2cc6-406c-9179-e3a40465f59e": {
+          "type": "Image",
+          "settings": {
+            "adasda": "shopify:\/\/shop_images\/colors_0520f11d-492f-4567-b029-ea5fbdc6f0e4.png",
+            "adasda_mob": "shopify:\/\/shop_images\/colors_0520f11d-492f-4567-b029-ea5fbdc6f0e4.png",
+            "jlk": "",
+            "bg_color_param": "#f9f9f9"
+          }
+        },
+        "88b47c9d-d630-44f4-8858-fb25298cc36f": {
+          "type": "Image",
+          "settings": {
+            "adasda": "shopify:\/\/shop_images\/lip-smacker.png",
+            "adasda_mob": "shopify:\/\/shop_images\/lip-smacker.png",
+            "jlk": "",
+            "bg_color_param": "#f6f6f6"
+          }
+        },
+        "3b81138f-6c28-4c7f-b5bc-b343fdcbcd01": {
+          "type": "Image",
+          "settings": {
+            "adasda": "shopify:\/\/shop_images\/Eveline.svg",
+            "adasda_mob": "shopify:\/\/shop_images\/Eveline.svg",
+            "jlk": "",
+            "bg_color_param": "#e9fff5"
+          }
+        },
+        "357b1368-dcb7-49f1-a13c-8d1f1da92f57": {
+          "type": "Image",
+          "settings": {
+            "adasda": "shopify:\/\/shop_images\/Physician_Formula.svg",
+            "adasda_mob": "shopify:\/\/shop_images\/Physician_Formula.svg",
+            "jlk": "",
+            "bg_color_param": "#faedff"
+          }
+        },
+        "a8020649-11a9-4a0f-9de9-5e8e88766588": {
+          "type": "Image",
+          "settings": {
+            "adasda": "shopify:\/\/shop_images\/revolution_skin.png",
+            "adasda_mob": "shopify:\/\/shop_images\/revolution_skin.png",
+            "jlk": "",
+            "bg_color_param": "#fff9dc"
+          }
+        },
+        "d37b14aa-ed2e-4565-8fa9-1510c304deca": {
+          "type": "Image",
+          "settings": {
+            "adasda": "shopify:\/\/shop_images\/nickak.png",
+            "adasda_mob": "shopify:\/\/shop_images\/nickak.png",
+            "jlk": "",
+            "bg_color_param": "#f9f9f9"
+          }
+        },
+        "77cf8653-9018-4030-b905-efb508ea4498": {
+          "type": "Image",
+          "settings": {
+            "adasda": "shopify:\/\/shop_images\/xx-revolution.png",
+            "adasda_mob": "shopify:\/\/shop_images\/xx-revolution.png",
+            "jlk": "",
+            "bg_color_param": "#f6f6f6"
+          }
+        },
+        "4bc364e2-6b66-465c-88b3-05bd0d110cee": {
+          "type": "Image",
+          "settings": {
+            "adasda": "shopify:\/\/shop_images\/i_love_revolution.png",
+            "adasda_mob": "shopify:\/\/shop_images\/i_love_revolution.png",
+            "jlk": "",
+            "bg_color_param": "#fff2f7"
+          }
+        },
+        "f6152942-7b5c-43b8-b145-6961938b3e94": {
+          "type": "Image",
+          "settings": {
+            "adasda": "shopify:\/\/shop_images\/revolution-pro.png",
+            "adasda_mob": "shopify:\/\/shop_images\/revolution-pro.png",
+            "jlk": "",
+            "bg_color_param": "#f3f3ff"
+          }
+        },
+        "74680b59-a35a-4881-b200-d1663cd0729e": {
+          "type": "Image",
+          "settings": {
+            "adasda": "shopify:\/\/shop_images\/Organic_Works.svg",
+            "adasda_mob": "shopify:\/\/shop_images\/Organic_Works.svg",
+            "jlk": "",
+            "bg_color_param": "#e9fff5"
+          }
+        },
+        "7b363300-8ce1-4631-a2cf-46e3cecc33e7": {
+          "type": "Image",
+          "settings": {
+            "adasda": "shopify:\/\/shop_images\/revolution-man.png",
+            "adasda_mob": "shopify:\/\/shop_images\/revolution-man.png",
+            "jlk": "",
+            "bg_color_param": "#f6f6f6"
+          }
+        },
+        "b0531739-27b0-4c89-863d-b3874e3daad3": {
+          "type": "Image",
+          "settings": {
+            "adasda": "shopify:\/\/shop_images\/derma-f.png",
+            "adasda_mob": "shopify:\/\/shop_images\/derma-f.png",
+            "jlk": "",
+            "bg_color_param": "#ffffff"
+          }
+        },
+        "dec02175-06b2-499f-a8ea-3448cbb63ed2": {
+          "type": "Image",
+          "settings": {
+            "adasda": "shopify:\/\/shop_images\/makeup-obsession.png",
+            "adasda_mob": "shopify:\/\/shop_images\/makeup-obsession.png",
+            "jlk": "",
+            "bg_color_param": "#faedff"
+          }
+        },
+        "247fc6fb-3239-4f12-96c2-58ec55e3075f": {
+          "type": "Image",
+          "settings": {
+            "adasda": "shopify:\/\/shop_images\/revolution-hair.png",
+            "adasda_mob": "shopify:\/\/shop_images\/revolution-hair.png",
+            "jlk": "",
+            "bg_color_param": "#fff9dc"
+          }
+        },
+        "48d7a169-cfac-4c11-be41-31fd0b7ab4ad": {
+          "type": "Image",
+          "settings": {
+            "adasda": "shopify:\/\/shop_images\/Koric.svg",
+            "adasda_mob": "shopify:\/\/shop_images\/Koric.svg",
+            "jlk": "",
+            "bg_color_param": "#fff2f7"
+          }
+        },
+        "c7fb2a49-7194-4090-9e92-fd6a70187f01": {
+          "type": "Image",
+          "settings": {
+            "adasda": "shopify:\/\/shop_images\/sbjjaksbc.png",
+            "adasda_mob": "shopify:\/\/shop_images\/sbjjaksbc.png",
+            "jlk": "",
+            "bg_color_param": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "db9b022d-8435-490c-8541-26c39bf27d98",
+        "71d88f01-68f2-4b51-9ac4-71b790be8de7",
+        "2973e25f-d9d7-41eb-af2e-2423b9d1c230",
+        "8c948d7a-77d8-4b38-8a7d-d4351960b639",
+        "8f8996c1-60a0-4b0b-a03d-119303fbe0d5",
+        "04c08cf9-a2a5-4237-91f7-e2d79f7d861e",
+        "539469e4-54b3-4942-9a97-cab7e356b95f",
+        "cdefc7e1-431b-4092-a5aa-805bc6965102",
+        "6eed112b-805a-427c-b051-37d257920bc0",
+        "86cb320e-2cc6-406c-9179-e3a40465f59e",
+        "88b47c9d-d630-44f4-8858-fb25298cc36f",
+        "3b81138f-6c28-4c7f-b5bc-b343fdcbcd01",
+        "357b1368-dcb7-49f1-a13c-8d1f1da92f57",
+        "a8020649-11a9-4a0f-9de9-5e8e88766588",
+        "d37b14aa-ed2e-4565-8fa9-1510c304deca",
+        "77cf8653-9018-4030-b905-efb508ea4498",
+        "4bc364e2-6b66-465c-88b3-05bd0d110cee",
+        "f6152942-7b5c-43b8-b145-6961938b3e94",
+        "74680b59-a35a-4881-b200-d1663cd0729e",
+        "7b363300-8ce1-4631-a2cf-46e3cecc33e7",
+        "b0531739-27b0-4c89-863d-b3874e3daad3",
+        "dec02175-06b2-499f-a8ea-3448cbb63ed2",
+        "247fc6fb-3239-4f12-96c2-58ec55e3075f",
+        "48d7a169-cfac-4c11-be41-31fd0b7ab4ad",
+        "c7fb2a49-7194-4090-9e92-fd6a70187f01"
+      ],
+      "settings": {
+        "qsirguwfh": "Talk of the town",
+        "below_img": "shopify:\/\/shop_images\/FruitFetishLipOils_Bundle_Desktop_Header_2160x_6efce9d9-7192-4562-a33a-3a0dcc82ceca.gif",
+        "below_img_mobile": "shopify:\/\/shop_images\/Lips_1.png"
+      }
+    },
+    "169684680293c0fd1c": {
+      "type": "apps",
+      "blocks": {
+        "6ea99b7d-c8b5-4b17-8a7a-d8932a222862": {
+          "type": "shopify:\/\/apps\/instagram-feed-instafeed-reel\/blocks\/app-block\/37be8af8-61d9-482d-a6b3-0b1be143eaf2",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "6ea99b7d-c8b5-4b17-8a7a-d8932a222862"
+      ],
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "4d80da2c-646c-4db2-ae38-10d7cdf4f3ac",
+    "5c941553-d347-405b-a13e-2c60d6cc4d9f",
+    "51c0896b-944e-455a-b72e-b8f6e4960856",
+    "d87fb3cc-980e-4a7b-8ded-9796ee0e8e00",
+    "169684680293c0fd1c"
+  ]
+}

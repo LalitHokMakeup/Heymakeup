@@ -1,0 +1,225 @@
+{% assign hkjh = section.id | remove: '--' %}
+{% assign splicesectionId = section.id | remove: '-' | slice: 25, 33 %}
+<div class="container" id="flow">
+    <section>
+        <div class="container pt-5">
+            <div class="row gx-5 collection-slider-container">
+                <div class="col-12 col-lg-6 ">
+                    <img loading="lazy" src="{{ section.settings.sdfsdf | image_url }}" alt="exclusive-image"
+                        class="img-fluid collection-gif w-100">
+                </div>
+
+                <div class="col-12 col-lg-6">
+                    <div class="collection-title-container">
+                        <p class="lable">{{ section.settings.skjdfhasdjk }}</p>
+                        <p class="collection-title">{{ section.settings.jkfghkfghlk }}</p>
+                    </div>
+
+                    <div class="collection-slider ">
+                        <p class="mb-0 d-flex align-items-center" style="gap:8px;">
+                            Discover More
+                            <span class="material-symbols-outlined ">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="7" height="10" viewBox="0 0 7 10"
+                                    fill="none">
+                                    <path d="M1 9.5L5.5 5L1 0.5" stroke="#393939" stroke-width="1.2" />
+                                </svg>
+                            </span>
+                        </p>
+                        {% comment %} Collection products Starts {% endcomment %}
+                        <div class="tns-slide position-relative">
+                            <div class="{{ hkjh }}" id="{{ hkjh }}">
+                                {% for product in collections[section.settings.home_featured_products].products limit: 6
+                                %}
+                                <div class="slider-item">
+                                    {% render 'main_product_cards' product:product , sectionId: splicesectionId
+                                    ,card_margin:false ,show_button:false %}
+                                </div>
+                                {% endfor %}
+                            </div>
+                            <ul class="controls desktop-screen" id="{{ hkjh  | remove:'-'  }}">
+                                <li class="next d_cent">
+                                    <i class="fa-solid fa-chevron-left"></i>
+                                </li>
+                                <li class="prev d_cent">
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<style>
+    .collection-slider-container {
+        padding: 40px 0;
+        overflow: hidden;
+        border-radius: 8px;
+        position: relative;
+        z-index: 1;
+    }
+
+    .collection-slider-container::before {
+        content: ' ';
+        top: 0;
+        left: 118px;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        z-index: -10;
+        border-radius: 8px;
+    }
+
+    .collection-slider-container .collection-gif {
+        width: 610px;
+        height: 595px;
+        -o-object-fit: cover;
+        object-fit: cover;
+        border-radius: 6px;
+    }
+
+    .collection-slider-container .collection-title-container .lable {
+        color: #373737;
+        font-family: Poppins;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 300;
+        line-height: 40px;
+        margin-bottom: 0;
+    }
+
+    .collection-slider-container .collection-title-container .collection-title {
+        color: #373737;
+        font-family: Poppins;
+        font-size: 32px;
+        font-style: italic;
+        font-weight: 500;
+        line-height: 40px;
+    }
+
+    .collection-slider-container .collection-slider {
+        position: relative;
+    }
+
+    @media screen and (max-width: 992px) {
+        .collection-slider-container {
+            padding: 12px 0;
+            display: flex;
+        }
+
+        .collection-slider-container::before {
+            content: ' ';
+            top: 118px;
+            left: 0;
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            z-index: -10;
+            border-radius: 8px;
+        }
+    }
+
+    @media screen and (max-width: 576px) {
+        .collection-slider-container .collection-title-container .collection-title {
+            font-size: 21px;
+            font-style: normal;
+
+        }
+
+        .collection-slider-container {
+            padding: 12px 0;
+            display: flex;
+        }
+
+        .collection-slider-container::before {
+            content: ' ';
+            top: 118px;
+            left: 0;
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            z-index: -10;
+            border-radius: 8px;
+        }
+
+        .collection-slider-container .collection-gif {
+            width: 366px;
+            height: 366px;
+        }
+    }
+</style>
+<script>
+    var exclusive_slider = tns({
+        container: '.{{ hkjh }}',
+        items: 2.5,
+        gutter: 40,
+        slideBy: 1,
+        loop: false,
+        controlsPosition: 'bottom',
+        navPosition: 'bottom',
+        mouseDrag: true,
+        swipeAngle: false,
+        nav: false,
+        controls: true,
+        autoplay: false,
+        autoplayButtonOutput: false,
+        controlsContainer: '#{{ hkjh  | remove:"-"  }}',
+        responsive: {
+            0: {
+                items: 2,
+                nav: false,
+                gutter: 16
+            },
+            768: {
+                items: 2.5,
+                nav: false,
+                gutter: 16
+            },
+            1920: {
+                items: 2.5
+            },
+        },
+    });
+</script>
+{% schema %}
+{
+"name": "Brand Spotlight 2",
+"settings": [
+{
+"type": "text",
+"id": "skjdfhasdjk",
+"label": "Add Your Heading Text"
+},
+{
+"type": "text",
+"id": "jkfghkfghlk",
+"label": "Add Your Sub Heading Text"
+},
+{
+"type": "collection",
+"id": "home_featured_products",
+"label": "Collection"
+},
+{
+"type": "image_picker",
+"id": "sdfsdf",
+"label": "Add Main Image"
+}
+],
+"blocks": [
+{
+"type": "@app"
+}
+],
+
+"presets": [
+{
+"name": "Brand Spotlight 2"
+}
+]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}

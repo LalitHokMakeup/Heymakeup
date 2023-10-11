@@ -1,0 +1,101 @@
+<section>
+    <div class="container limelight-container">
+        <p class="deals_txt">{{ section.settings.qsirguwfh }}</p>
+        <div class="limelight-card-container" id="main{{ section.id | remove:'-' }}">
+            {% for block in section.blocks %}
+            <div class="slider-item">
+                <div class="limelight-card">
+                    <div class="limelight-image-container">
+                        <img src="{{ block.settings.threeddd | image_url }}" alt="limelight-image{{ forloop.index }}"
+                            class="limelight-image" loading="lazy">
+                        <img src="{{ block.settings.wikdfytasidf | image_url }}"
+                            alt="limelight-image{{ forloop.index0 }}" class="limelight-gif" loading="lazy">
+                    </div>
+                    <div class="limelight-details">
+                        <p>{{ block.settings.weuofryhwei }}</p>
+                        <a href="{{ block.settings.threedlink }}">
+                            SHOP NOW
+                            <svg xmlns="http://www.w3.org/2000/svg" width="7" height="12" viewBox="0 0 7 12"
+                                fill="none">
+                                <path d="M1 10.5L5.5 6L1 1.5" stroke="#393939" stroke-width="1.5" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<script>
+    var slider{{ section.id | remove: "-" }} = tns({
+        container: '#main{{ section.id | remove:"-"  }}',
+        "items": 1,
+        "gutter": 10,
+        "mouseDrag": true,
+        "swipeAngle": true,
+        "controls": false,
+        "speed": 400,
+        "nav": false,
+        "preventScrollOnTouch": "auto",
+
+        responsive: {
+            0: {
+                items: 1.2
+            },
+            768: {
+                items: 1.2
+            },
+            992: {
+                items: 3
+            }
+        }
+
+    });
+</script>
+{% schema %}
+{
+"name": "Limelight",
+"settings": [
+{
+"type": "text",
+"id": "qsirguwfh",
+"label": "Add Your Heading Here"
+}
+],
+"blocks": [
+{
+"name": "Image With Text",
+"type": "Image",
+"settings": [
+{
+"type": "url",
+"id": "threedlink",
+"label": "Add Url"
+},
+{
+"type": "image_picker",
+"id": "threeddd",
+"label": "Add Your Image Here"
+},
+{
+"type": "image_picker",
+"id": "wikdfytasidf",
+"label": "Add Your Image Gif Here"
+},
+{
+"type": "richtext",
+"id": "weuofryhwei",
+"label": "Add Your Image Text Here"
+}
+]
+}
+],
+
+"presets": [
+{
+"name": "Limelight"
+}
+]
+}
+{% endschema %}

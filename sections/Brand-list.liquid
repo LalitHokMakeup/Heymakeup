@@ -1,0 +1,142 @@
+<section>
+    <div class="container our-brands-container">
+        <p class="brand-section-title mb-0">{{ section.settings.qsirguwfh }}</p>
+        <div class="brands-logo-container">
+            {% for block in section.blocks %}
+            <div class="brands-logo" style="background-color:{{ block.settings.bg_color_param }};">
+                <a href="{{ block.settings.jlk }}">
+                    <img src="{{ block.settings.adasda | image_url }}" alt="Brands Logo {{ forloop.index }}"
+                        class="img-fluid desktop-screen">
+                    <img src="{{ block.settings.adasda_mob | image_url }}" alt="Brands Logo {{ forloop.index }}"
+                        class="img-fluid mobile-screen">
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<section>
+    <div class="container my-5">
+        <img src="{{ section.settings.below_img | image_url }}" alt="Brand Images" class="img-fluid desktop-screen">
+        <img src="{{ section.settings.below_img_mobile | image_url }}" alt="Brand Images Mobile"
+            class="img-fluid mobile-screen">
+    </div>
+</section>
+<style>
+    /* our brands section ================================================================================================== */
+
+    .brands-logo-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, 300px);
+        justify-content: center;
+        gap: 32px;
+        max-height: 560px;
+        overflow-y: auto;
+        /* border: 1px solid black; */
+    }
+
+    .brands-logo-container::-webkit-scrollbar {
+        appearance: none;
+        display: none;
+    }
+
+    .brands-logo {
+        height: 160px;
+        padding: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+    }
+
+    .brands-logo img {
+        transition: 0.3s;
+    }
+
+    .brands-logo:hover img {
+        transform: scale(1.2);
+    }
+
+    .brand-section-title {
+        color: #393939;
+        font-family: Poppins;
+        font-size: 28px;
+        text-align: center;
+        font-weight: 500;
+        line-height: 32px;
+        padding: 32px;
+        text-transform: capitalize;
+    }
+
+
+    @media only screen and (max-width:576px) {
+        .brands-logo-container {
+            grid-template-columns: repeat(auto-fit, 170px);
+            gap: 12px;
+            max-height: 420px;
+        }
+
+        .brands-logo {
+            height: 95px;
+            padding: 32px;
+        }
+
+    }
+</style>
+{% schema %}
+{
+"name": "Brands Grid",
+"settings": [
+{
+"type": "text",
+"id": "qsirguwfh",
+"label": "Add Your Heading Here"
+},
+{
+"type": "image_picker",
+"id": "below_img",
+"label": "Main Brand Desktop"
+},
+{
+"type": "image_picker",
+"id": "below_img_mobile",
+"label": "Main Brand Mobile"
+}
+],
+"blocks": [
+{
+"name": "Image With Text",
+"type": "Image",
+"settings": [
+{
+"type": "image_picker",
+"id": "adasda",
+"label": "Add Your Mobile Image Here"
+},
+{
+"type": "image_picker",
+"id": "adasda_mob",
+"label": "Add Your Image Here"
+},
+{
+"type": "url",
+"id": "jlk",
+"label": "Add Your Link Here"
+},
+{
+"type": "color",
+"id": "bg_color_param",
+"label": "Add Your Background Color Here",
+"default":"#acc9ec"
+}
+]
+}
+],
+
+"presets": [
+{
+"name": "Brands Grid"
+}
+]
+}
+{% endschema %}

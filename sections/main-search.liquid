@@ -241,34 +241,34 @@ assign splicesectionId = section.id | remove: '-' | slice: 25, 33
 <!-- products section -->
 <section>
     <div class="container">
-        {% paginate search.results by 21 %}
+      
         <div class="row mx-auto" id="grid-loader">
             {% for product in search.results %}
             <div class="col-6 col-md-4 col-lg-3">
                 {% render 'main_product_cards' product:product , sectionId: splicesectionId
                 ,card_margin:false,show_button:true %}
                 {% render 'quick_shades' product:product , sectionId: splicesectionId %}
-            </div>
-            {% else %}
-            <p>no matches</p>
+                </div>
+                {% else %}
+                <p>no matches</p>
             {% endfor %}
-        </div>
-        {% if paginate.pages > 1 %}
-
-        <input type="hidden" value="{{ paginate.next.url }}" data-next-link>
-        <input type="hidden" value="{{ paginate.pages }}" data-all-pages>
-        <input type="hidden" value="{{ paginate.current_page }}" data-this-page>
-        <input type="hidden" value="{{ search.terms | escape }}" data-coll-url>
-        <div class="l-plp-product_grid_footer">
-            <div class="itemsghf"> {{ paginate.current_page | times: paginate.page_size }} / {{ paginate.items }}</div>
-            <button class="b-button_2 js-load-more">Load More</button>
-
-            <input type="hidden" class="permalink" value="#">
-            <input type="hidden" class="category-id" value="makeup">
-        </div>
-        {% render 'skeleton' %}
-        {% endif %}
-        {% endpaginate %}
+            </div>
+            {% if paginate.pages > 1 %}
+                
+                <input type="hidden" value="{{ paginate.next.url }}" data-next-link>
+                <input type="hidden" value="{{ paginate.pages }}" data-all-pages>
+                <input type="hidden" value="{{ paginate.current_page }}" data-this-page>
+                <input type="hidden" value="{{ search.terms | escape }}" data-coll-url>
+                <div class="l-plp-product_grid_footer">
+                    <div class="itemsghf"> {{ paginate.current_page | times: paginate.page_size }} / {{ paginate.items }}</div>
+                    <button class="b-button_2 js-load-more">Load More</button>
+                    
+                    <input type="hidden" class="permalink" value="#">
+                    <input type="hidden" class="category-id" value="makeup">
+                    </div>
+                    {% render 'skeleton' %}
+                {% endif %}
+            {% comment %} {% paginate search.results by 21 %} {% endpaginate %} {% endcomment %}
 
     </div>
 </section>

@@ -1,4 +1,5 @@
 <!-- Modal -->
+{% assign first_variant = product.selected_or_first_available_variant %}
 <div class="quick-view-slide-container" id="Quickview{{ product.id }}{{ sectionId }}">
     <div class="quick-view-main-container">
         <div class="hey-quick-view">
@@ -50,33 +51,35 @@
                     <span><img
                             src="https://cdn.shopify.com/s/files/1/1743/7443/files/33d72e41b1889e6e1bee4e76cf87b0e9.gif?v=1693810925"
                             alt="" class="img-fluid" width="23px"></span>
-                    <p class="mb-0">79 people are viewing</p>
+                    <p class="mb-0">{{ "now" | date: "%N" | modulo: 199 | plus: 59 }} people are viewing</p>
                 </div>
                 {% if product.available and product.variants.size > 1 %}
                 <div class="quick-view-current-shade">
-                    SHADE: <span>{{ product.selected_or_first_available_variant.title }}</span>
+                    SHADE: <span>{{ first_variant.title }}</span>
                 </div>
                 {% endif %}
                 <div class="quick-view-price d-flex">
                     <span>
-                        {{ product.price | money_without_trailing_zeros }}
-                        {% if product.compare_at_price_max > product.price %}
+                        <span class="selling-price">{{ first_variant.price | money_without_trailing_zeros }}</span>
                         <span class="old-price">
-                            {{ product.compare_at_price_max | money_without_trailing_zeros -}}
+                            {% if first_variant.compare_at_price > first_variant.price %}
+                            {{ first_variant.compare_at_price | money_without_trailing_zeros -}}
+                        {% endif %}
                         </span>
                         <span class="discount">
+                            {% if first_variant.compare_at_price > first_variant.price %}
                             {{-
-                            product.compare_at_price_max
-                            | minus: product.price
+                            first_variant.compare_at_price
+                            | minus: first_variant.price
                             | times: 100.0
-                            | divided_by: product.compare_at_price_max
+                            | divided_by: first_variant.compare_at_price
                             | money_without_currency
                             | times: 100
                             | remove: '.0'
                             -}}
                             % Off
-                        </span>
                         {% endif %}
+                        </span>
                     </span>
                 </div>
                 <div class="quick-view-shades d-flex flex-wrap">
@@ -101,7 +104,7 @@
                             </svg></span></a>
 
                     <button type="button" class="add-quick-bag-btn rounded-pill"
-                        data-product_id="{{ product.selected_or_first_available_variant.id }}"
+                        data-product_id="{{ first_variant.id }}"
                         data-product_quantity="1">Add to bag</button>
                 </div>
             </div>

@@ -11,7 +11,8 @@ btn_backToTop.on("click", function (e) {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
 $(".add-to-bag-btn button").on("click",async function () {
-  var productId = $(this).data("product_id");
+  debugger;
+  var productId = $(this).attr('data-product_id');
   var productQuantity = $(this).data("product_quantity");
   $(this).text('Adding To Bag...');
   await reUseCart("/cart/add.js", productId, productQuantity);
@@ -21,6 +22,7 @@ $(".add-to-bag-btn button").on("click",async function () {
 
 // Put your application javascript here
 const reUseCart = async (method, varId, qty) => {
+  debugger;
   await axios
     .post(method, {
       id: varId,
@@ -49,15 +51,18 @@ $(".close_overlay").on("click", function () {
   $('.account-auth-container').removeClass('toggle-account-container');
   $('.overlay-container').removeClass('overlay-open');
 });
-
+var feedbackSlider; // Declare feedbackSlider in a higher scope
+let quickTogglebtnId;
+let quicksecnId 
 function initializeQuickViewSlider() {
   $('div[data-quickviewslide="open"]').on("click", function () {
-    let quickTogglebtnId = $(this).attr("data-quickviewID");
-    let quicksecnId = $(this).attr("data-sectionID");
+    quickTogglebtnId = $(this).attr("data-quickviewID");
+    quicksecnId = $(this).attr("data-sectionID");
     let sliders = `#image_Slider${quickTogglebtnId}${quicksecnId}`;
     $(`#Quickview${quickTogglebtnId}${quicksecnId}`).addClass("quick-view-slide-open");
     $(".quickview-overlay").addClass("quickview-overlay-open");
-    var feedbackSlider = tns({
+     $(`#Quickview${quickTogglebtnId}${quicksecnId}`).find(".swatch_available:first").attr('checked','true');
+    feedbackSlider = tns({
       container: sliders,
       items: 2,
       gutter: 8,
@@ -83,11 +88,35 @@ function initializeQuickViewSlider() {
       },
     });
   });
+
   $('.swatch_param :radio').change(function () {
-    var optionValue = $(this).val();
-    $(this).closest('.quick-view-main-container').find('.add-quick-bag-btn').attr('data-product_id', optionValue);
+    var optionValue = $(this).val(),
+     imagePosition = Number($(this).attr('imagePosition')),
+     variantName = jQuery(this).attr('variantid'),
+     varientPrice = parseInt(jQuery(this).attr('varientPrice')),
+     rackPrice = parseInt(jQuery(this).attr('rackPrice')),
+     discountedPercentage = Math.round(((rackPrice - varientPrice) / rackPrice) * 100),
+     main_container = $(this).closest('.quick-view-main-container');
+      // Add a fadeIn animation
+      $(`#image_Slider${quickTogglebtnId}${quicksecnId}`).fadeOut(100, function () {
+        feedbackSlider.goTo(imagePosition - 1);
+        $(`#image_Slider${quickTogglebtnId}${quicksecnId}`).fadeIn(100);
+      });
+      main_container.find('.quick-view-current-shade span').text(variantName);
+      main_container.find('.add-quick-bag-btn').attr('data-product_id', optionValue);
+      main_container.find('.quick-view-price .selling-price').text(`Rs. ${varientPrice}`);
+      if(rackPrice > varientPrice){
+        main_container.find('.quick-view-price .old-price').text(`Rs. ${rackPrice}`);
+        main_container.find('.quick-view-price .discount').text(`${discountedPercentage}% Off`);
+        main_container.find('.quick-view-price .old-price').show();
+        main_container.find('.quick-view-price .discount').show();
+     }else{
+        main_container.find('.quick-view-price .old-price').hide();
+        main_container.find('.quick-view-price .discount').hide();
+     }
   });
 }
+
 initializeQuickViewSlider();
 
 $(".quick-view-shade input").each((index, shade) => {

@@ -32,7 +32,7 @@
     </p>
 </div>
 {% else %}
-<div class="swatch swatch_param clearfix" data-option-index="{{ indexIs }}">
+<div class="swatch swatch_param clearfix" data-option-index="{{ forloop.index0 }}">
     {% assign values = '' %}
     {%- assign first_variant = product.selected_or_first_available_variant -%}
     {% for variant in product.variants limit: swatch_limit %}
@@ -43,23 +43,23 @@
     {% assign values = values | split: ',' %}
     <div data-value="{{ value | escape }}"
         class="swatch-element {% if is_color %}color {% endif %}{{ value | handle }}">
-        <input id="swatch-{{ indexIs }}-{{ value | handle }}"  index="{{ indexIs }}" type="radio"
-            name="id" variantId="{{ value | handle }}" value="{{  variant.id }}" {% if first_variant %} checked {% endif %} {% unless variant.available
-            %}disabled{% endunless %} />
+        <input id="swatch-{{ forloop.index0 }}-{{ value | handle }}" {% if variant.available %} class="swatch_available"{% endif %} index="{{ forloop.index0 }}" type="radio" imagePosition="{{ variant.featured_media.position | plus:if_video }}" 
+        varientPrice="{{ variant.price | money_without_currency }}" rackPrice="{{ variant.compare_at_price | money_without_currency }}"
+            name="id" variantId="{{ value | handle }}" value="{{  variant.id }}" {% unless variant.available %}disabled{% endunless %} />
         {% if is_color %}
-        <label loading="lazy" for="swatch-{{ indexIs }}-{{ value | handle }}"
+        <label loading="lazy" for="swatch-{{ forloop.index0 }}-{{ value | handle }}"
             class="{% if variant.available %}available{% else %}b-swatch_colors-item m-disabled{% endif %}" style="{% if product.variants[forloop.index0].metafields.custom.colour != blank %}
         background-color:{{ product.variants[forloop.index0].metafields.custom.colour }} !important;
        {% else %}
-background-image: url('{% if product.variants[forloop.index0].metafields.custom.image != blank %}{{-
-product.variants[forloop.index0].metafields.custom.image | img_url: 'master' -}} {% else %}{{ variant.featured_image |
-img_url: 'master' }}{% endif %}');
-background-size: contain; 
+        background-image: url('{% if product.variants[forloop.index0].metafields.custom.image != blank %}{{-
+        product.variants[forloop.index0].metafields.custom.image | img_url: 'master' -}} {% else %}{{ variant.featured_image |
+        img_url: 'master' }}{% endif %}');
+        background-size: contain; 
         {% endif %}">
 
         </label>
         {% else %}
-        <label for="swatch-{{ indexIs }}-{{ value | handle }}">
+        <label for="swatch-{{ forloop.index0 }}-{{ value | handle }}">
             {{ value }}
         </label>
         {% endif %}
@@ -67,7 +67,7 @@ background-size: contain;
     {% endunless %}
     {% if variant.available %}
     <script>
-        jQuery('.swatch[data-option-index="{{ indexIs }}"] .{{ value | handle }}').removeClass('soldout').addClass('available').find(':radio').removeAttr('disabled');
+        jQuery('.swatch[data-option-index="{{ forloop.index0 }}"] .{{ value | handle }}').removeClass('soldout').addClass('available').find(':radio').removeAttr('disabled');
     </script>
     {% endif %}
     {% endfor %}

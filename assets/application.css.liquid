@@ -547,6 +547,7 @@ section.banner-container {
   .product-card .product-details .product-title {
     font-size: 12px;
     line-height: 16px;
+    height: 30px;
   }
 
   .product-card .product-details .rating {
@@ -1579,7 +1580,7 @@ li.subLinks.active,
 }
 
 .search {
-  text-align: center;
+  text-align: left;
   position: relative;
 }
 
@@ -1588,8 +1589,9 @@ li.subLinks.active,
   border: 0;
   border-bottom: 1px solid #C0C0C0;
   color: #9b9b9b;
-  padding: 16px 24px;
+  padding: 1rem 0;
   width: 20vw;
+  height: 50px;
   transition: all ease-in-out 0.1s;
 }
 
@@ -1625,11 +1627,19 @@ li.subLinks.active,
 }
 
 #search_mobile_section {
-  border: 1px solid #ffeaf2;
+    display:none;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background: white;
 }
 
 .search_mobile_input:focus {
   outline: none;
+}
+#zevi-overlay{
+  box-shadow:none !important;
 }
 
 .wishlist-engine-button,

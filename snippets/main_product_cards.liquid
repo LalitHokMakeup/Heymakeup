@@ -4,7 +4,7 @@
             <div class="tags">
               {% for tags in product.tags %}
               {% if tags contains 'label' %}
-                  <p class="tag mb-0" style=" color: {{ tags | split: '_' | slice:4}};background-color: {{ tags | split: '_' | slice:3}}" > {{ tags | split: '_' | slice: 2 }}</p>
+                  <p class="tag mb-1" style=" color: {{ tags | split: '_' | slice:4}};background-color: {{ tags | split: '_' | slice:3}}" > {{ tags | split: '_' | slice: 2 }}</p>
               {% endif %}
             {% endfor %}
             </div>
@@ -55,25 +55,27 @@
                     alt="Star Icons">
             </span>
             <div class="product-price mb-0">
+                {% assign first_availablevariant = product.selected_or_first_available_variant %}
                 <span>
-                    {{ product.price | money_without_trailing_zeros }}
-                    {% if product.compare_at_price_max > product.price %}
+                    <span class="selling-price">{{ first_availablevariant.price | money_without_trailing_zeros }}</span>
                     <span class="old-price">
-                        {{ product.compare_at_price_max | money_without_trailing_zeros -}}
+                        {% if first_availablevariant.compare_at_price > first_availablevariant.price %}
+                        {{ first_availablevariant.compare_at_price | money_without_trailing_zeros -}}
+                        {% endif %}
                     </span>
                     <span class="discount">
-                        {{-
-                        product.compare_at_price_max
-                        | minus: product.price
+                        {% if first_availablevariant.compare_at_price > first_availablevariant.price %}
+                        {{- first_availablevariant.compare_at_price
+                        | minus: first_availablevariant.price
                         | times: 100.0
-                        | divided_by: product.compare_at_price_max
+                        | divided_by: first_availablevariant.compare_at_price
                         | money_without_currency
                         | times: 100
                         | remove: '.0'
                         -}}
                         % Off
-                    </span>
                     {% endif %}
+                    </span>
                 </span>
             </div>
             {% if show_button %}

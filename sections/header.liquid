@@ -165,6 +165,304 @@
     </div>
 </div>
 {% endcapture %}
+{% capture searchFlow %}
+    <div class="search-section-container d-none">
+  
+      <div class="container-fluid search-container">
+        <button class="search-close-btn border-0 bg-transparent">
+          <img src="https://cdn.shopify.com/s/files/1/0673/6396/3172/files/close.svg?v=1696318785" alt="">
+          </button>
+          
+          <div class="container px-0">
+            
+            <div class="search-box-container row">
+              <span class="search-input-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none">
+                <circle cx="20.75" cy="20.75" r="8.75" stroke="#393939" stroke-width="1.7"/>
+                <path d="M32 32L28.25 28.25" stroke="#393939" stroke-width="1.7" stroke-linecap="round"/>
+                </svg>
+                </span>
+                <input type="text" name="" id="search_input_field" class="search-input col-12" autocomplete="off">
+                <span class="search-input-clear d-none">
+                  Clear
+                </span>
+            </div>
+  
+  
+            <div class="row p-0 search-results-section">
+              <div class="col-12 col-lg-3 p-0">
+                <div class="autocorrect-suggestion">Are you looking for <span class="search-results-bold-text">“Lipstick”</span></div>
+  
+                <ul class="p-0 search-suggestions-container d-flex flex-column" data-suggestion-category="false">
+                  <p class="mb-0 search-results-bold-text">Trending Searches</p>
+                  <li class="search-suggestions">
+                    Lip Gloss
+                  </li>
+                  <li class="search-suggestions">
+                    Lipstick
+                  </li>
+                  <li class="search-suggestions">
+                    Lip Liners
+                  </li>
+                  <li class="search-suggestions">
+                    Lip Oils
+                  </li>
+                  <li class="search-suggestions">
+                    Lip Balm
+                  </li>
+                  <li class="search-suggestions">
+                    Lip Crayons
+                  </li>
+                  <li class="search-suggestions">
+                    Loose Powder
+                  </li>
+                </ul>
+        
+              </div>
+              <div class="col-12 col-lg-9 p-0 ">
+                <div class="search-results-tab-container d-flex justify-content-between">
+                  <div class="search-results-tabs  d-flex">
+                    {% comment %} <p class="search-result-tab mb-0 active-tab">Best Of lips</p> {% endcomment %}
+                    {% comment %} <p class="search-result-tab mb-0">Shop By Brands</p> {% endcomment %}
+                  </div>
+                  <a href="" class="shop-all-btn">Shop All ></a>
+                </div>
+  
+                <div class="search-results-product-card-container d-flex flex-column flex-lg-row">
+                 
+                <div class="search-results-product-card d-flex align-items-center flex-lg-column">
+                    <div class="search-result-product-image-container">
+                      <img src="https://heymakeup.com/cdn/shop/products/5060522588801_1.jpg?v=1696409675" alt="" class="search-result-product-image img-fluid">
+                    </div>
+                    <div class="w-100">
+                      <p class="mb-0 brand-name">Lamel</p>
+                      <p class="mb-0 product-title">Intense Pigment & Easy Glide Long Lasting gel lip liner</p>
+                      <p class="mb-0 product-price">₹350</p>
+                    </div>
+                </div>
+                <div class="search-results-product-card d-flex align-items-center flex-lg-column">
+                    <div class="search-result-product-image-container">
+                      <img src="https://cdn.shopify.com/s/files/1/0673/6396/3172/products/5060586637934_8G.jpg?v=1696409157" alt="" class="search-result-product-image img-fluid">
+                    </div>
+                    <div class="w-100">
+                      <p class="mb-0 brand-name">Lamel</p>
+                      <p class="mb-0 product-title">Cmfort lip care oil</p>
+                      <p class="mb-0 product-price">₹350</p>
+                    </div>
+                </div>
+                <div class="search-results-product-card d-flex align-items-center flex-lg-column">
+                    <div class="search-result-product-image-container">
+                      <img src="https://cdn.shopify.com/s/files/1/0673/6396/3172/products/4_5fa6903c-ba7d-4922-96e9-e4b9d58e15d9.jpg?v=1696409212" alt="" class="search-result-product-image img-fluid">
+                    </div>
+                    <div class="w-100">
+                      <p class="mb-0 brand-name">Lamel</p>
+                      <p class="mb-0 product-title">Cmfort lip care oil Intense Pigment & Easy Glide Long Lasting gel lip liner</p>
+                      <p class="mb-0 product-price">₹350</p>
+                    </div>
+                </div>
+                <div class="search-results-product-card d-flex align-items-center flex-lg-column">
+                    <div class="search-result-product-image-container">
+                      <img src="https://cdn.shopify.com/s/files/1/0673/6396/3172/products/1_a86f642c-0b2d-4239-85e6-1ad2d5a72554.jpg?v=1696409212" alt="" class="search-result-product-image img-fluid">
+                    </div>
+                    <div class="w-100">
+                      <p class="mb-0 brand-name">Lamel</p>
+                      <p class="mb-0 product-title">Cmfort lip care oil</p>
+                      <p class="mb-0 product-price">₹350</p>
+                  </div>
+                  </div>
+  
+                </div>
+  
+              </div>
+            </div>
+          </div>
+  
+      </div>
+     
+  
+    </div>
+  {% endcapture %}
+  
+ <style>
+    .search-section-container {
+    position: absolute;
+    top: 42px;
+    width: 100%;
+    background-color: #fff;
+    z-index: 1;
+    box-shadow: 0px 5px 7px -3px #58585875;
+    border-radius: 0px 0px 8px 8px;
+    }
+    .search-container {
+    position: relative;
+    padding: 40px;
+    }
+    .search-close-btn {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    z-index: 1;
+    }
+
+    .search-box-container {
+    border-bottom: 1px solid #d9d8d8;
+    position: relative;
+    padding: 0;
+    }
+    .search-input-clear,
+    .search-input-icon {
+    position: absolute;
+    width: fit-content;
+    top: 50%;
+    transform: translate(0, -50%);
+    right: 0;
+    cursor: pointer;
+    }
+
+
+    .search-input {
+    padding: 10px 0px;
+    outline: none;
+    border: none;
+    color: #a5a5a5;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px; /* 150% */
+    }
+    .search-results-section {
+    margin-top: 32px;
+    color: #393939;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 20px; /* 153.846% */
+    text-transform: capitalize;
+    }
+    .search-results-bold-text {
+    font-size: 14px;
+    font-weight: 500;
+    }
+    .autocorrect-suggestion {
+    color: #585858;
+    margin-bottom: 32px;
+    }
+
+    .search-suggestions-container {
+    gap: 10px;
+    }
+    .search-suggestions {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    }
+    .search-suggestions::before {
+    content: ' ';
+    width: 12px;
+    height: 12px;
+    background-image: url(https://cdn.shopify.com/s/files/1/0673/6396/3172/files/arrow.svg?v=1697093531);
+    background-size: contain;
+    background-repeat: no-repeat;
+    }
+    .search-suggestions-container[data-suggestion-category='true'] > .search-suggestions::before {
+    background-image: url(https://cdn.shopify.com/s/files/1/0673/6396/3172/files/search-icon.svg?v=1697093151);
+    }
+
+    .search-results-tabs {
+    gap: 20px;
+    }
+
+    .search-result-tab {
+    font-weight: 400;
+    color: #7e7e7e;
+    }
+    .search-result-tab.active-tab {
+    color: #393939;
+    font-weight: 500;
+    /* text-decoration: underline; */
+    }
+
+    .shop-all-btn {
+    color: #393939;
+    font-weight: 500;
+    }
+
+    .search-results-product-card-container {
+    gap: 16px;
+    }
+    .search-results-product-card {
+    width: 210px;
+    }
+    .search-result-product-image-container {
+    width: 100%;
+    }
+    .search-result-product-image {
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    border-radius: 8px;
+    }
+    .brand-name {
+    color: #7e7e7e;
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 14px;
+    text-transform: capitalize;
+    margin-top: 8px;
+    }
+    .product-title {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+    text-transform: uppercase;
+    margin-top: 4px;
+    height: 32px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Maximum number of lines to display */
+    -webkit-box-orient: vertical;
+    }
+    .product-price {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14px;
+    text-transform: capitalize;
+    margin-top: 8px;
+    }
+
+    @media only screen and (max-width: 992px) {
+
+    .search-section-container {
+    height: 100vh;
+    top: 0;
+    }
+    .search-close-btn{
+    top: 8px;
+    right: 12px;
+    }
+    .search-container{
+    padding: 24px;
+    }
+    .search-input-clear,
+    .search-input-icon {
+    top: 65%;
+    }
+
+    .autocorrect-suggestion{
+    margin-bottom: 16px;
+    }
+    .search-results-section,  .search-input{
+    margin-top: 16px;
+    }
+
+    .search-results-product-card {
+    width: 100%;
+    gap: 16px;
+    }
+    .search-result-product-image-container {
+    width: 72px;
+    }
+    }
+ </style>
+ {{ searchFlow }}
 <Header>
     <div class="container-fluid p-0">
         <div class="top-bar-shipping w-100 p-0">
@@ -229,12 +527,14 @@
                 <ul class="list-unstyled" id="header-list">
                     <li>
                         <div class="search">
-                            <form action="/search" name="GET" role="search" class="Search__Form">
+                            {% comment %} <form action="/search" name="GET" role="search" class="Search__Form">
 
                                 <input type="search" class="search__input" name="q" autocomplete="off" autocorrect="off"
                                     autocapitalize="off" aria-label="Search..." placeholder="Search..." autofocus="">
                                 <input type="hidden" name="type" value="product">
-                            </form>
+                            </form> {% endcomment %}
+                            <div class="search__input">
+                                <span class="txt-type-desktop"></span></div>
                             <button class="search__button">
                                 <svg class="search__icon" aria-hidden="true" viewBox="0 0 24 24">
                                     <g>
@@ -363,21 +663,19 @@
                                                     stroke="#191919" stroke-width="2" />
                                             </svg>{% if cart.item_count > 0 %}
                                             <span class="cart_item_count">{{ cart.item_count }}</span>{% endif %}</a>
-                                        {% comment %} <span class="mini_cart_item_count">{{ cart.item_count }}</span> {%
-                                        endcomment %}
+                                        {% comment %} <span class="mini_cart_item_count">{{ cart.item_count }}</span> {% endcomment %}
                                     </li>
                                 </ul>
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 p-3 d-none" id="search_mobile_section">
+                    <div class="col-12 p-3" id="search_mobile_section">
                         <div class="right_header-options">
                             <div class="form-card">
                                 <form action="/search" name="GET" role="search" class="Search__Form">
-
-                                    <input type="search" class="search__input w-100" name="q" autocomplete="off"
-                                        autocorrect="off" autocapitalize="off" aria-label="Search..."
-                                        placeholder="Search..." autofocus="">
+                                    <input type="search" class="search__input txt-type w-100" name="q" placeholder="What are you looking for?" autocomplete="off"
+                                        autocorrect="off" autocapitalize="off"
+                                        autofocus="">
                                     <input type="hidden" name="type" value="product">
                                 </form>
 
@@ -488,15 +786,14 @@
         autoplayTimeout: 20000,
         autoplayButtonOutput: false,
     })
-
-    // $('.hamburger_menu').on('click', function () {
-    //   $('#bg-dark').addClass('blurOverlay');
-    //   $('#mySidenav').addClass('enabled');
-    // });
-    // $('.nav-close').on('click', function () {
-    //   $('#bg-dark').removeClass('blurOverlay');
-    //   $('#mySidenav').removeClass('enabled');
-    // })
+    var desktoptyped = new Typed(".txt-type-desktop", {
+        strings: ["What are you looking for?", "Makeup", "Skincare", "Mascara"],
+        typeSpeed: 50,
+        backSpeed: 30,
+        loop: false,
+        loopCount: Infinity,
+        showCursor: false
+        });
     $('#bg-dark').on('click', function () {
         $('#bg-dark').removeClass('blurOverlay');
         $('#mySidenav').removeClass('enabled');
@@ -520,7 +817,7 @@
         }
     });
     $('#search_mobile').on('click', function () {
-        $('#search_mobile_section').toggleClass('d-none', 3000);
+        $('#search_mobile_section').show();
         $('#search_mobile_section :input').focus();
     })
 
@@ -634,6 +931,31 @@
     //$(window).on('load', function () {
     //  JSON.parse(sessionStorage.getItem('wishlist')).length == 0 ? $('.b-wishlist_link-inner').removeClass('fas') : $('.b-wishlist_link-inner').addClass('fas');
     // })
+    $('.search-input-clear').on('click', () => {
+    $('.search-input').val('');
+    $('.search-input-icon').removeClass('d-none');
+    $('.search-input-clear').addClass('d-none');
+  });
+
+  const inputBtnHandler = () => {
+    if ($('.search-input').val().length > 0) {
+      $('.search-input-icon').addClass('d-none');
+      $('.search-input-clear').removeClass('d-none'); // clear btn
+      $('.search-suggestions-container').attr('data-suggestion-category', 'true');
+    } else {
+      $('.search-input-icon').removeClass('d-none');
+      $('.search-input-clear').addClass('d-none'); // clear btn
+      $('.search-suggestions-container').attr('data-suggestion-category', 'false');
+    }
+  };
+
+  const toggleSearchContainer = () => {
+    $('.search-section-container').toggleClass('d-none');
+    $('.search-input').focus();
+  };
+
+  $('.search-input').on('input', inputBtnHandler);
+  $('.search-close-btn, .search__input, #search_mobile').on('click', toggleSearchContainer);
 </script>
 {% schema %}
 {

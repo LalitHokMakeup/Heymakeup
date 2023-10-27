@@ -90,83 +90,37 @@
   <section style="background: #F5F7FF;">
     <div class="container p-5">
       <div class="row">
-
-        <div class="col-12 col-lg-3 footer-menu-container">
-          <input type="checkbox" name="" class="d-none" id="pages">
-          <label class="menu-title" for="pages">Hey! Makeup</label>
-
-          <ul class="menu-items">
-            <li>About US</li>
-            <li>Our Brands</li>
-            <li>Hey! Perks</li>
-            <li>Offers</li>
-          </ul>
-        </div>
-
-        <div class="col-12  col-lg-3 footer-menu-container">
-
-          <input type="checkbox" name="" class="d-none" id="categories">
-          <label class="menu-title" for="categories">Categories</label>
-
-          <ul class="menu-items">
-            <li>New In</li>
-            <li>Brands</li>
-            <li>Makeup</li>
-            <li>Value Sets</li>
-            <li>Hair</li>
-            <li>Bath & Body</li>
-            <li>Fragrances</li>
-            <li>Tools & Brushes</li>
-
-          </ul>
-        </div>
-
-        <div class="col-12  col-lg-3 footer-menu-container">
-
-          <input type="checkbox" name="" class="d-none" id="policies">
-          <label class="menu-title" for="policies">Policies</label>
-
-
-          <ul class="menu-items">
-            <li>Return policy</li>
-            <li>Terms & Conditions</li>
-            <li>Privacy Policy</li>
-            <li>Shipping Policy</li>
-
-          </ul>
-        </div>
-
-        <div class="col-12  col-lg-3 footer-menu-container">
-
-          <input type="checkbox" name="" class="d-none" id="contact">
-          <label class="menu-title" for="contact">Contact and Support</label>
-
-          <ul class="menu-items ">
-            <li>
-              <a href="tel:+91 9810245261">
-                <span>+91 9810245261</span>
-              </a>
-              <p class="mb-0">Mon-Sat 10 AM to 7 PM</p>
-            </li>
-
-            <li>
-              <a href="mailto:support@hokmakeup.com">Email:
-                <span>support@hokmakeup.com</span>
-              </a>
-            </li>
-          </ul>
-        </div>
-
+        {% for block in section.blocks %}
+          {% case block.type %}
+          {% when 'navigation' %}
+            <div class="col-12 col-lg-3 footer-menu-container">
+            <input type="checkbox" name="" class="d-none" id="pages">
+            <label class="menu-title" for="pages">{{block.settings.pageslinks.title}}</label>
+            <ul class="menu-items">
+              {% for link in block.settings.pageslinks.links %}
+                <li><a href="{{link.url}}">{{ link.title }}</a></li>
+              {% endfor %}
+              </ul>
+              </div>
+          {% when 'text' %}
+            <div class="col-12 col-lg-3 footer-menu-container">
+            <input type="checkbox" name="" class="d-none" id="contact">
+            <label class="menu-title" for="contact">{{ block.settings.rich_test }}</label>
+            <ul class="menu-items ">
+              {{ block.settings.rich_in }}
+            </ul>
+            </div>
+            {% endcase %}
+        {% endfor %}
       </div>
     </div>
   </section>
-
 </footer>
 <!-- Copyright -->
 <div class="copyright">
   <div class="container">
     <div class="row">
-      <div class="col-lg-12">
+      <div class="col-lg-12"> 
         <p class="p-small my-2 text-center">© 2022 HeyMakeup pvt. ltd. All Rights Reserved.</p>
       </div>
     </div>
@@ -174,11 +128,42 @@
 </div>
 <!-- end of copyright -->
 {% schema %}
-  {
-    "name": "Footer",
-    "settings": []
-  }
-{% endschema %}
+{
+  "name": "Footer",
+  "max_blocks": 4,
+  "blocks": [
+    {
+      "name": "Link List",
+      "type": "navigation",
+      "settings": [
+        {
+          "type": "link_list",
+          "id": "pageslinks",
+          "label": "Menu Item"
+        }
+      ]
+    },
+    {
+      "name": "Text Block",
+      "type": "text",
+      "settings": [
+        {
+          "type": "text",
+          "id": "rich_test",
+          "label": "Menu Name",
+          "default": "Menu Name"
+        },
+        {
+          "type": "html",
+          "id": "rich_in",
+          "label": "Text"
+        }
+      ]
+    }
+  ]
+}
+
+  {% endschema %}
 
 {% stylesheet %}
 {% endstylesheet %}

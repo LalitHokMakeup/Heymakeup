@@ -9,7 +9,7 @@
     <div class="d_cent" id="recom_products">
         {%- for product in recommendations.products -%}
         {% assign indexIs = forloop.index0 %}
-        <div class="product">
+        {% comment %} <div class="product">
             <div class="p-0 d_cent">
                 <div class="product-card mx-auto">
                     <a href="{{ product.url }}">
@@ -107,12 +107,14 @@
                     </div>
                 </div>
             </div>
+        </div> {% endcomment %}
+        {% assign indexIs = forloop.index0 %}
+        <div class="p-0 d_cent">
+          {% render 'main_product_cards' product:product , sectionId: splicesectionId
+          ,card_margin:true,show_button:true ,showLink:true %}
         </div>
         {%- endfor -%}
     </div>
-    {% for product in recommendations.products %}
-    {% render 'quick_shades' product:product , sectionId: splicesectionId %}
-    {% endfor %}
     {%- endif -%}
 </div>
 
@@ -134,8 +136,9 @@ const recommendations = html.querySelector('.product-recommendations');
 
 if (recommendations && recommendations.innerHTML.trim().length) {
 productRecommendationsSection.innerHTML = recommendations.innerHTML;
-};
 ready();
+initializeQuickViewSlider();
+};
 })
 .catch(e => {
 console.error(e);

@@ -1,5 +1,66 @@
-<div class="container">
-  <video width="100%" height="100%" autoplay loop muted >
-  <source src="https://cdn.shopify.com/videos/c/o/v/8302d1efa0cd4dabaf4bd77ccfd18d62.mp4" type="video/mp4">
-</video>
-</div>
+<section class="container d-flex flex-column align-items-center justify-content-center">
+  <div class="error-container d-flex flex-column align-items-center justify-content-center">
+    <div class="image-container">
+      <img src="https://cdn.shopify.com/s/files/1/0673/6396/3172/files/error.gif?v=1697271262" alt="" class="img-fluid">
+    </div>
+    <p class="error-text text-center text-capitalize">Sorry, It's not you. it's us</p>
+    <p class="error-message text-center">Whoops... Looks like you took a wrong turn! Don't worry we're here.</p>
+    <a href="/" class="homepage-btn text-center text-uppercase">homepage</a>
+  </div>
+</section>
+
+<style>
+  .error-container {
+    padding: 48px;
+    min-height: 70vh;
+    max-width: 500px;
+  }
+  .image-container {
+  }
+  .error-text {
+    color: #393939;
+    font-size: 22px;
+    font-weight: 500;
+    margin-top: 8px;
+  }
+  .error-message {
+    color: #c0c0c0;
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 16px;
+  }
+  .homepage-btn, .homepage-btn:hover {
+    color: #404184;
+    width: 100%;
+    max-width: 300px;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 50px;
+    background: #e1e2fc;
+    padding: 15px 40px;
+    margin-top: 32px;
+  }
+
+  @media only screen and (max-width:576px){
+    .error-container {
+    padding: 30px;
+    min-height: 90vh;
+  }
+  .image-container {
+  }
+  .error-text {
+    font-size: 20px;
+    margin-top: 4px;
+  }
+  .error-message {
+    font-size: 14px;
+    margin-top: 8px;
+  }
+  .homepage-btn {
+    font-size: 14px;
+    padding: 10px 20px;
+    margin-top: 24px;
+    max-width: 240px;
+  }
+  }
+</style>

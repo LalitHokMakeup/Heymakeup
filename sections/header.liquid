@@ -1,3 +1,4 @@
+<script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
 {% capture account_element %}
 <div class="account-auth-header">
     <button type="button" class="auth-close-btn border-0 bg-transparent close_overlay mobile-screen">
@@ -14,7 +15,7 @@
     {% if customer %}
     <a href="/account" class="view-profile-btn d-block">View Profile</a>
     {% else %}
-    <button class="account-auth-login-btn">Sign Up/Login</button>
+    <a href="/account"><button class="account-auth-login-btn"> Sign Up/Login</button></a>
     {% endif %}
 </div>
 
@@ -165,304 +166,6 @@
     </div>
 </div>
 {% endcapture %}
-{% capture searchFlow %}
-    <div class="search-section-container d-none">
-  
-      <div class="container-fluid search-container">
-        <button class="search-close-btn border-0 bg-transparent">
-          <img src="https://cdn.shopify.com/s/files/1/0673/6396/3172/files/close.svg?v=1696318785" alt="">
-          </button>
-          
-          <div class="container px-0">
-            
-            <div class="search-box-container row">
-              <span class="search-input-icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none">
-                <circle cx="20.75" cy="20.75" r="8.75" stroke="#393939" stroke-width="1.7"/>
-                <path d="M32 32L28.25 28.25" stroke="#393939" stroke-width="1.7" stroke-linecap="round"/>
-                </svg>
-                </span>
-                <input type="text" name="" id="search_input_field" class="search-input col-12" autocomplete="off">
-                <span class="search-input-clear d-none">
-                  Clear
-                </span>
-            </div>
-  
-  
-            <div class="row p-0 search-results-section">
-              <div class="col-12 col-lg-3 p-0">
-                <div class="autocorrect-suggestion">Are you looking for <span class="search-results-bold-text">“Lipstick”</span></div>
-  
-                <ul class="p-0 search-suggestions-container d-flex flex-column" data-suggestion-category="false">
-                  <p class="mb-0 search-results-bold-text">Trending Searches</p>
-                  <li class="search-suggestions">
-                    Lip Gloss
-                  </li>
-                  <li class="search-suggestions">
-                    Lipstick
-                  </li>
-                  <li class="search-suggestions">
-                    Lip Liners
-                  </li>
-                  <li class="search-suggestions">
-                    Lip Oils
-                  </li>
-                  <li class="search-suggestions">
-                    Lip Balm
-                  </li>
-                  <li class="search-suggestions">
-                    Lip Crayons
-                  </li>
-                  <li class="search-suggestions">
-                    Loose Powder
-                  </li>
-                </ul>
-        
-              </div>
-              <div class="col-12 col-lg-9 p-0 ">
-                <div class="search-results-tab-container d-flex justify-content-between">
-                  <div class="search-results-tabs  d-flex">
-                    {% comment %} <p class="search-result-tab mb-0 active-tab">Best Of lips</p> {% endcomment %}
-                    {% comment %} <p class="search-result-tab mb-0">Shop By Brands</p> {% endcomment %}
-                  </div>
-                  <a href="" class="shop-all-btn">Shop All ></a>
-                </div>
-  
-                <div class="search-results-product-card-container d-flex flex-column flex-lg-row">
-                 
-                <div class="search-results-product-card d-flex align-items-center flex-lg-column">
-                    <div class="search-result-product-image-container">
-                      <img src="https://heymakeup.com/cdn/shop/products/5060522588801_1.jpg?v=1696409675" alt="" class="search-result-product-image img-fluid">
-                    </div>
-                    <div class="w-100">
-                      <p class="mb-0 brand-name">Lamel</p>
-                      <p class="mb-0 product-title">Intense Pigment & Easy Glide Long Lasting gel lip liner</p>
-                      <p class="mb-0 product-price">₹350</p>
-                    </div>
-                </div>
-                <div class="search-results-product-card d-flex align-items-center flex-lg-column">
-                    <div class="search-result-product-image-container">
-                      <img src="https://cdn.shopify.com/s/files/1/0673/6396/3172/products/5060586637934_8G.jpg?v=1696409157" alt="" class="search-result-product-image img-fluid">
-                    </div>
-                    <div class="w-100">
-                      <p class="mb-0 brand-name">Lamel</p>
-                      <p class="mb-0 product-title">Cmfort lip care oil</p>
-                      <p class="mb-0 product-price">₹350</p>
-                    </div>
-                </div>
-                <div class="search-results-product-card d-flex align-items-center flex-lg-column">
-                    <div class="search-result-product-image-container">
-                      <img src="https://cdn.shopify.com/s/files/1/0673/6396/3172/products/4_5fa6903c-ba7d-4922-96e9-e4b9d58e15d9.jpg?v=1696409212" alt="" class="search-result-product-image img-fluid">
-                    </div>
-                    <div class="w-100">
-                      <p class="mb-0 brand-name">Lamel</p>
-                      <p class="mb-0 product-title">Cmfort lip care oil Intense Pigment & Easy Glide Long Lasting gel lip liner</p>
-                      <p class="mb-0 product-price">₹350</p>
-                    </div>
-                </div>
-                <div class="search-results-product-card d-flex align-items-center flex-lg-column">
-                    <div class="search-result-product-image-container">
-                      <img src="https://cdn.shopify.com/s/files/1/0673/6396/3172/products/1_a86f642c-0b2d-4239-85e6-1ad2d5a72554.jpg?v=1696409212" alt="" class="search-result-product-image img-fluid">
-                    </div>
-                    <div class="w-100">
-                      <p class="mb-0 brand-name">Lamel</p>
-                      <p class="mb-0 product-title">Cmfort lip care oil</p>
-                      <p class="mb-0 product-price">₹350</p>
-                  </div>
-                  </div>
-  
-                </div>
-  
-              </div>
-            </div>
-          </div>
-  
-      </div>
-     
-  
-    </div>
-  {% endcapture %}
-  
- <style>
-    .search-section-container {
-    position: absolute;
-    top: 42px;
-    width: 100%;
-    background-color: #fff;
-    z-index: 1;
-    box-shadow: 0px 5px 7px -3px #58585875;
-    border-radius: 0px 0px 8px 8px;
-    }
-    .search-container {
-    position: relative;
-    padding: 40px;
-    }
-    .search-close-btn {
-    position: absolute;
-    top: 18px;
-    right: 18px;
-    z-index: 1;
-    }
-
-    .search-box-container {
-    border-bottom: 1px solid #d9d8d8;
-    position: relative;
-    padding: 0;
-    }
-    .search-input-clear,
-    .search-input-icon {
-    position: absolute;
-    width: fit-content;
-    top: 50%;
-    transform: translate(0, -50%);
-    right: 0;
-    cursor: pointer;
-    }
-
-
-    .search-input {
-    padding: 10px 0px;
-    outline: none;
-    border: none;
-    color: #a5a5a5;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 24px; /* 150% */
-    }
-    .search-results-section {
-    margin-top: 32px;
-    color: #393939;
-    font-size: 13px;
-    font-weight: 400;
-    line-height: 20px; /* 153.846% */
-    text-transform: capitalize;
-    }
-    .search-results-bold-text {
-    font-size: 14px;
-    font-weight: 500;
-    }
-    .autocorrect-suggestion {
-    color: #585858;
-    margin-bottom: 32px;
-    }
-
-    .search-suggestions-container {
-    gap: 10px;
-    }
-    .search-suggestions {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    }
-    .search-suggestions::before {
-    content: ' ';
-    width: 12px;
-    height: 12px;
-    background-image: url(https://cdn.shopify.com/s/files/1/0673/6396/3172/files/arrow.svg?v=1697093531);
-    background-size: contain;
-    background-repeat: no-repeat;
-    }
-    .search-suggestions-container[data-suggestion-category='true'] > .search-suggestions::before {
-    background-image: url(https://cdn.shopify.com/s/files/1/0673/6396/3172/files/search-icon.svg?v=1697093151);
-    }
-
-    .search-results-tabs {
-    gap: 20px;
-    }
-
-    .search-result-tab {
-    font-weight: 400;
-    color: #7e7e7e;
-    }
-    .search-result-tab.active-tab {
-    color: #393939;
-    font-weight: 500;
-    /* text-decoration: underline; */
-    }
-
-    .shop-all-btn {
-    color: #393939;
-    font-weight: 500;
-    }
-
-    .search-results-product-card-container {
-    gap: 16px;
-    }
-    .search-results-product-card {
-    width: 210px;
-    }
-    .search-result-product-image-container {
-    width: 100%;
-    }
-    .search-result-product-image {
-    aspect-ratio: 3/4;
-    object-fit: cover;
-    border-radius: 8px;
-    }
-    .brand-name {
-    color: #7e7e7e;
-    font-size: 11px;
-    font-weight: 400;
-    line-height: 14px;
-    text-transform: capitalize;
-    margin-top: 8px;
-    }
-    .product-title {
-    font-size: 12px;
-    font-weight: 500;
-    line-height: 16px;
-    text-transform: uppercase;
-    margin-top: 4px;
-    height: 32px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 2; /* Maximum number of lines to display */
-    -webkit-box-orient: vertical;
-    }
-    .product-price {
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 14px;
-    text-transform: capitalize;
-    margin-top: 8px;
-    }
-
-    @media only screen and (max-width: 992px) {
-
-    .search-section-container {
-    height: 100vh;
-    top: 0;
-    }
-    .search-close-btn{
-    top: 8px;
-    right: 12px;
-    }
-    .search-container{
-    padding: 24px;
-    }
-    .search-input-clear,
-    .search-input-icon {
-    top: 65%;
-    }
-
-    .autocorrect-suggestion{
-    margin-bottom: 16px;
-    }
-    .search-results-section,  .search-input{
-    margin-top: 16px;
-    }
-
-    .search-results-product-card {
-    width: 100%;
-    gap: 16px;
-    }
-    .search-result-product-image-container {
-    width: 72px;
-    }
-    }
- </style>
- {{ searchFlow }}
 <Header>
     <div class="container-fluid p-0">
         <div class="top-bar-shipping w-100 p-0">
@@ -534,7 +237,8 @@
                                 <input type="hidden" name="type" value="product">
                             </form> {% endcomment %}
                             <div class="search__input">
-                                <span class="txt-type-desktop"></span></div>
+                                <span class="txt-type-desktop"></span>
+                            </div>
                             <button class="search__button">
                                 <svg class="search__icon" aria-hidden="true" viewBox="0 0 24 24">
                                     <g>
@@ -558,7 +262,7 @@
                                 <path d="M14.1671 11.0332V7.98317L6.25879 3.4165" stroke="#191919" stroke-width="1.5"
                                     stroke-linecap="round" stroke-linejoin="round" />
                             </svg>Track Order</a></li>
-                    <li><a href="javascript:void(0)" style="color:#404184;"> <svg xmlns="http://www.w3.org/2000/svg"
+                    <li><a href="/pages/rewards" style="color:#404184;"> <svg xmlns="http://www.w3.org/2000/svg"
                                 width="25" height="24" viewBox="0 0 25 24" fill="none">
                                 <path
                                     d="M13.3359 21.6074L4.01564 9.95705C3.68312 9.5414 3.51686 9.33358 3.47219 9.08312C3.42752 8.83267 3.51169 8.58018 3.68001 8.0752L4.92424 4.34251C5.36425 3.02247 5.58426 2.36245 6.10804 1.98494C6.63181 1.60742 7.32753 1.60742 8.71897 1.60742H17.9529C19.3443 1.60742 20.0401 1.60742 20.5638 1.98494C21.0876 2.36245 21.3076 3.02247 21.7476 4.34251L22.9919 8.0752C23.1602 8.58018 23.2444 8.83267 23.1997 9.08312C23.155 9.33358 22.9888 9.5414 22.6562 9.95705L13.3359 21.6074ZM13.3359 21.6074L17.7109 7.85742M13.3359 21.6074L8.96094 7.85742M22.7109 9.10742L17.7109 7.85742M17.7109 7.85742L15.8359 2.85742M17.7109 7.85742H8.96094M10.8359 2.85742L8.96094 7.85742M8.96094 7.85742L3.96094 9.10742"
@@ -669,19 +373,19 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 p-3" id="search_mobile_section">
+                    {% comment %} <div class="col-12 p-3" id="search_mobile_section">
                         <div class="right_header-options">
                             <div class="form-card">
                                 <form action="/search" name="GET" role="search" class="Search__Form">
-                                    <input type="search" class="search__input txt-type w-100" name="q" placeholder="What are you looking for?" autocomplete="off"
-                                        autocorrect="off" autocapitalize="off"
-                                        autofocus="">
+                                    <input type="search" class="search__input txt-type w-100" name="q"
+                                        placeholder="What are you looking for?" autocomplete="off" autocorrect="off"
+                                        autocapitalize="off" autofocus="">
                                     <input type="hidden" name="type" value="product">
                                 </form>
 
                             </div>
                         </div>
-                    </div>
+                    </div> {% endcomment %}
                 </div>
             </div>
         </div>
@@ -693,6 +397,87 @@
 
     </div>
 </Header>
+{% comment %} Search Flow {% endcomment %}
+<div class="search-section-container d-none">
+    <div class="container-fluid search-container">
+        <button class="search-close-btn border-0 bg-transparent">
+            <img src="https://cdn.shopify.com/s/files/1/0673/6396/3172/files/close.svg?v=1696318785" alt="">
+        </button>
+
+        <div class="container px-0">
+
+            <div class="search-box-container row">
+                <span class="search-input-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44" fill="none">
+                        <circle cx="20.75" cy="20.75" r="8.75" stroke="#393939" stroke-width="1.7" />
+                        <path d="M32 32L28.25 28.25" stroke="#393939" stroke-width="1.7" stroke-linecap="round" />
+                    </svg>
+                </span>
+                {% comment %} Predictive Search starts  {% endcomment %}
+                <predictive-search>
+                    <form action="{{ routes.search_url }}" method="get" role="search">
+                        <input
+                        id="Search"
+                        type="search"
+                        class="search-input col-12" 
+                        name="q"
+                        value="{{ search.terms | escape }}"
+                        role="combobox"
+                        aria-expanded="false"
+                        aria-owns="predictive-search-results"
+                        aria-controls="predictive-search-results"
+                        aria-haspopup="listbox"
+                        aria-autocomplete="list"
+                        autocomplete="off"
+                        >
+                        <input name="options[prefix]" type="hidden" value="last">
+                    </form>
+                    </predictive-search>
+                <span class="search-input-clear d-none">
+                    Clear
+                    </span>
+            </div>
+        {% comment %} Search Performs Starts  {% endcomment %}
+            <div class="row p-0 search-results-section" id="emptySearch">
+                <div class="col-12 col-lg-3 p-0">
+                    <ul class="p-0 search-suggestions-container d-flex flex-column" data-suggestion-category="false">
+                        <p class="mb-0 search-results-bold-text">Trending Searches</p>
+                        {{ section.settings.search_list }}
+                    </ul>
+                </div>
+                <div class="col-12 col-lg-9 p-0 ">
+                    <div class="search-results-tab-container d-flex justify-content-between">
+                        <div class="search-results-tabs d-flex">
+                        </div>
+                        <a href="{{ collections[section.settings.home_search_products].url }}" class="shop-all-btn">Shop All ></a>
+                    </div>
+                    <div class="search-results-product-card-container d-flex flex-column flex-lg-row" id="emptySearch">
+                        {% for product in collections[section.settings.home_search_products].products limit: 4 %}
+                        <div class="search-results-product-card d-flex align-items-center flex-lg-column">
+                            <div class="search-result-product-image-container">
+                                <a href="{{ product.url }}" tabindex="-1">
+                                    <img loading="lazy" src="{{ product.featured_image |  img_url:'210x280' }}" alt="{{ product.url }}" 
+                                        class="search-result-product-image img-fluid">
+                                </a>
+                            </div>
+                            <div class="w-100">
+                                <p class="mb-0 brand-name">{{ product.vendor }} </p>
+                                <p class="mb-0 product-title">{{ product.description }}
+                                </p>
+                                <p class="mb-0 product-price">{{ product.price | money_without_trailing_zeros }} </p>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% comment %} If Search Performed  {% endcomment %}
+            <div id="predictive-search-products" tabindex="-1"></div>
+        </div>
+
+    </div>
+
+</div>
 {% comment %} Toaster/ Snackbar {% endcomment %}
 <div id="toastifies" class="toastersd d_cent" style="display:none">
     <div class="notification success">
@@ -708,7 +493,7 @@
 <div class="account-auth-container d-lg-none">
     {{ account_element }}
 </div>
-{% comment %} sign-up slide {% endcomment %}
+{% comment %} 
 <div class="sign-up-container">
     <div class="sign-up-container-topbar">
         <button type="button" class="sign-up-container-close-btn bg-transparent border-0">
@@ -740,7 +525,7 @@
         </div>
     </div>
 </div>
-{% comment %} sign-up-form slide {% endcomment %}
+
 <div class="sign-up-form-container">
     <div class="sign-up-form-header">
         <p class="sign-up-header-small-text">You're almost there</p>
@@ -770,6 +555,218 @@
         </form>
     </div>
 </div>
+{% endcomment %}
+<style>
+    .search-section-container {
+        position: absolute;
+        top: 42px;
+        width: 100%;
+        background-color: #fff;
+        z-index: 1;
+        box-shadow: 0px 5px 7px -3px #58585875;
+        border-radius: 0px 0px 8px 8px;
+    }
+
+    .search-container {
+        position: relative;
+        padding: 40px;
+        padding-bottom: 60px;
+    }
+
+    .search-close-btn {
+        position: absolute;
+        top: 18px;
+        right: 18px;
+        z-index: 1;
+    }
+
+    .search-box-container {
+        border-bottom: 1px solid #d9d8d8;
+        position: relative;
+        padding: 0;
+    }
+
+    .search-input-clear,
+    .search-input-icon {
+        position: absolute;
+        width: fit-content;
+        top: 50%;
+        transform: translate(0, -50%);
+        right: 0;
+        cursor: pointer;
+    }
+
+
+    .search-input {
+        padding: 10px 0px;
+        outline: none;
+        border: none;
+        color: #a5a5a5;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+        /* 150% */
+    }
+
+    .search-results-section {
+        margin-top: 32px;
+        color: #393939;
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 20px;
+        /* 153.846% */
+        text-transform: capitalize;
+    }
+
+    .search-results-bold-text {
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    .autocorrect-suggestion {
+        color: #585858;
+        margin-bottom: 32px;
+    }
+
+    .search-suggestions-container {
+        gap: 10px;
+    }
+
+    .search-suggestions a {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        color: #585858;
+    }
+    .mark, mark {
+        padding: 0 !important;
+        background-color: inherit !important;
+        font-weight: 600;
+    }
+
+    .search-suggestions a::before {
+        content: ' ';
+        width: 12px;
+        height: 12px;
+        background-image: url(https://cdn.shopify.com/s/files/1/0673/6396/3172/files/arrow.svg?v=1697093531);
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    .search-suggestions-container[data-suggestion-category='true']>.search-suggestions a::before {
+        background-image: url(https://cdn.shopify.com/s/files/1/0673/6396/3172/files/search-icon.svg?v=1697093151);
+    }
+
+    .search-results-tabs {
+        gap: 20px;
+    }
+
+    .search-result-tab {
+        font-weight: 400;
+        color: #7e7e7e;
+    }
+
+    .search-result-tab.active-tab {
+        color: #393939;
+        font-weight: 500;
+        /* text-decoration: underline; */
+    }
+
+    .shop-all-btn {
+        color: #393939;
+        font-weight: 500;
+    }
+
+    .search-results-product-card-container {
+        gap: 16px;
+    }
+
+    .search-results-product-card {
+        width: 210px;
+    }
+
+    .search-result-product-image-container {
+        width: 100%;
+    }
+
+    .search-result-product-image {
+        aspect-ratio: 3/4;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+
+    .brand-name {
+        color: #7e7e7e;
+        font-size: 11px;
+        font-weight: 400;
+        line-height: 14px;
+        text-transform: capitalize;
+        margin-top: 8px;
+    }
+
+    .product-title {
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 16px;
+        text-transform: uppercase;
+        margin-top: 4px;
+        height: 32px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        /* Maximum number of lines to display */
+        -webkit-box-orient: vertical;
+    }
+
+    .product-price {
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 14px;
+        text-transform: capitalize;
+        margin-top: 8px;
+    }
+
+    @media only screen and (max-width: 992px) {
+
+        .search-section-container {
+            height: 100vh;
+            top: 0;
+        }
+
+        .search-close-btn {
+            top: 8px;
+            right: 12px;
+        }
+
+        .search-container {
+            padding: 24px;
+        }
+
+        .search-input-clear,
+        .search-input-icon {
+            top: 65%;
+        }
+
+        .autocorrect-suggestion {
+            margin-bottom: 16px;
+        }
+
+        .search-results-section,
+        .search-input {
+            margin-top: 16px;
+        }
+
+        .search-results-product-card {
+            width: 100%;
+            gap: 16px;
+        }
+
+        .search-result-product-image-container {
+            width: 95px;
+        }
+    }
+</style>
 <script>
     let announcement = tns({
         container: "#adasdadas",
@@ -793,7 +790,7 @@
         loop: false,
         loopCount: Infinity,
         showCursor: false
-        });
+    });
     $('#bg-dark').on('click', function () {
         $('#bg-dark').removeClass('blurOverlay');
         $('#mySidenav').removeClass('enabled');
@@ -816,10 +813,10 @@
             $(this).removeClass("enabled");
         }
     });
-    $('#search_mobile').on('click', function () {
-        $('#search_mobile_section').show();
-        $('#search_mobile_section :input').focus();
-    })
+    // $('#search_mobile').on('click', function () {
+    //     $('#search_mobile_section').show();
+    //     $('#search_mobile_section :input').focus();
+    // })
 
 </script>
 <script>
@@ -827,25 +824,29 @@
     function initializecartdrawer() {
         //  Quantity Selector Button
         $('.qtybox .btnqty').on('click', async function (event) {
-            console.time();
             event.preventDefault();
-            let qty = parseInt($(this).parent('.qtybox').find('.quantity-input').val());
-            // let inventoryQty = parseInt($(this).parent('.qtybox').find('.quantity-input').attr('inventory'));
+            let qt_container = $(this).parent('.qtybox');
+            let qty = parseInt(qt_container.find('.quantity-input').val());
+            // let inventoryQty = parseInt(qt_container.find('.quantity-input').attr('inventory'));
             if ($(this).hasClass('qtyplus')) { qty++; }
             else { if (qty > 1) { qty--; } } qty = (isNaN(qty)) ? 1 : qty;
-            //$(this).parent('.qtybox').find('.quantity-input').val(qty);
+            //qt_container.find('.quantity-input').val(qty);
 
-            qty >= 10 ? $(this).parent('.qtybox').find('.qtyplus').prop('disabled', true) : $(this).parent('.qtybox').find('.qtyplus').prop('disabled', false);
+            qty >= 10 ? qt_container.find('.qtyplus').prop('disabled', true) : qt_container.find('.qtyplus').prop('disabled', false);
 
-            qty <= 1 ? $(this).parent('.qtybox').find('.qtyminus').prop('disabled', true) : $(this).parent('.qtybox').find('.qtyminus').prop('disabled', false);
-            let key = $(this).parent('.qtybox').attr('data-key');
-            let index = parseInt($(this).parent('.qtybox').attr('data-index'));
+            qty <= 1 ? qt_container.find('.qtyminus').prop('disabled', true) : qt_container.find('.qtyminus').prop('disabled', false);
+            let key = qt_container.attr('data-key');
+            let index = parseInt(qt_container.attr('data-index'));
+            qt_container.find('.spinner-border').show();
+            qt_container.find('.quantity-input').hide();
             await changeFunction(key.toString(), qty, index);
-            console.timeEnd();
         });
-        $('.item-remove-btn ').on('click', async function () {
+        $('.item-remove-btn').on('click', async function () {
             let data_empty_key = parseInt($(this).attr('cart-data-key'));
             let data_empty_index = parseInt($(this).attr('cart-data-index'));
+            let qtbox = $(this).closest(".cart-item-details-container");
+            qtbox.find('.spinner-border').show();
+            qtbox.find('.quantity-input').hide();
             await changeFunction(data_empty_key.toString(), 0, data_empty_index);
         });
         function changeFunction(key, quantity, index) {
@@ -855,7 +856,7 @@
                     quantity,
                 })
                 .then((res) => {
-                    console.log(res.data.item_count, "response");
+                    //console.log(res.data.item_count, "response");
                     $('.cart_item_count').text(res.data.item_count);
                     $.ajax({
                         url: location.href,
@@ -927,35 +928,36 @@
         cartCloseBtn.on("click", closeCart);
         cartBtn.on("click", openCart);
     };
-    initializecartdrawer();
     //$(window).on('load', function () {
     //  JSON.parse(sessionStorage.getItem('wishlist')).length == 0 ? $('.b-wishlist_link-inner').removeClass('fas') : $('.b-wishlist_link-inner').addClass('fas');
     // })
+   
     $('.search-input-clear').on('click', () => {
-    $('.search-input').val('');
-    $('.search-input-icon').removeClass('d-none');
-    $('.search-input-clear').addClass('d-none');
-  });
+        $('.search-input').val('');
+        $('.search-input-icon').removeClass('d-none');
+        $('.search-input-clear').addClass('d-none');
+        $('.search-input').focus(); 
+    });
 
-  const inputBtnHandler = () => {
-    if ($('.search-input').val().length > 0) {
-      $('.search-input-icon').addClass('d-none');
-      $('.search-input-clear').removeClass('d-none'); // clear btn
-      $('.search-suggestions-container').attr('data-suggestion-category', 'true');
-    } else {
-      $('.search-input-icon').removeClass('d-none');
-      $('.search-input-clear').addClass('d-none'); // clear btn
-      $('.search-suggestions-container').attr('data-suggestion-category', 'false');
-    }
-  };
+    const inputBtnHandler = () => {
+        if ($('.search-input').val().length > 0) {
+            $('.search-input-icon').addClass('d-none');
+            $('.search-input-clear').removeClass('d-none'); // clear btn
+            $('.search-suggestions-container').attr('data-suggestion-category', 'true');
+        } else {
+            $('.search-input-icon').removeClass('d-none');
+            $('.search-input-clear').addClass('d-none'); // clear btn
+            $('.search-suggestions-container').attr('data-suggestion-category', 'false');
+        }
+    };
 
-  const toggleSearchContainer = () => {
-    $('.search-section-container').toggleClass('d-none');
-    $('.search-input').focus();
-  };
+    const toggleSearchContainer = () => {
+        $('.search-section-container').toggleClass('d-none');
+        $('.search-input').focus();
+    };
 
-  $('.search-input').on('input', inputBtnHandler);
-  $('.search-close-btn, .search__input, #search_mobile').on('click', toggleSearchContainer);
+    $('.search-input').on('input', inputBtnHandler);
+    $('.search-close-btn, .search__input, #search_mobile').on('click', toggleSearchContainer);
 </script>
 {% schema %}
 {
@@ -1063,15 +1065,16 @@
 "label": "Add Color To Menu Items"
 },
 {
-"type": "text",
-"id": "laude",
-"label": "Add Menu Item"
+"type": "collection",
+"id": "home_search_products",
+"label": "Add Search Trending Products"
 },
 {
-"type": "image_picker",
-"id": "bsdk",
-"label": "Add image in the menu item"
+"type": "html",
+"id": "search_list",
+"label": "Add Search Trending Products"
 }
+
 ],
 "blocks": [
 {

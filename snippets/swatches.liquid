@@ -45,15 +45,14 @@
         class="swatch-element {% if is_color %}color {% endif %}{{ value | handle }}">
         <input id="swatch-{{ forloop.index0 }}-{{ value | handle }}" {% if variant.available %} class="swatch_available"{% endif %} index="{{ forloop.index0 }}" type="radio" imagePosition="{{ variant.featured_media.position | plus:if_video }}" 
         varientPrice="{{ variant.price | money_without_currency }}" rackPrice="{{ variant.compare_at_price | money_without_currency }}"
-            name="id" variantId="{{ value | handle }}" value="{{  variant.id }}" {% unless variant.available %}disabled{% endunless %} />
+            name="id" variantId="{{ value | handle }}" value="{{  variant.id }}" {% unless variant.available %}disabled{% endunless %} {% if firstAvailable and forloop.first %}checked{% endif %} />
         {% if is_color %}
-        <label loading="lazy" for="swatch-{{ forloop.index0 }}-{{ value | handle }}"
-            class="{% if variant.available %}available{% else %}b-swatch_colors-item m-disabled{% endif %}" style="{% if product.variants[forloop.index0].metafields.custom.colour != blank %}
+        <label loading="lazy" data-src="{{ variant.featured_image | img_url: '26x26' }}" for="swatch-{{ forloop.index0 }}-{{ value | handle }}"
+            class="lazy-load-background {% if variant.available %} available{% else %}b-swatch_colors-item m-disabled{% endif %}" style="{% if product.variants[forloop.index0].metafields.custom.colour != blank %}
         background-color:{{ product.variants[forloop.index0].metafields.custom.colour }} !important;
        {% else %}
         background-image: url('{% if product.variants[forloop.index0].metafields.custom.image != blank %}{{-
-        product.variants[forloop.index0].metafields.custom.image | img_url: 'master' -}} {% else %}{{ variant.featured_image |
-        img_url: 'master' }}{% endif %}');
+        product.variants[forloop.index0].metafields.custom.image | img_url: 'master' -}} {% else %}{{ variant.featured_image | img_url: 'master' }}{% endif %}');
         background-size: contain; 
         {% endif %}">
 
@@ -65,11 +64,11 @@
         {% endif %}
     </div>
     {% endunless %}
-    {% if variant.available %}
+    {% comment %} {% if variant.available %}
     <script>
         jQuery('.swatch[data-option-index="{{ forloop.index0 }}"] .{{ value | handle }}').removeClass('soldout').addClass('available').find(':radio').removeAttr('disabled');
     </script>
-    {% endif %}
+    {% endif %} {% endcomment %}
     {% endfor %}
     {% if product.variants.size > 3 and showall == false %}
     {% liquid

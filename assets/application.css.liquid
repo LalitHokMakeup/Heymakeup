@@ -49,12 +49,12 @@ a {
   color: #000;
   line-height: 24px;
 }
-.slideshow {
+/* .slideshow {
   position: relative;
   top: -40px;
   max-width: 100%;
   margin: 0 auto;
-}
+} */
 .menus {
   position: absolute;
   top: 0;
@@ -377,13 +377,13 @@ section.banner-container {
   position: relative;
 }
 
-.product-card .product-image .tags {
+.tags {
   position: absolute;
   top: 6px;
   left: 6px;
 }
 
-.product-card .product-image .tags .tag {
+.tags .tag {
   width: max-content;
   padding: 3.5px 8px;
   border-radius: 2px;
@@ -1648,9 +1648,9 @@ li.subLinks.active,
 }
 
 .h-wishlist-icon .wishlist-h-count {
-  padding-left: 0;
-  right: -7px;
-  top: 0;
+  padding-left: 0 !important;
+  right: -6px !important;
+  top: 0 !important;
 }
 
 .wishlist-fix {
@@ -1662,6 +1662,11 @@ li.subLinks.active,
 .Avada-Preview_Button {
   display: none !important;
 }
+input[type="search"]::-webkit-search-cancel-button,
+ input[type="search"]::-webkit-search-clear-button {
+ display: none;
+ }
+
 
 @media screen and (max-width:768px) {
   .top-bar-shipping #announce_bar {
@@ -1954,6 +1959,9 @@ li.subLinks.active,
   padding: 5px 15px
 }
 
+.cart-slide .cart-item-counter-container .cart-item-counter .spinner-border.spinner-border-sm {
+ margin:7px 17px;
+}
 .cart-slide .cart-item-counter-container .cart-item-counter .item-count-btn {
   padding: 5;
   background: rgba(0, 0, 0, 0);

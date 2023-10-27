@@ -1,59 +1,78 @@
+{% assign first_variant = product.selected_or_first_available_variant %}
 <section>
     <div class="container">
         <div class="row py-0 py-md-5">
             <div class="col-12 col-md-6">
-
                 <div class="row varient-container">
-
                     <div class="live-views m-live-views d-md-none">
                         <span><img loading="lazy"
-                                src="https://cdn.shopify.com/s/files/1/1743/7443/files/33d72e41b1889e6e1bee4e76cf87b0e9.gif?v=1693810925"
+                                src="https://cdn.shopify.com/s/files/1/1743/7443/files/33d72e41b1889e6e1bee4e76cf87b0e9.gif?v=1693810925" width="23" height="23"
                                 alt="eyes" class="img-fluid"></span>
                         <p class="live-viewing-number">{{ "now" | date: "%N" | modulo: 199 | plus: 59 }} People Are
                             Viewing</p>
                     </div>
                     <div class="varient-fav-container">
                         <span class="fav">
-                            <div class="wishlist-engine" data-product_id="{{  product.id }}"
-                                data-variant_id="{{ product.selected_or_first_available_variant.id }}"
-                                data-full_button="false" data-css="true"></div>
-                            <!-- <div class="wishlist-Icon d_cent"
-                    onclick="getIndex({id:{{ product.first_available_variant.id }},mainId:{{ product.id }},vendor:'{{ product.vendor }}',imgSrc:'{{ product.featured_image | img_url:'master' }}',title:'{{ product.title }}',price:{{ product.price | divided_by: 100  }},maxPrice:{{ product.compare_at_price_max | divided_by: 100 }},productSize:{{ product.variants.size }}, handle: '{{ product.handle }}', inventory:'{{ product.first_available_variant.inventory_quantity }}',color:'{{product.first_available_variant.option1 }}'},this)">
-                    <svg class="heart_icon {{ section.id | remove:" -"}}-{{ forloop.index0 }} "
-              xmlns=" http://www.w3.org/2000/svg" width="27" height="24" viewBox="0 0 27 24" fill="none">
-                        <path
-                            d="M3.75998 13.3488L12.9866 22.1496C13.3133 22.4612 13.4766 22.617 13.6769 22.617C13.8771 22.617 14.0404 22.4612 14.3671 22.1496L23.5937 13.3488C26.1137 10.9451 26.4208 7.03006 24.3064 4.2629L23.8495 3.66495C21.2938 0.320319 16.1023 0.875513 14.3117 4.68494C14.0591 5.22237 13.2946 5.22237 13.042 4.68494C11.2514 0.875513 6.05989 0.320323 3.50424 3.66495L3.04734 4.26291C0.932938 7.03006 1.24001 10.9451 3.75998 13.3488Z"
-                            stroke="#404184" stroke-width="2" />
-                    </svg>
-                </div> -->
+                            <div class="wishlist-engine" data-product_id="{{  product.id }}" data-variant_id="{{ product.selected_or_first_available_variant.id }}" data-full_button="false" data-css="true"></div>
                         </span>
                     </div>
-
-                    <div class="d-none">
-                        {% comment %} Hidding for temp Purpode {% endcomment %}
-                        <div class="col-3 p-1 desktop-screen">
-                            <div class="pv-slider" id="pv-slider">
-                                {% for image in product.images %}
-                                <div class="thumb-slide">
-                                    <img src="{{ image.src | image_url }}" alt="{{ image.alt | escape }}"
-                                        class="img-fluid">
-                                </div>
-                                {% endfor %}
+                    <div class="product-preview-container">
+                        <div class="row">
+                          <div class="col-12 col-lg-3 d-none d-lg-block">
+                            <div class="tns-slide position-relative">
+                            <div class="product-thumb-slider">
+                                {% for media in product.media %}
+                                    {% if media.media_type == 'image' %}
+                                        <div class="thumbset-{{ forloop.index }} thumb_container mx-auto">
+                                        <img {% unless forloop.first %} loading="lazy" {% endunless %} src="{{ media | image_url }}" class="img-fluid asp34"
+                                            alt="{{ product.title }}" title="{{ product.title }}">
+                                          </div>
+                                    {% else %}
+                                    <div class="thumbset-{{ forloop.index }} thumb_container mx-auto">
+                                        {{ media | video_tag: loop: true, muted: true, autoplay: true, class: 'd-block img-fluid
+                                        asp34' }}
+                                        </div>
+                                    {% endif %}
+                                    {% endfor %}
                             </div>
-                        </div>
-
-                        <div class="col-12 col-md-9 grid_center">
-                            <div class="pv-thumb-slider" id="pv-thumb-slider">
-                                {% for image in product.images %}
-                                <div class="thumb-slide">
-                                    <img src="{{ image.src | image_url }}" alt="{{ image.alt | escape }}"
-                                        class="img-fluid asp34">
-                                </div>
-                                {% endfor %}
+                            <ul class="image_controls d-none d-lg-block p-0" id="{{ hkjh  | remove:'-'  }}">
+                                <li class="previous d_cent">
+                                    <i class="fa-solid fa-chevron-up"></i>
+                                </li>
+                                <li class="next d_cent">
+                                    <i class="fa-solid fa-chevron-down"></i>
+                                </li>
+                            </ul>
                             </div>
-                        </div>
-                    </div>
+                          </div>
+            
+                          <div class="col-12 col-lg-9">
+                            {% comment %} <div class="tags">
+                                {% for tags in product.tags %}
+                                {% if tags contains 'label' %}
+                                    <p class="tag mb-1" style=" color: {{ tags | split: '_' | slice:4}};background-color: {{ tags | split: '_' | slice:3}}" > {{ tags | split: '_' | slice: 2 }}</p>
+                                {% endif %}
+                                {% endfor %}
+                                </div> {% endcomment %}
+                            <div class="product-main-slider">
 
+                                {% for media in product.media %}
+                                    {% if media.media_type == 'image' %}
+                                        <div class="childset-{{ forloop.index }}">
+                                        <img {% unless forloop.first %} loading="lazy" {% endunless %} src="{{ media | image_url }}" class="img-fluid asp34"
+                                            alt="{{ product.title }}" title="{{ product.title }}" height="" width="">
+                                          </div>
+                                    {% else %}
+                                    <div class="childset-{{ forloop.index }}" > 
+                                        {{ media | video_tag: loop: true, muted: true, autoplay: true, class: 'd-block img-fluid
+                                        asp34' }}
+                                        </div>
+                                    {% endif %}
+                                    {% endfor %}
+                              </div>
+                          </div>
+                        </div>
+                      </div>    
                 </div>
             </div>
 
@@ -76,8 +95,8 @@
 
                     <div class="product-pricing">
                         <div class="product-prices">
-                            <span>
-                                {{ product.selected_or_first_available_variant.price | money_without_trailing_zeros }}
+                            {% comment %} <span>
+                                <span class="selling-price"> {{ product.selected_or_first_available_variant.price | money_without_trailing_zeros }}</span>
                                 {% if product.compare_at_price_max > product.price %}
                                 <span class="old-price">
                                     {{ product.compare_at_price_max | money_without_trailing_zeros -}}
@@ -95,22 +114,46 @@
                                     % Off
                                 </span>
                                 {% endif %}
+                            </span> {% endcomment %}
+                            <span>
+                            <span class="selling-price">{{ first_variant.price | money_without_trailing_zeros }}</span>
+                            <span class="old-price">
+                                {% if first_variant.compare_at_price > first_variant.price %}
+                                {{ first_variant.compare_at_price | money_without_trailing_zeros -}}
+                                {% endif %}
+                            </span>
+                            <span class="discount">
+                                {% if first_variant.compare_at_price > first_variant.price %}
+                                {{-
+                                first_variant.compare_at_price
+                                | minus: first_variant.price
+                                | times: 100.0
+                                | divided_by: first_variant.compare_at_price
+                                | money_without_currency
+                                | times: 100
+                                | remove: '.0'
+                                -}}
+                                % Off
+                            {% endif %}
+                            </span>
                             </span>
                         </div>
                         <p class="tax-info">Inclusive Of All Taxes</p>
                     </div>
 
                     <div class="product-varient-selector">
+                        {% if product.available and product.variants.size > 1 %}
                         <div>
-                            <p class="current-shade">SHADE:<span>YELLOW-404</span></p>
+                            <p class="current-shade">SHADE:<span>{{ first_variant.title }}</span></p>
                         </div>
+                        {% endif %}
                         <div class="swatches shades">
                             {% if product.available and product.variants.size > 1 %}
                             {% render 'swatches'
                             with 'Color' as swatch,
                             class_variable: class_variable,
                             product: product,
-                            indexIs: indexIs,
+                            firstAvailable: first_variant,
                             showall:true
                             %}
                             {% endif %}
@@ -390,8 +433,6 @@
 
                                                                 </div>
                                                             </div>
-
-
                                                         </div>
                                                     </div>
 
@@ -436,9 +477,9 @@
                     </div>
 
                     <div class="live-views d-none d-md-flex">
-                        <span><img
-                                src="https://cdn.shopify.com/s/files/1/1743/7443/files/33d72e41b1889e6e1bee4e76cf87b0e9.gif?v=1693810925"
-                                alt="" class="img-fluid"></span>
+                        <span><img loading="lazy"
+                                src="https://cdn.shopify.com/s/files/1/1743/7443/files/33d72e41b1889e6e1bee4e76cf87b0e9.gif?v=1693810925" width="23" height="23"
+                                alt="eyes" class="img-fluid"></span>
                         <p class="live-viewing-number">{{ "now" | date: "%N" | modulo: 199 | plus: 59 }} People Are
                             Viewing</p>
                     </div>
@@ -553,32 +594,58 @@
         </div>
     </div>
 </section>
+<style>
+    
+/* .controls {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  position: absolute;
+  left: 0;
+  background: #333;
+  width: 100%;
+  top: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.controls:focus {
+  outline: none;
+}
+.controls li:hover {
+  cursor: pointer;
+} */
+
+</style>
 {{ 'product.css' | asset_url | stylesheet_tag }}
 
 <script>
-    $('#pv-slider').slick({
-        slidesToShow: 4,
-        slidesToScroll: 1,
-        asNavFor: '#pv-thumb-slider',
-        vertical: true,
-        infinite: false,
-        arrows: false,
-        focusOnSelect: true,
-        autoplay: false,
-        prevArrow: "<button type='button' class='slick-prev pull-left border-0'><i class='fa-solid fa-chevron-left' aria-hidden='true'></i></button>",
-        nextArrow: "<button type='button' class='slick-next pull-right border-0'><i class='fa-solid fa-chevron-right' aria-hidden='true'></i></button>"
-    });
-    $('#pv-thumb-slider').slick({
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        infinite: false,
-        arrows: false,
-        asNavFor: '#pv-slider',
-        focusOnSelect: true,
-        vertical: true,
-        verticalSwiping: true,
-    });
+  let vertical_slider = tns({
+          container: '.product-thumb-slider',
+          items: 4,
+          gutter: 12,
+          axis: 'vertical',
+          mouseDrag: true,
+          controls: true,
+          loop: false,
+          arrowKeys: true,
+          navAsThumbnails: false,
+          prevButton: '.previous',
+          nextButton: '.next'
 
+        });
+    let mainSlider = tns({
+          container: '.product-main-slider',
+          items: 1,
+          mouseDrag: true,
+          navContainer: '.product-thumb-slider',
+          controlsContainer:'.product-thumb-slider',
+          navAsThumbnails: true,
+          mode: 'gallery',
+          controls: false,
+          loop: false
+        });
 </script>
 
 <script>

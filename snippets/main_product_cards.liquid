@@ -12,8 +12,8 @@
             {%- assign img_url = product.featured_image -%}
             {%- assign img_url_1 = product.images[0].src -%}
             {%- assign img_url_2 = product.images[1].src -%}
-            <img loading="lazy" class="img-fluid product-img-1 " src="{{ img_url_1 | img_url: 'master' }}"
-                data-src="{{ img_url_1 }}" data-sizes="auto" alt="{{ product.images[0].alt }}">
+            <img loading="lazy" class="img-fluid product-img-1 " src="{{ img_url_1 | img_url:'292x390' }}"
+                data-src="{{ img_url_1 }}" data-sizes="auto" alt="{{ product.images[0].alt }}" width="292" height="390">
             <img loading="lazy" class="product-img-2 img-fluid" src="{{ img_url_2 | img_url: 'master' }}"
                 data-src="{{ img_url_2 }}" data-sizes="auto" alt="{{ product.images[1].alt }}">
             {% else %}
@@ -24,15 +24,6 @@
                 <div class="wishlist-engine" data-product_id="{{  product.id }}"
                     data-variant_id="{{ product.selected_or_first_available_variant.id }}" data-full_button="false"
                     data-css="true"></div>
-                <!-- <div class="wishlist-Icon d_cent"
-                    onclick="getIndex({id:{{ product.first_available_variant.id }},mainId:{{ product.id }},vendor:'{{ product.vendor }}',imgSrc:'{{ product.featured_image | img_url:'master' }}',title:'{{ product.title }}',price:{{ product.price | divided_by: 100  }},maxPrice:{{ product.compare_at_price_max | divided_by: 100 }},productSize:{{ product.variants.size }}, handle: '{{ product.handle }}', inventory:'{{ product.first_available_variant.inventory_quantity }}',color:'{{product.first_available_variant.option1 }}'},this)">
-                    <svg class="heart_icon {{ section.id | remove:" -"}}-{{ forloop.index0 }} "
-              xmlns=" http://www.w3.org/2000/svg" width="27" height="24" viewBox="0 0 27 24" fill="none">
-                        <path
-                            d="M3.75998 13.3488L12.9866 22.1496C13.3133 22.4612 13.4766 22.617 13.6769 22.617C13.8771 22.617 14.0404 22.4612 14.3671 22.1496L23.5937 13.3488C26.1137 10.9451 26.4208 7.03006 24.3064 4.2629L23.8495 3.66495C21.2938 0.320319 16.1023 0.875513 14.3117 4.68494C14.0591 5.22237 13.2946 5.22237 13.042 4.68494C11.2514 0.875513 6.05989 0.320323 3.50424 3.66495L3.04734 4.26291C0.932938 7.03006 1.24001 10.9451 3.75998 13.3488Z"
-                            stroke="#404184" stroke-width="2" />
-                    </svg>
-                </div> -->
             </span>
         </div>
     </a>
@@ -97,7 +88,11 @@
             {% endif %}
         </div>
         {% if show_button %}
-        <div data-quickviewslide="open" data-quickviewID="{{ product.id }}" data-sectionID="{{ sectionId }}">
+            {% if showLink %}
+                <a href="{{ product.url }}">
+                    {% else %}
+                 <div data-quickviewslide="open" data-quickviewID="{{ product.id }}" data-sectionID="{{ sectionId }}">
+            {% endif %}
             <button class="select-shade">
                 {% if product.available and product.variants.size > 1 %}
                 Select Shade
@@ -105,7 +100,11 @@
                 Add To Bag
                 {% endif %}
             </button>
-        </div>
+            {% if showLink %}
+                </a>
+                    {% else %}
+                     </div>
+            {% endif %}
         {% endif %}
     </div>
 </div>

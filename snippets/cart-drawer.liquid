@@ -166,6 +166,10 @@
                                     data-key="{{ item.id }}" data-index="{{ forloop.index }}">
                                     <button class="btnqty qtyminus icon icon-minus item-count-btn d_cent" {% if
                                         item.quantity==1 %} disabled {% endif %}>-</button>
+                                        <span
+                                        class="spinner-border spinner-border-sm"
+                                        style="display:none;"
+                                        role="status"></span>
                                     <input type="text" id="quantity" name="quantity" value="{{ item.quantity }}" min="1"
                                         class="quantity-selector quantity-input cart-item-quantity " readonly="">
 
@@ -238,9 +242,15 @@
                     </div>
 
                     <div class="checkout-btn-container bg-white">
-                        <button class="checkout-btn rounded-pill border-0">
+                        <form
+                        action="/checkout"
+                        method="post"
+                        novalidate>
+                        <button class="checkout-btn rounded-pill border-0"  type="submit">
                             Checkout - <span>{{ cart.total_price | money_without_trailing_zeros }}</span>
                         </button>
+                      </form>
+                       
                     </div>
                 </div>
             </div>
@@ -271,7 +281,7 @@
                                     <div class="swiper-wrapper">
                                         {% for product in collections[cart_coll].products limit: 6 %}
                                         <div class="swiper-slide">
-                                            <div class="product-card m-3">
+                                            {% comment %} <div class="product-card m-3">
                                                 <div class="product-image p-0">
                                                     <div class="tags">
                                                         <p class="tag mb-0"
@@ -337,7 +347,12 @@
                                                             Shade</button>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> {% endcomment %}
+                                            {% assign indexIs = forloop.index0 %}
+                                                <div class="p-0 d_cent">
+                                                {% render 'main_product_cards' product:product , sectionId: splicesectionId
+                                                ,card_margin:false,show_button:true ,showLink:true %}
+                                                </div>
                                         </div>
                                         {% endfor %}
                                     </div>

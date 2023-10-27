@@ -25,7 +25,7 @@
         </div>
     </div>
 
-    <div class="m-banner">
+    <div class="m-banner lazy-load-background" data-src="https://cdn.shopify.com/s/files/1/0673/6396/3172/files/Rectangle_4126.png?v=1694073727">
         <div class="m-banner-info-container">
             <p class="m-banner-text m-0">Join the Hey! Fam</p>
             <p class="m-banner-sub-text m-0">Get exclusive rewards, offers and more</p>
@@ -94,6 +94,8 @@
     <div class="f">
         <div class="megamenus-item">
             <ul class="m-menu-container d-flex flex-column pl-0">
+                {% comment %}
+                For New In     
                 <li class="m-menu-items">
                     <input type="checkbox" class="menu-toggle d-none" name="" id="justLanded" data-menu="dropdown">
                     <label for="justLanded" class="menu-toggle">Just Landed</label>
@@ -106,44 +108,24 @@
                         <li>fragrances</li>
                         <li>tools & Brushes</li>
                     </ul>
-                </li>
-
+                </li> {% endcomment %}
+                {% for link in linklists.main-mega-menu.links -%}
                 <li class="m-menu-items">
-                    best sellers
-                </li>
-
-
-
-
-
-                <li class="m-menu-items">
-                    <input type="checkbox" class="menu-toggle d-none" name="" id="makeup" data-menu="dropdown">
-                    <label for="makeup" class="menu-toggle">Makeup</label>
-                    <ul class="m-sub-menu-dropdown-container">
-                        <li>View all new</li>
-                        <li>makeup</li>
-                        <li>skin</li>
-                        <li>new in value sets</li>
-                        <li>Hair</li>
-                        <li>fragrances</li>
-                        <li>tools & Brushes</li>
-                    </ul>
-                </li>
-
-                <li class="m-menu-items">
-                    <input type="checkbox" class="menu-slide d-none" name="" id="brands" data-menu="slide">
-                    <label for="brands" class="menu-slide">Brands</label>
+                    {%- if link.links != blank and link.title != "NEW IN" -%}
+                    <input type="checkbox" class="menu-slide d-none" name="" id="{{ link.title | escape }}" data-menu="slide">
+                    {% comment %} class="menu-toggle" for new In  {% endcomment %}
+                    <label for="{{ link.title | escape }}" class="menu-slide">{{ link.title | escape }}</label>  
                     <div class="m-sub-menu-slide-container">
                         <div class="m-header d-flex align-items-center" style="padding: 20px;">
-                            <label for="brands" class="d-flex justify-content-center align-items-center me-3">
+                            <label for="{{ link.title | escape }}" class="d-flex justify-content-center align-items-center me-3">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="8" height="12" viewBox="0 0 8 12"
                                     fill="none">
                                     <path d="M7 1L2 6L7 11" stroke="#393939" stroke-width="1.5"
                                         stroke-linecap="round" />
                                 </svg>
                             </label>
-                            <div class="m-slide-title">Brands</div>
-                            <label for="brands" style="padding-right: 16px;"
+                            <div class="m-slide-title">{{ link.title | escape }}</div>
+                            <label for="{{ link.title | escape }}" style="padding-right: 16px;"
                                 class="slide-close d-flex align-items-center justify-content-center border-0 bg-transparent">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="13" height="14" viewBox="0 0 13 14"
                                     fill="none">
@@ -167,235 +149,39 @@
                                 </span>
                             </div>
                         </div>
-
                         <ul class="m-section-cover">
-                            <li class="m-menu-dropdown-items"><a href="/pages/brands">View all new</a></li>
-                            <li class="m-menu-dropdown-items">makeup</li>
-                            <li class="m-menu-dropdown-items">skin</li>
-                            <li class="m-menu-dropdown-items">new in value sets</li>
+                            {%- for childlink in link.links -%}
                             <li class="m-menu-dropdown-items">
-                                <input type="checkbox" class="menu-toggle d-none" name="" id="hair"
+                                {%- if childlink.links != blank -%}
+                                <input type="checkbox" class="menu-toggle d-none" name="" id="{{ childlink.title | escape }}"
                                     data-menu="dropdown">
-                                <label for="hair" class="menu-toggle">Hair</label>
+                                <label for="{{ childlink.title | escape }}" class="menu-toggle">{{ childlink.title | escape }}</label>
                                 <ul class="m-sub-menu-dropdown-container">
-                                    <li>View all new</li>
-                                    <li>makeup</li>
-                                    <li>skin</li>
-                                    <li>new in value sets</li>
-                                    <li>Hair</li>
-                                    <li>fragrances</li>
-                                    <li>tools & Brushes</li>
+                                    {%- for grandchildlink in childlink.links -%}
+                                      <li>{{ grandchildlink.title |  escape |  link_to: grandchildlink.url  }} </li>
+                                    {% endfor %}
                                 </ul>
+                                {% else %}
+                                <a href="{{ childlink.url }}">{{ childlink.title | escape }}</a>
+                                {% endif %}
                             </li>
-                            <li class="m-menu-dropdown-items">fragrances</li>
-                            <li class="m-menu-dropdown-items">tools & Brushes</li>
-                            <li class="m-menu-dropdown-items">View all new</li>
-                            <li class="m-menu-dropdown-items">makeup</li>
-                            <li class="m-menu-dropdown-items">skin</li>
-                            <li class="m-menu-dropdown-items">new in value sets</li>
-                            <li class="m-menu-dropdown-items">
-                                <input type="checkbox" class="menu-toggle d-none" name="" id="kaqsjdfgh"
-                                    data-menu="dropdown">
-                                <label for="kaqsjdfgh" class="menu-toggle">Hair</label>
-                                <ul class="m-sub-menu-dropdown-container">
-                                    <li>View all new</li>
-                                    <li>makeup</li>
-                                    <li>skin</li>
-                                    <li>new in value sets</li>
-                                    <li>Hair</li>
-                                    <li>fragrances</li>
-                                    <li>tools & Brushes</li>
-                                </ul>
-                            </li>
-                            <li class="m-menu-dropdown-items">fragrances</li>
-                            <li class="m-menu-dropdown-items">tools & Brushes</li>
+                            {% endfor %}
                         </ul>
                     </div>
-                </li>
-                <li class="m-menu-items">
-                    <input type="checkbox" class="menu-slide d-none" name="" id="abc" data-menu="slide">
-                    <label for="abc" class="menu-slide">ABC</label>
-                    <div class="m-sub-menu-slide-container">
-                        <div class="m-header d-flex align-items-center" style="padding: 20px;">
-                            <label for="abc" class="d-flex justify-content-center align-items-center me-3">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="8" height="12" viewBox="0 0 8 12"
-                                    fill="none">
-                                    <path d="M7 1L2 6L7 11" stroke="#393939" stroke-width="1.5"
-                                        stroke-linecap="round" />
-                                </svg>
-                            </label>
-                            <div class="m-slide-title">ABC</div>
-                            <label for="abc" style="padding-right: 16px;"
-                                class="slide-close d-flex align-items-center justify-content-center border-0 bg-transparent">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="14" viewBox="0 0 13 14"
-                                    fill="none">
-                                    <path d="M0.5 1L12.5 13" stroke="#393939" stroke-linecap="round" />
-                                    <path d="M12.5 1L0.5 13" stroke="#393939" stroke-linecap="round" />
-                                </svg>
-                            </label>
-                        </div>
-
-                        <div class="m-section-cover">
-                            <div class="m-search-box d-flex justify-content-center align-items-center w-100">
-                                <input type="search" class="m-search flex-fill border-0"
-                                    placeholder="What are you looking for?">
-                                <span class="">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="23" height="22" viewBox="0 0 23 22"
-                                        fill="none">
-                                        <circle cx="10.25" cy="9.75" r="8.75" stroke="#393939" stroke-width="1.5" />
-                                        <path d="M21.5 21L17.75 17.25" stroke="#393939" stroke-width="1.5"
-                                            stroke-linecap="round" />
-                                    </svg>
-                                </span>
-                            </div>
-                        </div>
-
-                        <ul class="m-section-cover">
-                            <li class="m-menu-dropdown-items">View all new</li>
-                            <li class="m-menu-dropdown-items">makeup</li>
-                            <li class="m-menu-dropdown-items">skin</li>
-                            <li class="m-menu-dropdown-items">new in value sets</li>
-                            <li class="m-menu-dropdown-items">
-                                <input type="checkbox" class="menu-toggle d-none" name="" id="xyz" data-menu="dropdown">
-                                <label for="xyz" class="menu-toggle">Hair</label>
-                                <ul class="m-sub-menu-dropdown-container">
-                                    <li>View all new</li>
-                                    <li>makeup</li>
-                                    <li>skin</li>
-                                    <li>new in value sets</li>
-                                    <li>Hair</li>
-                                    <li>fragrances</li>
-                                    <li>tools & Brushes</li>
-                                </ul>
-                            </li>
-                            <li class="m-menu-dropdown-items">fragrances</li>
-                            <li class="m-menu-dropdown-items">tools & Brushes</li>
+                    {% elsif link.title == "NEW IN" %}
+                        <input type="checkbox" class="menu-toggle d-none" name="" id="{{ link.title | escape }}" data-menu="dropdown">
+                        <label for="{{ link.title | escape }}" class="menu-toggle">{{ link.title | escape }}</label>
+                        <ul class="m-sub-menu-dropdown-container">
+                            {%- for childlink in link.links -%}
+                            <li><a class="no_line" href="{{ childlink.url }}"> {{ childlink.title | escape }}</a></li>
+                            {% endfor %}
                         </ul>
-                    </div>
+                    {% else %}
+                    {{ link.title | escape |  link_to: link.url }}
+                   {% endif %}
                 </li>
-                <li class="m-menu-items">
-                    <input type="checkbox" class="menu-slide d-none" name="" id="abc" data-menu="slide">
-                    <label for="abc" class="menu-slide">ABC</label>
-                    <div class="m-sub-menu-slide-container">
-                        <div class="m-header d-flex align-items-center" style="padding: 20px;">
-                            <label for="abc" class="d-flex justify-content-center align-items-center me-3">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="8" height="12" viewBox="0 0 8 12"
-                                    fill="none">
-                                    <path d="M7 1L2 6L7 11" stroke="#393939" stroke-width="1.5"
-                                        stroke-linecap="round" />
-                                </svg>
-                            </label>
-                            <div class="m-slide-title">ABC</div>
-                            <label for="abc" style="padding-right: 16px;"
-                                class="slide-close d-flex align-items-center justify-content-center border-0 bg-transparent">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="14" viewBox="0 0 13 14"
-                                    fill="none">
-                                    <path d="M0.5 1L12.5 13" stroke="#393939" stroke-linecap="round" />
-                                    <path d="M12.5 1L0.5 13" stroke="#393939" stroke-linecap="round" />
-                                </svg>
-                            </label>
-                        </div>
-
-                        <div class="m-section-cover">
-                            <div class="m-search-box d-flex justify-content-center align-items-center w-100">
-                                <input type="search" class="m-search flex-fill border-0"
-                                    placeholder="What are you looking for?">
-                                <span class="">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="23" height="22" viewBox="0 0 23 22"
-                                        fill="none">
-                                        <circle cx="10.25" cy="9.75" r="8.75" stroke="#393939" stroke-width="1.5" />
-                                        <path d="M21.5 21L17.75 17.25" stroke="#393939" stroke-width="1.5"
-                                            stroke-linecap="round" />
-                                    </svg>
-                                </span>
-                            </div>
-                        </div>
-
-                        <ul class="m-section-cover">
-                            <li class="m-menu-dropdown-items">View all new</li>
-                            <li class="m-menu-dropdown-items">makeup</li>
-                            <li class="m-menu-dropdown-items">skin</li>
-                            <li class="m-menu-dropdown-items">new in value sets</li>
-                            <li class="m-menu-dropdown-items">
-                                <input type="checkbox" class="menu-toggle d-none" name="" id="xyz" data-menu="dropdown">
-                                <label for="xyz" class="menu-toggle">Hair</label>
-                                <ul class="m-sub-menu-dropdown-container">
-                                    <li>View all new</li>
-                                    <li>makeup</li>
-                                    <li>skin</li>
-                                    <li>new in value sets</li>
-                                    <li>Hair</li>
-                                    <li>fragrances</li>
-                                    <li>tools & Brushes</li>
-                                </ul>
-                            </li>
-                            <li class="m-menu-dropdown-items">fragrances</li>
-                            <li class="m-menu-dropdown-items">tools & Brushes</li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="m-menu-items">
-                    <input type="checkbox" class="menu-slide d-none" name="" id="abc" data-menu="slide">
-                    <label for="abc" class="menu-slide">ABC</label>
-                    <div class="m-sub-menu-slide-container">
-                        <div class="m-header d-flex align-items-center" style="padding: 20px;">
-                            <label for="abc" class="d-flex justify-content-center align-items-center me-3">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="8" height="12" viewBox="0 0 8 12"
-                                    fill="none">
-                                    <path d="M7 1L2 6L7 11" stroke="#393939" stroke-width="1.5"
-                                        stroke-linecap="round" />
-                                </svg>
-                            </label>
-                            <div class="m-slide-title">ABC</div>
-                            <label for="abc" style="padding-right: 16px;"
-                                class="slide-close d-flex align-items-center justify-content-center border-0 bg-transparent">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="13" height="14" viewBox="0 0 13 14"
-                                    fill="none">
-                                    <path d="M0.5 1L12.5 13" stroke="#393939" stroke-linecap="round" />
-                                    <path d="M12.5 1L0.5 13" stroke="#393939" stroke-linecap="round" />
-                                </svg>
-                            </label>
-                        </div>
-
-                        <div class="m-section-cover">
-                            <div class="m-search-box d-flex justify-content-center align-items-center w-100">
-                                <input type="search" class="m-search flex-fill border-0"
-                                    placeholder="What are you looking for?">
-                                <span class="">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="23" height="22" viewBox="0 0 23 22"
-                                        fill="none">
-                                        <circle cx="10.25" cy="9.75" r="8.75" stroke="#393939" stroke-width="1.5" />
-                                        <path d="M21.5 21L17.75 17.25" stroke="#393939" stroke-width="1.5"
-                                            stroke-linecap="round" />
-                                    </svg>
-                                </span>
-                            </div>
-                        </div>
-
-                        <ul class="m-section-cover">
-                            <li class="m-menu-dropdown-items">View all new</li>
-                            <li class="m-menu-dropdown-items">makeup</li>
-                            <li class="m-menu-dropdown-items">skin</li>
-                            <li class="m-menu-dropdown-items">new in value sets</li>
-                            <li class="m-menu-dropdown-items">
-                                <input type="checkbox" class="menu-toggle d-none" name="" id="xyz" data-menu="dropdown">
-                                <label for="xyz" class="menu-toggle">Hair</label>
-                                <ul class="m-sub-menu-dropdown-container">
-                                    <li>View all new</li>
-                                    <li>makeup</li>
-                                    <li>skin</li>
-                                    <li>new in value sets</li>
-                                    <li>Hair</li>
-                                    <li>fragrances</li>
-                                    <li>tools & Brushes</li>
-                                </ul>
-                            </li>
-                            <li class="m-menu-dropdown-items">fragrances</li>
-                            <li class="m-menu-dropdown-items">tools & Brushes</li>
-                        </ul>
-                    </div>
-                </li>
-
+                {% endfor %}
+               
             </ul>
         </div>
         <div class="m-social-container d_cent">

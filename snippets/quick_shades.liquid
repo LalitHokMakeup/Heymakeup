@@ -33,13 +33,14 @@
                         {% for media in product.media %}
                         {% if media.media_type == 'image' %}
                         <div class="quick-view-slide">
-                            <img {% unless forloop.first %} loading="lazy" {% endunless %} src="{{ media | image_url }}" class="img-fluid asp34"
-                                alt="{{ product.title }}" title="{{ product.title }}" height="" width="">
+                            <img {% unless forloop.first %} loading="lazy" {% endunless %} src="{{ media | img_url:'216x288' }}" class="img-fluid asp34"
+                                alt="{{ product.title }}" title="{{ product.title }}" height="288" width="216">
                         </div>
                         {% else %}
                         <div class="quick-view-slide">
-                            {{ media | video_tag: loop: true, muted: true, autoplay: true, class: 'd-block img-fluid
-                            asp34' }}
+                            {% assign video_tag = media | video_tag: image_size: '216x288', loop: true, muted: true, autoplay: true, class: 'd-block img-fluid asp34', preload: "none" %}
+                            {% assign modified_video_tag = video_tag | replace: '<img', '<img loading="lazy"' %}
+                            {{ modified_video_tag }}
                         </div>
                         {% endif %}
                         {% endfor %}
@@ -48,7 +49,7 @@
             </div>
             <div class="quick-view-details">
                 <div class="live-count d-flex align-items-center">
-                    <span><img
+                    <span><img loading="lazy"
                             src="https://cdn.shopify.com/s/files/1/1743/7443/files/33d72e41b1889e6e1bee4e76cf87b0e9.gif?v=1693810925"
                             alt="" class="img-fluid" width="23px"></span>
                     <p class="mb-0">{{ "now" | date: "%N" | modulo: 199 | plus: 59 }} people are viewing</p>

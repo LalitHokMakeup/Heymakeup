@@ -22,10 +22,10 @@
                 {%- if block.settings.image and block.settings.video_enabled == false -%}
                 <div class="hp-hero" style="width:100%">
                     <a href="{{ block.settings.block_link_2 }}" class="slide111--card">
-                        <img loading="lazy" src="{{ block.settings.image | image_url }}" class="desktop-screen"
-                            height="100%" width="100%" loading="lazy">
-                        <img loading="lazy" src="{{ block.settings.image_mobile | image_url }}" class="mobile-screen"
-                            height="100%" width="100%" loading="lazy">
+                <img {% unless forloop.first %}loading="lazy"{% endunless %} src="{{ block.settings.image | image_url }}" class="desktop-screen"
+                            height="100%" width="100%">
+                        <img {% unless forloop.first %}loading="lazy"{% endunless %} src="{{ block.settings.image_mobile | image_url }}" class="mobile-screen"
+                            height="100%" width="100%" >
                     </a>
                 </div>
                 {% elsif block.settings.video_enabled %}

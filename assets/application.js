@@ -11,18 +11,30 @@ btn_backToTop.on("click", function (e) {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
 $(".add-to-bag-btn button").on("click",async function () {
-  debugger;
   var productId = $(this).attr('data-product_id');
   var productQuantity = $(this).data("product_quantity");
   $(this).text('Adding To Bag...');
   await reUseCart("/cart/add.js", productId, productQuantity);
   $('#mainCartContainer').load(location.href + " #mainCartContainer");
   $(this).text('Add To Bag');
+  initializecartdrawer();
 });
+function isProductPage() {
+  return window.location.pathname.includes('/products/');
+}
+const lazyLoadBackgrounds = document.querySelectorAll(".lazy-load-background");
+
+  lazyLoadBackgrounds.forEach(function (element) {
+    const dataSrc = element.getAttribute("data-src");
+    if (dataSrc) {
+      element.style.backgroundImage = `url(${dataSrc})`;
+      element.removeAttribute("data-src");
+    }
+  });
 
 // Put your application javascript here
 const reUseCart = async (method, varId, qty) => {
-  debugger;
+   
   await axios
     .post(method, {
       id: varId,
@@ -56,6 +68,7 @@ let quickTogglebtnId;
 let quicksecnId 
 function initializeQuickViewSlider() {
   $('div[data-quickviewslide="open"]').on("click", function () {
+     
     quickTogglebtnId = $(this).attr("data-quickviewID");
     quicksecnId = $(this).attr("data-sectionID");
     let sliders = `#image_Slider${quickTogglebtnId}${quicksecnId}`;
@@ -90,34 +103,53 @@ function initializeQuickViewSlider() {
   });
 
   $('.swatch_param :radio').change(function () {
-    var optionValue = $(this).val(),
-     imagePosition = Number($(this).attr('imagePosition')),
-     variantName = jQuery(this).attr('variantid'),
-     varientPrice = parseInt(jQuery(this).attr('varientPrice')),
-     rackPrice = parseInt(jQuery(this).attr('rackPrice')),
-     discountedPercentage = Math.round(((rackPrice - varientPrice) / rackPrice) * 100),
-     main_container = $(this).closest('.quick-view-main-container');
-      // Add a fadeIn animation
+    let $this = $(this);
+    let optionValue = $this.val();
+    let imagePosition = Number($this.attr('imagePosition'));
+    let variantName = $this.attr('variantid');
+    let varientPrice = parseInt($this.attr('varientPrice'));
+    let rackPrice = parseInt($this.attr('rackPrice'));
+    let discountedPercentage = Math.round(((rackPrice - varientPrice) / rackPrice) * 100);
+    let $container = isProductPage() ? $this.closest('.product-details-container') : $this.closest('.quick-view-main-container');
+    let $shadeSpan = $container.find(isProductPage() ? '.current-shade span' : '.quick-view-current-shade span');
+    let $addToBagBtn = $container.find(isProductPage() ? '.add-to-bag-btn' : '.add-quick-bag-btn');
+    let $priceContainer = $container.find(isProductPage() ? '.product-prices' : '.quick-view-price');
+    if (isProductPage()) {
+      vertical_slider.goTo(imagePosition - 1);
+      mainSlider.goTo(imagePosition - 1);
+      $shadeSpan.text(variantName);
+      $addToBagBtn.attr('data-product_id', optionValue);
+      $priceContainer.find('.selling-price').text(`Rs. ${varientPrice}`);
+
+      if (rackPrice > varientPrice) {
+          $priceContainer.find('.old-price').text(`Rs. ${rackPrice}`);
+          $priceContainer.find('.discount').text(`${discountedPercentage}% Off`);
+          $priceContainer.find('.old-price, .discount').show();
+      } else {
+          $priceContainer.find('.old-price, .discount').hide();
+      }
+  } else {
       $(`#image_Slider${quickTogglebtnId}${quicksecnId}`).fadeOut(100, function () {
-        feedbackSlider.goTo(imagePosition - 1);
-        $(`#image_Slider${quickTogglebtnId}${quicksecnId}`).fadeIn(100);
+          feedbackSlider.goTo(imagePosition - 1);
+          $(`#image_Slider${quickTogglebtnId}${quicksecnId}`).fadeIn(100);
       });
-      main_container.find('.quick-view-current-shade span').text(variantName);
-      main_container.find('.add-quick-bag-btn').attr('data-product_id', optionValue);
-      main_container.find('.quick-view-price .selling-price').text(`Rs. ${varientPrice}`);
-      if(rackPrice > varientPrice){
-        main_container.find('.quick-view-price .old-price').text(`Rs. ${rackPrice}`);
-        main_container.find('.quick-view-price .discount').text(`${discountedPercentage}% Off`);
-        main_container.find('.quick-view-price .old-price').show();
-        main_container.find('.quick-view-price .discount').show();
-     }else{
-        main_container.find('.quick-view-price .old-price').hide();
-        main_container.find('.quick-view-price .discount').hide();
-     }
+      $shadeSpan.text(variantName);
+      $addToBagBtn.attr('data-product_id', optionValue);
+      $priceContainer.find('.selling-price').text(`Rs. ${varientPrice}`);
+
+      if (rackPrice > varientPrice) {
+          $priceContainer.find('.old-price').text(`Rs. ${rackPrice}`);
+          $priceContainer.find('.discount').text(`${discountedPercentage}% Off`);
+          $priceContainer.find('.old-price, .discount').show();
+      } else {
+          $priceContainer.find('.old-price, .discount').hide();
+      }
+  }
   });
 }
 
 initializeQuickViewSlider();
+initializecartdrawer();
 
 $(".quick-view-shade input").each((index, shade) => {
   $(shade).on("change", function () {
@@ -161,21 +193,21 @@ $('.account-btn').on('click', () => {
   }
   //$('.quickview-overlay').toggleClass('quickview-overlay-open');
 });
-$('.account-auth-login-btn').on('click',()=>{
-  $('.account-auth-container').removeClass('toggle-account-container');
-  //$('.sign-up-container, .overlay-container').addClass('sign-up-container-open overlay-open');
-  $('.sign-up-container').addClass('sign-up-container-open');
-  $('.overlay-container ').addClass('overlay-open');
+// $('.account-auth-login-btn').on('click',()=>{
+//   $('.account-auth-container').removeClass('toggle-account-container');
+//   //$('.sign-up-container, .overlay-container').addClass('sign-up-container-open overlay-open');
+//   $('.sign-up-container').addClass('sign-up-container-open');
+//   $('.overlay-container ').addClass('overlay-open');
 
-})
-$('.sign-in-with-mobile-btn').on('click',()=>{
-  // $('.account-auth-container').removeClass('toggle-account-container');
-  $('.sign-up-container').removeClass('sign-up-container-open');
-  //$('.sign-up-form-container, .overlay-container').addClass('sign-up-form-container-open overlay-open');
+// })
+// $('.sign-in-with-mobile-btn').on('click',()=>{
+//   // $('.account-auth-container').removeClass('toggle-account-container');
+//   $('.sign-up-container').removeClass('sign-up-container-open');
+//   //$('.sign-up-form-container, .overlay-container').addClass('sign-up-form-container-open overlay-open');
 
-  $('.sign-up-form-container').addClass('sign-up-form-container-open');
-  $('.overlay-container ').addClass('overlay-open');
-})
+//   $('.sign-up-form-container').addClass('sign-up-form-container-open');
+//   $('.overlay-container ').addClass('overlay-open');
+// })
 const closeAuth =()=>{
    $('.account-auth-container, .overlay-container, .sign-up-container, .sign-up-form-container').removeClass('toggle-account-container overlay-open sign-up-container-open sign-up-form-container-open');
 

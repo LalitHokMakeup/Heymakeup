@@ -1,0 +1,52 @@
+{%- if predictive_search.performed and predictive_search.resources.products.size > 0 -%}
+
+<div class="row p-0 search-results-section">
+    <div class="col-12 col-lg-3 p-0">
+        <div class="autocorrect-suggestion">Are you looking for <span class="search-results-bold-text">“{{
+                predictive_search.resources.queries.first.text }}”</span></div>
+        {%- if predictive_search.resources.queries.size > 0 or predictive_search.resources.collections.size > 0 -%}
+        <ul class="p-0 search-suggestions-container d-flex flex-column" data-suggestion-category="true">
+            <p class="mb-0 search-results-bold-text">Trending Searches</p>
+            {%- for query in predictive_search.resources.queries limit:4 -%}
+            <li class="search-suggestions">
+                <a href="{{ query.url }}" aria-label="{{ query.text }}"><span>{{ query.styled_text }}</span></a>
+            </li>
+            {% endfor %}
+            {%- for collection in predictive_search.resources.collections limit:3 -%}
+            <li class="search-suggestions">
+                <a href="{{ collection.url }}">{{ collection.title }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+    <div class="col-12 col-lg-9 p-0 ">
+        <div class="search-results-tab-container d-flex justify-content-between">
+            <div class="search-results-tabs  d-flex">
+                {% comment %} <p class="search-result-tab mb-0 active-tab">Best Of lips</p> {% endcomment %}
+                {% comment %} <p class="search-result-tab mb-0">Shop By Brands</p> {% endcomment %}
+            </div>
+            <a href="{{ predictive_search.resources.queries.first.url }}" class="shop-all-btn">Shop All ></a>
+        </div>
+
+        <div class="search-results-product-card-container d-flex flex-column flex-lg-row" id="emptySearch">
+            {%- for product in predictive_search.resources.products limit:4 -%}
+            <div class="search-results-product-card d-flex align-items-center flex-lg-column">
+                <div class="search-result-product-image-container">
+                    <a href="{{ product.url }}" tabindex="-1">
+                        <img loading="lazy" src="{{ product.featured_image | img_url:'210x280' }}" alt="{{ product.url }}"
+                            class="search-result-product-image img-fluid">
+                    </a>
+                </div>
+                <div class="w-100">
+                    <p class="mb-0 brand-name">{{ product.vendor }} </p>
+                    <p class="mb-0 product-title">{{ product.description | truncatewords: 10 }}
+                    </p>
+                    <p class="mb-0 product-price">{{ product.price | money_without_trailing_zeros }} </p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{%- endif -%}

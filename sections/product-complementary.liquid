@@ -8,7 +8,7 @@
     <div class="d_cent" id="comp_products">
         {%- for product in recommendations.products -%}
         {% assign indexIs = forloop.index0 %}
-        <div class="product">
+        {% comment %} <div class="product">
             <a href="{{ product.url }}">
                 <div class="p-0 d_cent">
                     <div class="product-card mx-auto">
@@ -108,12 +108,14 @@
                     </div>
                 </div>
             </a>
+        </div> {% endcomment %}
+        {% assign indexIs = forloop.index0 %}
+        <div class="p-0 d_cent">
+          {% render 'main_product_cards' product:product , sectionId: splicesectionId
+          ,card_margin:true,show_button:true ,showLink:true %}
         </div>
         {%- endfor -%}
     </div>
-    {% for product in recommendations.products %}
-    {% render 'quick_shades' product:product , sectionId: splicesectionId %}
-    {% endfor %}
     {%- endif -%}
 </div>
 <script>
@@ -131,8 +133,9 @@
 
                 if (recommendations && recommendations.innerHTML.trim().length) {
                     productCompSection.innerHTML = recommendations.innerHTML;
+                    com_ready();
+                    initializeQuickViewSlider();
                 };
-                com_ready();
 
             })
             .catch(e => {
@@ -145,6 +148,7 @@
 
     observer.observe(productCompSection);
 </script>
+
 <script>
     const com_ready = () => {
         var compSlides = tns({
@@ -172,6 +176,7 @@
         });
     };
 </script>
+
 {% schema %}
 {
 "name": "Product Complementary",
